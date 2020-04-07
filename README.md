@@ -16,5 +16,3 @@ iLLD env for vs Code / HYU RACE trial repo
 
 
 ## init with
-
-- STM Demo
