@@ -2,12 +2,13 @@
     "configurations": [
         {
             "name": "BIFACES",
-            "compilerPath": "C:\\HighTec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\bingcc.exe",
+            "compilerPath": "C:\\HighTec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\bin\\tricore-gcc.exe",
             "includePath": [
                 "C:\\HighTec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\lib\\gcc\\tricore\\4.9.4\\include",
                 "C:\\HighTec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine",
                 "C:\\HighTec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys",
-                "${workspaceFolder}/0_Src/**"
+                "${workspaceFolder}/0_Src/**",
+                "C:/HighTec/toolchains/tricore/v4.9.3.0-infineon-1.0/tricore/include"
             ],
             "defines": [
                 "_DEBUG",

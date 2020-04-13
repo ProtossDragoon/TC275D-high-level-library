@@ -11637,9 +11637,9 @@ App_Stm g_Stm;
 
 static void IfxBlinkLed_Task(void);
 static void IfxBlinkLed_Init(void);
-# 66 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.c"
+# 68 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.c"
 __asm__ (".ifndef .intr.entry.include                        \n" ".altmacro                                           \n" ".macro .int_entry.2 intEntryLabel, name # define the section and inttab entry code \n" "	.pushsection .\\intEntryLabel,\"ax\",@progbits   \n" "	__\\intEntryLabel :                              \n" "		svlcx                                        \n" "		movh.a  %a14, hi:\\name                      \n" "		lea     %a14, [%a14]lo:\\name                \n" "		ji      %a14                                 \n" "	.popsection                                      \n" ".endm                                               \n" ".macro .int_entry.1 prio,vectabNum,u,name           \n" ".int_entry.2 intvec_tc\\vectabNum\\u\\prio,(name) # build the unique name \n" ".endm                                               \n" "                                                    \n" ".macro .intr.entry name,vectabNum,prio              \n" ".int_entry.1 %(prio),%(vectabNum),_,name # evaluate the priority and the cpu number \n" ".endm                                               \n" ".intr.entry.include:                                \n" ".endif                                              \n" ".intr.entry ""STM_Int0Handler"",""0"",""40" );extern void __attribute__ ((interrupt_handler)) STM_Int0Handler(); void STM_Int0Handler (void);
-# 76 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.c"
+# 79 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.c"
 void STM_Int0Handler(void)
 {
     IfxStm_clearCompareFlag(g_Stm.stmSfr, g_Stm.stmConfig.comparator);
@@ -11679,7 +11679,7 @@ static void IfxBlinkLed_Task(void)
 {
     g_Stm.LedBlink ^= 1;
 
-    setOutputPin(&(*(Ifx_P*)0xF003D300u), 6, g_Stm.LedBlink);
+    setOutputPin(&(*(Ifx_P*)0xF003B000u), 2, g_Stm.LedBlink);
 
     g_Stm.counter++;
 }
@@ -11691,7 +11691,9 @@ static void IfxBlinkLed_Task(void)
 
 static void IfxBlinkLed_Init(void)
 {
-    IfxPort_setPinMode(&(*(Ifx_P*)0xF003D300u), 6, IfxPort_Mode_outputPushPullGeneral);
+
+    IfxPort_setPinMode(&(*(Ifx_P*)0xF003B000u), 2, IfxPort_Mode_outputPushPullGeneral);
+
 }
 
 
@@ -11701,7 +11703,7 @@ static void IfxBlinkLed_Init(void)
 
 void IfxStmDemo_init(void)
 {
-    printf("IfxStmDemo_init() called\n");
+
 
 
     boolean interruptState = IfxCpu_disableInterrupts();
@@ -11711,15 +11713,21 @@ void IfxStmDemo_init(void)
 
     initTime();
 
+
     g_Stm.stmSfr = &(*(Ifx_STM*)0xF0000000u);
+
+
     IfxStm_initCompareConfig(&g_Stm.stmConfig);
 
+
     g_Stm.stmConfig.triggerPriority = 40;
+
     g_Stm.stmConfig.typeOfService = IfxSrc_Tos_cpu0;
 
 
 
     g_Stm.stmConfig.ticks = (TimeConst[(8)]);
+
 
     IfxStm_initCompare(g_Stm.stmSfr, &g_Stm.stmConfig);
 
@@ -11736,10 +11744,10 @@ void IfxStmDemo_init(void)
 
 void IfxStmDemo_run(void)
 {
-    printf("IfxStmDemo_run() called\n");
+
 
     while (g_Stm.counter < 10)
     {}
 
-    printf("OK: checks passed \n");
+
 }

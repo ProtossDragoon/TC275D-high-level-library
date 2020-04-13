@@ -1,0 +1,265 @@
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.6
+  created: 04/13/20, 19:07:33
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: yes
+
+UDE version:
+  Release:  4.10.01
+  Build:    8105
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\Users\Public\Documents\pls\UDESTK 4.10\Targets\ShieldBuddy_TC275D.cfg
+
+Error messages:
+  Tc2CoreTargIntf: Can't connect target !
+  Tc2CoreTargIntf: Can't connect JTAG target
+
+Settings:
+  PortType:  DAS
+  CommDevSel:  
+  TargetPort:  Default
+  TargetPortId:  553582592
+  DasIsDefault:  n
+  MaxJtagClk:  5000
+  CheckJtagId:  y
+  ScanJTAG:  n
+  Ocds1ViaPod:  n
+  EtksArbiterMode:  None
+  EtksWaitAfterArbitrationTime:  0
+  RefreshJtag:  n
+  RefreshHarr:  n
+  ReenableOcds:  y
+  ReduceJtagClock:  n
+  UseDap:  n
+  DapMode:  2PIN
+  JtagMuxPort:  -1
+  UseNewJtagEngine:  y
+  ConnOption:  Default
+  SetDebugEnableAb1DisablePin:  n
+  ResetWaitTime:  500
+  ResetMode:  Default
+  OpenDrainReset:  n
+  DiswdtOnReset:  n
+  SetPllOnReset:  0x00000000
+  SetPllOnReset2:  0x00000000
+  ExecInitCmds:  y
+  InitScript Script:
+    SET 0xF80020A8 0x8000
+    SET 0xF80020AC 0x8000
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    Script is empty
+  ExecOnExtRstCmds:  n
+  FailOnResetMalfunction:  n
+  ResetPulseLen:  10
+  AddResetDelay:  0
+  UseTrstOnReset:  n
+  ExecEmemInitOnReset:  0x00000000
+  SimHsmBootEnabled:  n
+  UnlockInterface:  n
+  BootPasswd0:  0x00000000
+  BootPasswd1:  0x00000000
+  BootPasswd2:  0x00000000
+  BootPasswd3:  0x00000000
+  BootPasswd4:  0x00000000
+  BootPasswd5:  0x00000000
+  BootPasswd6:  0x00000000
+  BootPasswd7:  0x00000000
+  PasswordFile:  
+  UnlockInterfaceDelay:  -1
+  HandleBmiHeader:  n
+  SetAutOkOnConnect:  n
+  DontUseWdtSusp:  n
+  MaxTry:  1
+  ForceEdMode:  -1
+  UseDflashAccessFilter:  y
+  UseTranslateAddr:  y
+  DownloadToAllRams:  y
+  HaltAfterReset:  y
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  ConvertSuspendSignalToPulse:  n
+  SimioAddr:  g_JtagSimioAccess
+  UseStmForPtm:  1
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    Script is empty
+  ExecOnHaltCmds:  n
+  OnHaltScript Script:
+    Script is empty
+  UseTriggerToBreak:  y
+  UseTL2OnHalt:  y
+  UseOstateStable:  y
+  AllowJtagResetWhileRunning:  y
+  MaxAccRetry:  1
+  AccRetryDelay:  10
+  DefOcdsReserved:  
+  UseRestartWhileRunningHandling:  n
+  DebugResetOnDisconnect:  n
+  IgnoreEmemAccessErrors:  n
+  RemapEmemAccess:  n
+  EnableAutomaticHsmStart:  n
+  EnableAutomaticHsmRunControl:  n
+  ReadPmcsrWhileRunning:  n
+  MultiChipDbgMode:  0
+  IvIcacheOnHalt:  y
+  IvPlbOnHalt:  y
+  SuspendSlaveCores:  n
+  FilterMemAcc:  y
+  DasDllPath:  das_api.dll
+  DasHost:  
+  DasTryStartSrv:  y
+  DasSrvPath:  servers\udas\udas.exe
+  DasStopSrv:  y
+  DasResetHelperBreakAddr:  main
+  DasResetMode:  2
+  DasRemoveLogFile:  n
+  DasForwardSerNum:  n
+  DasSrvSel:  -1
+  DasPortType:  0
+  DasPortSel:  0
+  DasCmdTimeout:  1000
+  DasWaitAfterConnect:  0
+
+Settings:
+  PortType:  DAS
+  CommDevSel:  
+  TargetPort:  Default
+  TargetPortId:  553582592
+  DasIsDefault:  n
+  MaxJtagClk:  5000
+  CheckJtagId:  y
+  ScanJTAG:  n
+  Ocds1ViaPod:  n
+  EtksArbiterMode:  None
+  EtksWaitAfterArbitrationTime:  0
+  RefreshJtag:  n
+  RefreshHarr:  n
+  ReenableOcds:  y
+  ReduceJtagClock:  n
+  UseDap:  n
+  DapMode:  2PIN
+  JtagMuxPort:  -1
+  UseNewJtagEngine:  y
+  ConnOption:  Default
+  SetDebugEnableAb1DisablePin:  n
+  ResetWaitTime:  500
+  ResetMode:  Default
+  OpenDrainReset:  n
+  DiswdtOnReset:  n
+  SetPllOnReset:  0x00000000
+  SetPllOnReset2:  0x00000000
+  ExecInitCmds:  y
+  InitScript Script:
+    SET 0xF80020A8 0x8000
+    SET 0xF80020AC 0x8000
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    Script is empty
+  ExecOnExtRstCmds:  n
+  FailOnResetMalfunction:  n
+  ResetPulseLen:  10
+  AddResetDelay:  0
+  UseTrstOnReset:  n
+  ExecEmemInitOnReset:  0x00000000
+  SimHsmBootEnabled:  n
+  UnlockInterface:  n
+  BootPasswd0:  0x00000000
+  BootPasswd1:  0x00000000
+  BootPasswd2:  0x00000000
+  BootPasswd3:  0x00000000
+  BootPasswd4:  0x00000000
+  BootPasswd5:  0x00000000
+  BootPasswd6:  0x00000000
+  BootPasswd7:  0x00000000
+  PasswordFile:  
+  UnlockInterfaceDelay:  -1
+  HandleBmiHeader:  n
+  SetAutOkOnConnect:  n
+  DontUseWdtSusp:  n
+  MaxTry:  1
+  ForceEdMode:  -1
+  UseDflashAccessFilter:  y
+  UseTranslateAddr:  y
+  DownloadToAllRams:  y
+  HaltAfterReset:  y
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  ConvertSuspendSignalToPulse:  n
+  SimioAddr:  g_JtagSimioAccess
+  UseStmForPtm:  1
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    Script is empty
+  ExecOnHaltCmds:  n
+  OnHaltScript Script:
+    Script is empty
+  UseTriggerToBreak:  y
+  UseTL2OnHalt:  y
+  UseOstateStable:  y
+  AllowJtagResetWhileRunning:  y
+  MaxAccRetry:  1
+  AccRetryDelay:  10
+  DefOcdsReserved:  
+  UseRestartWhileRunningHandling:  n
+  DebugResetOnDisconnect:  n
+  IgnoreEmemAccessErrors:  n
+  RemapEmemAccess:  n
+  EnableAutomaticHsmStart:  n
+  EnableAutomaticHsmRunControl:  n
+  ReadPmcsrWhileRunning:  n
+  MultiChipDbgMode:  0
+  IvIcacheOnHalt:  y
+  IvPlbOnHalt:  y
+  SuspendSlaveCores:  n
+  FilterMemAcc:  y
+  DasDllPath:  das_api.dll
+  DasHost:  
+  DasTryStartSrv:  y
+  DasSrvPath:  servers\udas\udas.exe
+  DasStopSrv:  y
+  DasResetHelperBreakAddr:  main
+  DasResetMode:  2
+  DasRemoveLogFile:  n
+  DasForwardSerNum:  n
+  DasSrvSel:  -1
+  DasPortType:  0
+  DasPortSel:  0
+  DasCmdTimeout:  1000
+  DasWaitAfterConnect:  0
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       0 MHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    n
+  STSTAT:            0x241A1274
+
+DAS related information:
+  DAS DLL Version:        
+  Server started by UDE:  C:\Program Files (x86)\DAS\servers\udas\udas.exe
+  Server name:              Server manufacturer:      Server version:         V3.9
+  DAS-API version:        V4.1
+  Server lib version:     V3.0
+  last DAS error:         4
+  last DAS function:      connect_to_device
+
+

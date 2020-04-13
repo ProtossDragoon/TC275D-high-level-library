@@ -63,7 +63,10 @@ static void IfxBlinkLed_Init(void);
 
 /** \name Interrupts for SystemTimer(STM) driver.
  * \{ */
+
+// interrupt 발생시 STM_Int0Handler 실행
 IFX_INTERRUPT(STM_Int0Handler, 0, ISR_PRIORITY_STM_INT0);
+
 /** \} */
 
 /** \} */
@@ -112,7 +115,7 @@ static void IfxBlinkLed_Task(void)
 {
     g_Stm.LedBlink ^= 1;
 
-    setOutputPin(&MODULE_P33, 6, g_Stm.LedBlink);
+    setOutputPin(&MODULE_P10, 2, g_Stm.LedBlink);
 
     g_Stm.counter++;
 }
@@ -120,11 +123,13 @@ static void IfxBlinkLed_Task(void)
 
 /** \brief LED Initialization
  *
- * This function initializes the LED connected to P33.6
+ * This function initializes the LED connected to P10.2
  */
 static void IfxBlinkLed_Init(void)
 {
-    IfxPort_setPinMode(&MODULE_P33, 6, IfxPort_Mode_outputPushPullGeneral);
+#if BOARD == SHIELD_BUDDY
+    IfxPort_setPinMode(&MODULE_P10, 2, IfxPort_Mode_outputPushPullGeneral);
+#endif    
 }
 
 
@@ -134,7 +139,7 @@ static void IfxBlinkLed_Init(void)
  */
 void IfxStmDemo_init(void)
 {
-    printf("IfxStmDemo_init() called\n");
+//    printf("IfxStmDemo_init() called\n");
 
     /* disable interrupts */
     boolean interruptState = IfxCpu_disableInterrupts();
@@ -144,16 +149,22 @@ void IfxStmDemo_init(void)
 
     initTime();
 
+    // Stm register 변수에 module0 register 할당
     g_Stm.stmSfr = &MODULE_STM0;
+
+    // Register configuration 변수 설정
     IfxStm_initCompareConfig(&g_Stm.stmConfig);
 
+    // Set STM interrupt priority
     g_Stm.stmConfig.triggerPriority = ISR_PRIORITY_STM_INT0;
+
     g_Stm.stmConfig.typeOfService   = IfxSrc_Tos_cpu0;
 #ifdef SIMULATION
     g_SrcSwInt.stmConfig.ticks      = 1000;
 #else
     g_Stm.stmConfig.ticks           = TimeConst_1s;
 #endif
+
     IfxStm_initCompare(g_Stm.stmSfr, &g_Stm.stmConfig);
 
     IfxBlinkLed_Init();
@@ -169,10 +180,10 @@ void IfxStmDemo_init(void)
  */
 void IfxStmDemo_run(void)
 {
-    printf("IfxStmDemo_run() called\n");
+//    printf("IfxStmDemo_run() called\n");
 
     while (g_Stm.counter < 10)
     {}
 
-    printf("OK: checks passed \n");
+//    printf("OK: checks passed \n");
 }
