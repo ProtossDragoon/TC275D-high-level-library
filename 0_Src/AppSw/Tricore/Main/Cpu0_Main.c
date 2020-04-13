@@ -80,7 +80,7 @@ int core0_main(void)
     while (TRUE)
     {
         IfxStmDemo_run();
-
+    
         REGRESSION_RUN_STOP_PASS;
     }
 

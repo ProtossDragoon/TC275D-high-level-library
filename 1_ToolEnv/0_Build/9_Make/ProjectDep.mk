@@ -7,6 +7,7 @@
  0_Src/BaseSw/iLLD \
  0_Src/BaseSw/Infra \
  0_Src/BaseSw/Service \
+ 0_Src/BaseSw/simio_pls \
  0_Src/AppSw/Config/Common \
  0_Src/AppSw/Tricore/Cfg_Illd \
  0_Src/AppSw/Tricore/Demo_Illd \
@@ -158,6 +159,8 @@
 0_Src/BaseSw/Infra:
 
 0_Src/BaseSw/Service:
+
+0_Src/BaseSw/simio_pls:
 
 0_Src/AppSw/Config/Common:
 

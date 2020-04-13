@@ -1,3 +1,4 @@
+"-I0_Src/BaseSw/simio_pls"
 "-I0_Src/AppSw/Config/Common"
 "-I0_Src/AppSw/Tricore/Cfg_Illd"
 "-I0_Src/AppSw/Tricore/Demo_Illd"

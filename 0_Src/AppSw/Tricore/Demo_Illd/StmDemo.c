@@ -139,7 +139,7 @@ static void IfxBlinkLed_Init(void)
  */
 void IfxStmDemo_init(void)
 {
-//    printf("IfxStmDemo_init() called\n");
+    printf("IfxStmDemo_init() called\n");
 
     /* disable interrupts */
     boolean interruptState = IfxCpu_disableInterrupts();
@@ -180,10 +180,10 @@ void IfxStmDemo_init(void)
  */
 void IfxStmDemo_run(void)
 {
-//    printf("IfxStmDemo_run() called\n");
+    printf("IfxStmDemo_run() called\n");
 
     while (g_Stm.counter < 10)
     {}
 
-//    printf("OK: checks passed \n");
+    printf("OK: checks passed \n");
 }
