@@ -28,7 +28,9 @@
 #include "Cpu0_Main.h"
 #include "SysSe/Bsp/Bsp.h"
 #include "IfxScuWdt.h"
-#include "Gtm/Tom/Pwm/IfxGtm_Tom_Pwm.h"
+
+// handmaded
+#include "GtmTom_1ms.h"
 
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
@@ -76,6 +78,10 @@ int core0_main(void)
     IfxCpu_enableInterrupts();
 
     /* Demo init */
+
+
+    /* Start PWM with Hand-Made Module */
+    StartTomPwmWith1msPeriodHalfDuty();
 
     /* background endless loop */
     while (TRUE)
