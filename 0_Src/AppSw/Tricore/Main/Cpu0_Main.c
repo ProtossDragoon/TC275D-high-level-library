@@ -78,7 +78,7 @@ int core0_main(void)
     IfxCpu_enableInterrupts();
 
     /* Demo init */
-
+    
 
     /* Start PWM with Hand-Made Module */
     StartTomPwmWith1msPeriodHalfDuty();
@@ -92,6 +92,3 @@ int core0_main(void)
 
     return 0;
 }
-
-
-/** \} */
