@@ -15,7 +15,6 @@
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxGlobal_cfg.h" 1
 # 37 "0_Src/AppSw/Tricore/Cfg_Illd/Configuration.h" 2
 # 36 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h" 2
-
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/Ifx_Types.h" 1
 # 29 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/Ifx_Types.h"
 # 1 "0_Src/BaseSw/Infra/Platform/Tricore/Compilers/Compilers.h" 1
@@ -224,30 +223,2085 @@ typedef struct
     sfract real;
     sfract imag;
 } csfract;
-# 38 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h" 2
-# 46 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h"
-typedef struct
+# 37 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h" 2
+# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h" 1
+# 46 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h" 1
+# 36 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h"
+# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_bf.h" 1
+# 37 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h" 2
+# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxFlash_bf.h" 1
+# 38 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h" 2
+# 1411 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h"
+typedef enum
 {
-    float32 sysFreq;
-    float32 cpuFreq;
-    float32 pllFreq;
-    float32 stmFreq;
-} AppInfo;
+    IfxScu_CCUCON0_CLKSEL_fBack = 0,
+    IfxScu_CCUCON0_CLKSEL_fPll = 1
+} IfxScu_CCUCON0_CLKSEL;
 
 
-typedef struct
+typedef enum
 {
-    AppInfo info;
-} App_Cpu0;
+    IfxScu_CCUCON1_INSEL_fOsc1 = 0,
+    IfxScu_CCUCON1_INSEL_fOsc0 = 1
+} IfxScu_CCUCON1_INSEL;
+
+
+typedef enum
+{
+    IfxScu_WDTCON1_IR_divBy16384 = 0,
+    IfxScu_WDTCON1_IR_divBy256 = 1,
+    IfxScu_WDTCON1_IR_divBy64 = 2
+} IfxScu_WDTCON1_IR;
+
+typedef enum
+{
+    IfxScu_PMCSR_REQSLP_Run = 0U,
+    IfxScu_PMCSR_REQSLP_Idle = 1U,
+    IfxScu_PMCSR_REQSLP_Sleep = 2U,
+    IfxScu_PMCSR_REQSLP_Stby = 3U
+} IfxScu_PMCSR_REQSLP;
+# 47 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h" 2
+
+# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_reg.h" 1
+# 36 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_reg.h"
+# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_regdef.h" 1
+# 39 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_regdef.h"
+# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/Ifx_TypesReg.h" 1
+# 40 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_regdef.h" 2
 
 
 
 
 
-extern App_Cpu0 g_AppCpu0;
-# 29 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c" 2
-# 1 "0_Src/BaseSw/Service/CpuGeneric/SysSe/Bsp/Bsp.h" 1
-# 34 "0_Src/BaseSw/Service/CpuGeneric/SysSe/Bsp/Bsp.h"
+typedef struct _Ifx_SCU_ACCEN0_Bits
+{
+    unsigned int EN0:1;
+    unsigned int EN1:1;
+    unsigned int EN2:1;
+    unsigned int EN3:1;
+    unsigned int EN4:1;
+    unsigned int EN5:1;
+    unsigned int EN6:1;
+    unsigned int EN7:1;
+    unsigned int EN8:1;
+    unsigned int EN9:1;
+    unsigned int EN10:1;
+    unsigned int EN11:1;
+    unsigned int EN12:1;
+    unsigned int EN13:1;
+    unsigned int EN14:1;
+    unsigned int EN15:1;
+    unsigned int EN16:1;
+    unsigned int EN17:1;
+    unsigned int EN18:1;
+    unsigned int EN19:1;
+    unsigned int EN20:1;
+    unsigned int EN21:1;
+    unsigned int EN22:1;
+    unsigned int EN23:1;
+    unsigned int EN24:1;
+    unsigned int EN25:1;
+    unsigned int EN26:1;
+    unsigned int EN27:1;
+    unsigned int EN28:1;
+    unsigned int EN29:1;
+    unsigned int EN30:1;
+    unsigned int EN31:1;
+} Ifx_SCU_ACCEN0_Bits;
+
+
+typedef struct _Ifx_SCU_ACCEN1_Bits
+{
+    unsigned int reserved_0:32;
+} Ifx_SCU_ACCEN1_Bits;
+
+
+typedef struct _Ifx_SCU_ARSTDIS_Bits
+{
+    unsigned int STM0DIS:1;
+    unsigned int STM1DIS:1;
+    unsigned int STM2DIS:1;
+    unsigned int reserved_3:29;
+} Ifx_SCU_ARSTDIS_Bits;
+
+
+typedef struct _Ifx_SCU_CCUCON0_Bits
+{
+    unsigned int BAUD1DIV:4;
+    unsigned int BAUD2DIV:4;
+    unsigned int SRIDIV:4;
+    unsigned int LPDIV:4;
+    unsigned int SPBDIV:4;
+    unsigned int FSI2DIV:2;
+    unsigned int reserved_22:2;
+    unsigned int FSIDIV:2;
+    unsigned int reserved_26:2;
+    unsigned int CLKSEL:2;
+    unsigned int UP:1;
+    unsigned int LCK:1;
+} Ifx_SCU_CCUCON0_Bits;
+
+
+typedef struct _Ifx_SCU_CCUCON1_Bits
+{
+    unsigned int CANDIV:4;
+    unsigned int ERAYDIV:4;
+    unsigned int STMDIV:4;
+    unsigned int GTMDIV:4;
+    unsigned int ETHDIV:4;
+    unsigned int ASCLINFDIV:4;
+    unsigned int ASCLINSDIV:4;
+    unsigned int INSEL:2;
+    unsigned int UP:1;
+    unsigned int LCK:1;
+} Ifx_SCU_CCUCON1_Bits;
+
+
+typedef struct _Ifx_SCU_CCUCON2_Bits
+{
+    unsigned int BBBDIV:4;
+    unsigned int reserved_4:26;
+    unsigned int UP:1;
+    unsigned int LCK:1;
+} Ifx_SCU_CCUCON2_Bits;
+
+
+typedef struct _Ifx_SCU_CCUCON3_Bits
+{
+    unsigned int PLLDIV:6;
+    unsigned int PLLSEL:2;
+    unsigned int PLLERAYDIV:6;
+    unsigned int PLLERAYSEL:2;
+    unsigned int SRIDIV:6;
+    unsigned int SRISEL:2;
+    unsigned int reserved_24:5;
+    unsigned int SLCK:1;
+    unsigned int UP:1;
+    unsigned int LCK:1;
+} Ifx_SCU_CCUCON3_Bits;
+
+
+typedef struct _Ifx_SCU_CCUCON4_Bits
+{
+    unsigned int SPBDIV:6;
+    unsigned int SPBSEL:2;
+    unsigned int GTMDIV:6;
+    unsigned int GTMSEL:2;
+    unsigned int STMDIV:6;
+    unsigned int STMSEL:2;
+    unsigned int reserved_24:5;
+    unsigned int SLCK:1;
+    unsigned int UP:1;
+    unsigned int LCK:1;
+} Ifx_SCU_CCUCON4_Bits;
+
+
+typedef struct _Ifx_SCU_CCUCON5_Bits
+{
+    unsigned int MAXDIV:4;
+    unsigned int reserved_4:26;
+    unsigned int UP:1;
+    unsigned int LCK:1;
+} Ifx_SCU_CCUCON5_Bits;
+
+
+typedef struct _Ifx_SCU_CCUCON6_Bits
+{
+    unsigned int CPU0DIV:6;
+    unsigned int reserved_6:26;
+} Ifx_SCU_CCUCON6_Bits;
+
+
+typedef struct _Ifx_SCU_CCUCON7_Bits
+{
+    unsigned int CPU1DIV:6;
+    unsigned int reserved_6:26;
+} Ifx_SCU_CCUCON7_Bits;
+
+
+typedef struct _Ifx_SCU_CCUCON8_Bits
+{
+    unsigned int CPU2DIV:6;
+    unsigned int reserved_6:26;
+} Ifx_SCU_CCUCON8_Bits;
+
+
+typedef struct _Ifx_SCU_CHIPID_Bits
+{
+    unsigned int CHREV:6;
+    unsigned int CHTEC:2;
+    unsigned int CHID:8;
+    unsigned int EEA:1;
+    unsigned int UCODE:7;
+    unsigned int FSIZE:4;
+    unsigned int SP:2;
+    unsigned int SEC:1;
+    unsigned int reserved_31:1;
+} Ifx_SCU_CHIPID_Bits;
+
+
+typedef struct _Ifx_SCU_DTSCON_Bits
+{
+    unsigned int PWD:1;
+    unsigned int START:1;
+    unsigned int reserved_2:2;
+    unsigned int CAL:22;
+    unsigned int reserved_26:5;
+    unsigned int SLCK:1;
+} Ifx_SCU_DTSCON_Bits;
+
+
+typedef struct _Ifx_SCU_DTSLIM_Bits
+{
+    unsigned int LOWER:10;
+    unsigned int reserved_10:5;
+    unsigned int LLU:1;
+    unsigned int UPPER:10;
+    unsigned int reserved_26:4;
+    unsigned int SLCK:1;
+    unsigned int UOF:1;
+} Ifx_SCU_DTSLIM_Bits;
+
+
+typedef struct _Ifx_SCU_DTSSTAT_Bits
+{
+    unsigned int RESULT:10;
+    unsigned int reserved_10:4;
+    unsigned int RDY:1;
+    unsigned int BUSY:1;
+    unsigned int reserved_16:16;
+} Ifx_SCU_DTSSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_EICR_Bits
+{
+    unsigned int reserved_0:4;
+    unsigned int EXIS0:3;
+    unsigned int reserved_7:1;
+    unsigned int FEN0:1;
+    unsigned int REN0:1;
+    unsigned int LDEN0:1;
+    unsigned int EIEN0:1;
+    unsigned int INP0:3;
+    unsigned int reserved_15:5;
+    unsigned int EXIS1:3;
+    unsigned int reserved_23:1;
+    unsigned int FEN1:1;
+    unsigned int REN1:1;
+    unsigned int LDEN1:1;
+    unsigned int EIEN1:1;
+    unsigned int INP1:3;
+    unsigned int reserved_31:1;
+} Ifx_SCU_EICR_Bits;
+
+
+typedef struct _Ifx_SCU_EIFR_Bits
+{
+    unsigned int INTF0:1;
+    unsigned int INTF1:1;
+    unsigned int INTF2:1;
+    unsigned int INTF3:1;
+    unsigned int INTF4:1;
+    unsigned int INTF5:1;
+    unsigned int INTF6:1;
+    unsigned int INTF7:1;
+    unsigned int reserved_8:24;
+} Ifx_SCU_EIFR_Bits;
+
+
+typedef struct _Ifx_SCU_EMSR_Bits
+{
+    unsigned int POL:1;
+    unsigned int MODE:1;
+    unsigned int ENON:1;
+    unsigned int PSEL:1;
+    unsigned int reserved_4:12;
+    unsigned int EMSF:1;
+    unsigned int SEMSF:1;
+    unsigned int reserved_18:6;
+    unsigned int EMSFM:2;
+    unsigned int SEMSFM:2;
+    unsigned int reserved_28:4;
+} Ifx_SCU_EMSR_Bits;
+
+
+typedef struct _Ifx_SCU_ESRCFG_Bits
+{
+    unsigned int reserved_0:7;
+    unsigned int EDCON:2;
+    unsigned int reserved_9:23;
+} Ifx_SCU_ESRCFG_Bits;
+
+
+typedef struct _Ifx_SCU_ESROCFG_Bits
+{
+    unsigned int ARI:1;
+    unsigned int ARC:1;
+    unsigned int reserved_2:30;
+} Ifx_SCU_ESROCFG_Bits;
+
+
+typedef struct _Ifx_SCU_EVR13CON_Bits
+{
+    unsigned int reserved_0:28;
+    unsigned int EVR13OFF:1;
+    unsigned int BPEVR13OFF:1;
+    unsigned int reserved_30:1;
+    unsigned int LCK:1;
+} Ifx_SCU_EVR13CON_Bits;
+
+
+typedef struct _Ifx_SCU_EVR33CON_Bits
+{
+    unsigned int reserved_0:28;
+    unsigned int EVR33OFF:1;
+    unsigned int BPEVR33OFF:1;
+    unsigned int reserved_30:1;
+    unsigned int LCK:1;
+} Ifx_SCU_EVR33CON_Bits;
+
+
+typedef struct _Ifx_SCU_EVRADCSTAT_Bits
+{
+    unsigned int ADC13V:8;
+    unsigned int ADC33V:8;
+    unsigned int ADCSWDV:8;
+    unsigned int reserved_24:7;
+    unsigned int VAL:1;
+} Ifx_SCU_EVRADCSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_EVRDVSTAT_Bits
+{
+    unsigned int DVS13TRIM:8;
+    unsigned int reserved_8:8;
+    unsigned int DVS33TRIM:8;
+    unsigned int reserved_24:7;
+    unsigned int VAL:1;
+} Ifx_SCU_EVRDVSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_EVRMONCTRL_Bits
+{
+    unsigned int EVR13OVMOD:2;
+    unsigned int reserved_2:2;
+    unsigned int EVR13UVMOD:2;
+    unsigned int reserved_6:2;
+    unsigned int EVR33OVMOD:2;
+    unsigned int reserved_10:2;
+    unsigned int EVR33UVMOD:2;
+    unsigned int reserved_14:2;
+    unsigned int SWDOVMOD:2;
+    unsigned int reserved_18:2;
+    unsigned int SWDUVMOD:2;
+    unsigned int reserved_22:8;
+    unsigned int SLCK:1;
+    unsigned int reserved_31:1;
+} Ifx_SCU_EVRMONCTRL_Bits;
+
+
+typedef struct _Ifx_SCU_EVROVMON_Bits
+{
+    unsigned int EVR13OVVAL:8;
+    unsigned int EVR33OVVAL:8;
+    unsigned int SWDOVVAL:8;
+    unsigned int reserved_24:6;
+    unsigned int SLCK:1;
+    unsigned int LCK:1;
+} Ifx_SCU_EVROVMON_Bits;
+
+
+typedef struct _Ifx_SCU_EVRRSTCON_Bits
+{
+    unsigned int RST13TRIM:8;
+    unsigned int reserved_8:16;
+    unsigned int RST13OFF:1;
+    unsigned int BPRST13OFF:1;
+    unsigned int RST33OFF:1;
+    unsigned int BPRST33OFF:1;
+    unsigned int RSTSWDOFF:1;
+    unsigned int BPRSTSWDOFF:1;
+    unsigned int SLCK:1;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRRSTCON_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCOEFF1_Bits
+{
+    unsigned int SD5P:8;
+    unsigned int SD5I:8;
+    unsigned int SD5D:8;
+    unsigned int reserved_24:7;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCOEFF1_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCOEFF2_Bits
+{
+    unsigned int SD33P:8;
+    unsigned int SD33I:8;
+    unsigned int SD33D:8;
+    unsigned int reserved_24:7;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCOEFF2_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCOEFF3_Bits
+{
+    unsigned int CT5REG0:8;
+    unsigned int CT5REG1:8;
+    unsigned int CT5REG2:8;
+    unsigned int reserved_24:7;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCOEFF3_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCOEFF4_Bits
+{
+    unsigned int CT5REG3:8;
+    unsigned int CT5REG4:8;
+    unsigned int reserved_16:15;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCOEFF4_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCOEFF5_Bits
+{
+    unsigned int CT33REG0:8;
+    unsigned int CT33REG1:8;
+    unsigned int CT33REG2:8;
+    unsigned int reserved_24:7;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCOEFF5_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCOEFF6_Bits
+{
+    unsigned int CT33REG3:8;
+    unsigned int CT33REG4:8;
+    unsigned int reserved_16:15;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCOEFF6_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCTRL1_Bits
+{
+    unsigned int SDFREQSPRD:16;
+    unsigned int SDFREQ:8;
+    unsigned int SDSTEP:4;
+    unsigned int reserved_28:2;
+    unsigned int SDSAMPLE:1;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCTRL1_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCTRL2_Bits
+{
+    unsigned int DRVP:8;
+    unsigned int SDMINMAXDC:8;
+    unsigned int DRVN:8;
+    unsigned int SDLUT:6;
+    unsigned int reserved_30:1;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCTRL2_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCTRL3_Bits
+{
+    unsigned int SDPWMPRE:8;
+    unsigned int SDPID:8;
+    unsigned int SDVOKLVL:8;
+    unsigned int reserved_24:7;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCTRL3_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSDCTRL4_Bits
+{
+    unsigned int reserved_0:8;
+    unsigned int SYNCDIV:3;
+    unsigned int reserved_11:20;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRSDCTRL4_Bits;
+
+
+typedef struct _Ifx_SCU_EVRSTAT_Bits
+{
+    unsigned int EVR13:1;
+    unsigned int OV13:1;
+    unsigned int EVR33:1;
+    unsigned int OV33:1;
+    unsigned int OVSWD:1;
+    unsigned int UV13:1;
+    unsigned int UV33:1;
+    unsigned int UVSWD:1;
+    unsigned int EXTPASS13:1;
+    unsigned int EXTPASS33:1;
+    unsigned int BGPROK:1;
+    unsigned int reserved_11:21;
+} Ifx_SCU_EVRSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_EVRTRIM_Bits
+{
+    unsigned int EVR13TRIM:8;
+    unsigned int SDVOUTSEL:8;
+    unsigned int reserved_16:14;
+    unsigned int SLCK:1;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRTRIM_Bits;
+
+
+typedef struct _Ifx_SCU_EVRUVMON_Bits
+{
+    unsigned int EVR13UVVAL:8;
+    unsigned int EVR33UVVAL:8;
+    unsigned int SWDUVVAL:8;
+    unsigned int reserved_24:6;
+    unsigned int SLCK:1;
+    unsigned int LCK:1;
+} Ifx_SCU_EVRUVMON_Bits;
+
+
+typedef struct _Ifx_SCU_EXTCON_Bits
+{
+    unsigned int EN0:1;
+    unsigned int reserved_1:1;
+    unsigned int SEL0:4;
+    unsigned int reserved_6:10;
+    unsigned int EN1:1;
+    unsigned int NSEL:1;
+    unsigned int SEL1:4;
+    unsigned int reserved_22:2;
+    unsigned int DIV1:8;
+} Ifx_SCU_EXTCON_Bits;
+
+
+typedef struct _Ifx_SCU_FDR_Bits
+{
+    unsigned int STEP:10;
+    unsigned int reserved_10:4;
+    unsigned int DM:2;
+    unsigned int RESULT:10;
+    unsigned int reserved_26:5;
+    unsigned int DISCLK:1;
+} Ifx_SCU_FDR_Bits;
+
+
+typedef struct _Ifx_SCU_FMR_Bits
+{
+    unsigned int FS0:1;
+    unsigned int FS1:1;
+    unsigned int FS2:1;
+    unsigned int FS3:1;
+    unsigned int FS4:1;
+    unsigned int FS5:1;
+    unsigned int FS6:1;
+    unsigned int FS7:1;
+    unsigned int reserved_8:8;
+    unsigned int FC0:1;
+    unsigned int FC1:1;
+    unsigned int FC2:1;
+    unsigned int FC3:1;
+    unsigned int FC4:1;
+    unsigned int FC5:1;
+    unsigned int FC6:1;
+    unsigned int FC7:1;
+    unsigned int reserved_24:8;
+} Ifx_SCU_FMR_Bits;
+
+
+typedef struct _Ifx_SCU_ID_Bits
+{
+    unsigned int MODREV:8;
+    unsigned int MODTYPE:8;
+    unsigned int MODNUMBER:16;
+} Ifx_SCU_ID_Bits;
+
+
+typedef struct _Ifx_SCU_IGCR_Bits
+{
+    unsigned int IPEN00:1;
+    unsigned int IPEN01:1;
+    unsigned int IPEN02:1;
+    unsigned int IPEN03:1;
+    unsigned int IPEN04:1;
+    unsigned int IPEN05:1;
+    unsigned int IPEN06:1;
+    unsigned int IPEN07:1;
+    unsigned int reserved_8:5;
+    unsigned int GEEN0:1;
+    unsigned int IGP0:2;
+    unsigned int IPEN10:1;
+    unsigned int IPEN11:1;
+    unsigned int IPEN12:1;
+    unsigned int IPEN13:1;
+    unsigned int IPEN14:1;
+    unsigned int IPEN15:1;
+    unsigned int IPEN16:1;
+    unsigned int IPEN17:1;
+    unsigned int reserved_24:5;
+    unsigned int GEEN1:1;
+    unsigned int IGP1:2;
+} Ifx_SCU_IGCR_Bits;
+
+
+typedef struct _Ifx_SCU_IN_Bits
+{
+    unsigned int P0:1;
+    unsigned int P1:1;
+    unsigned int reserved_2:30;
+} Ifx_SCU_IN_Bits;
+
+
+typedef struct _Ifx_SCU_IOCR_Bits
+{
+    unsigned int reserved_0:4;
+    unsigned int PC0:4;
+    unsigned int reserved_8:4;
+    unsigned int PC1:4;
+    unsigned int reserved_16:16;
+} Ifx_SCU_IOCR_Bits;
+
+
+typedef struct _Ifx_SCU_LBISTCTRL0_Bits
+{
+    unsigned int LBISTREQ:1;
+    unsigned int LBISTREQP:1;
+    unsigned int PATTERNS:14;
+    unsigned int reserved_16:16;
+} Ifx_SCU_LBISTCTRL0_Bits;
+
+
+typedef struct _Ifx_SCU_LBISTCTRL1_Bits
+{
+    unsigned int SEED:23;
+    unsigned int reserved_23:1;
+    unsigned int SPLITSH:3;
+    unsigned int BODY:1;
+    unsigned int LBISTFREQU:4;
+} Ifx_SCU_LBISTCTRL1_Bits;
+
+
+typedef struct _Ifx_SCU_LBISTCTRL2_Bits
+{
+    unsigned int SIGNATURE:24;
+    unsigned int reserved_24:7;
+    unsigned int LBISTDONE:1;
+} Ifx_SCU_LBISTCTRL2_Bits;
+
+
+typedef struct _Ifx_SCU_LCLCON_Bits
+{
+    unsigned int reserved_0:16;
+    unsigned int LS:1;
+    unsigned int reserved_17:14;
+    unsigned int LSEN:1;
+} Ifx_SCU_LCLCON_Bits;
+
+
+typedef struct _Ifx_SCU_LCLTEST_Bits
+{
+    unsigned int LCLT0:1;
+    unsigned int LCLT1:1;
+    unsigned int reserved_2:30;
+} Ifx_SCU_LCLTEST_Bits;
+
+
+typedef struct _Ifx_SCU_MANID_Bits
+{
+    unsigned int DEPT:5;
+    unsigned int MANUF:11;
+    unsigned int reserved_16:16;
+} Ifx_SCU_MANID_Bits;
+
+
+typedef struct _Ifx_SCU_OMR_Bits
+{
+    unsigned int PS0:1;
+    unsigned int PS1:1;
+    unsigned int reserved_2:14;
+    unsigned int PCL0:1;
+    unsigned int PCL1:1;
+    unsigned int reserved_18:14;
+} Ifx_SCU_OMR_Bits;
+
+
+typedef struct _Ifx_SCU_OSCCON_Bits
+{
+    unsigned int reserved_0:1;
+    unsigned int PLLLV:1;
+    unsigned int OSCRES:1;
+    unsigned int GAINSEL:2;
+    unsigned int MODE:2;
+    unsigned int SHBY:1;
+    unsigned int PLLHV:1;
+    unsigned int reserved_9:1;
+    unsigned int X1D:1;
+    unsigned int X1DEN:1;
+    unsigned int reserved_12:4;
+    unsigned int OSCVAL:5;
+    unsigned int reserved_21:2;
+    unsigned int APREN:1;
+    unsigned int CAP0EN:1;
+    unsigned int CAP1EN:1;
+    unsigned int CAP2EN:1;
+    unsigned int CAP3EN:1;
+    unsigned int reserved_28:4;
+} Ifx_SCU_OSCCON_Bits;
+
+
+typedef struct _Ifx_SCU_OUT_Bits
+{
+    unsigned int P0:1;
+    unsigned int P1:1;
+    unsigned int reserved_2:30;
+} Ifx_SCU_OUT_Bits;
+
+
+typedef struct _Ifx_SCU_OVCCON_Bits
+{
+    unsigned int CSEL0:1;
+    unsigned int CSEL1:1;
+    unsigned int CSEL2:1;
+    unsigned int reserved_3:13;
+    unsigned int OVSTRT:1;
+    unsigned int OVSTP:1;
+    unsigned int DCINVAL:1;
+    unsigned int reserved_19:5;
+    unsigned int OVCONF:1;
+    unsigned int POVCONF:1;
+    unsigned int reserved_26:6;
+} Ifx_SCU_OVCCON_Bits;
+
+
+typedef struct _Ifx_SCU_OVCENABLE_Bits
+{
+    unsigned int OVEN0:1;
+    unsigned int OVEN1:1;
+    unsigned int OVEN2:1;
+    unsigned int reserved_3:29;
+} Ifx_SCU_OVCENABLE_Bits;
+
+
+typedef struct _Ifx_SCU_PDISC_Bits
+{
+    unsigned int PDIS0:1;
+    unsigned int PDIS1:1;
+    unsigned int reserved_2:30;
+} Ifx_SCU_PDISC_Bits;
+
+
+typedef struct _Ifx_SCU_PDR_Bits
+{
+    unsigned int PD0:3;
+    unsigned int PL0:1;
+    unsigned int PD1:3;
+    unsigned int PL1:1;
+    unsigned int reserved_8:24;
+} Ifx_SCU_PDR_Bits;
+
+
+typedef struct _Ifx_SCU_PDRR_Bits
+{
+    unsigned int PDR0:1;
+    unsigned int PDR1:1;
+    unsigned int PDR2:1;
+    unsigned int PDR3:1;
+    unsigned int PDR4:1;
+    unsigned int PDR5:1;
+    unsigned int PDR6:1;
+    unsigned int PDR7:1;
+    unsigned int reserved_8:24;
+} Ifx_SCU_PDRR_Bits;
+
+
+typedef struct _Ifx_SCU_PLLCON0_Bits
+{
+    unsigned int VCOBYP:1;
+    unsigned int VCOPWD:1;
+    unsigned int MODEN:1;
+    unsigned int reserved_3:1;
+    unsigned int SETFINDIS:1;
+    unsigned int CLRFINDIS:1;
+    unsigned int OSCDISCDIS:1;
+    unsigned int reserved_7:2;
+    unsigned int NDIV:7;
+    unsigned int PLLPWD:1;
+    unsigned int reserved_17:1;
+    unsigned int RESLD:1;
+    unsigned int reserved_19:5;
+    unsigned int PDIV:4;
+    unsigned int reserved_28:4;
+} Ifx_SCU_PLLCON0_Bits;
+
+
+typedef struct _Ifx_SCU_PLLCON1_Bits
+{
+    unsigned int K2DIV:7;
+    unsigned int reserved_7:1;
+    unsigned int K3DIV:7;
+    unsigned int reserved_15:1;
+    unsigned int K1DIV:7;
+    unsigned int reserved_23:9;
+} Ifx_SCU_PLLCON1_Bits;
+
+
+typedef struct _Ifx_SCU_PLLCON2_Bits
+{
+    unsigned int MODCFG:16;
+    unsigned int reserved_16:16;
+} Ifx_SCU_PLLCON2_Bits;
+
+
+typedef struct _Ifx_SCU_PLLERAYCON0_Bits
+{
+    unsigned int VCOBYP:1;
+    unsigned int VCOPWD:1;
+    unsigned int reserved_2:2;
+    unsigned int SETFINDIS:1;
+    unsigned int CLRFINDIS:1;
+    unsigned int OSCDISCDIS:1;
+    unsigned int reserved_7:2;
+    unsigned int NDIV:5;
+    unsigned int reserved_14:2;
+    unsigned int PLLPWD:1;
+    unsigned int reserved_17:1;
+    unsigned int RESLD:1;
+    unsigned int reserved_19:5;
+    unsigned int PDIV:4;
+    unsigned int reserved_28:4;
+} Ifx_SCU_PLLERAYCON0_Bits;
+
+
+typedef struct _Ifx_SCU_PLLERAYCON1_Bits
+{
+    unsigned int K2DIV:7;
+    unsigned int reserved_7:1;
+    unsigned int K3DIV:4;
+    unsigned int reserved_12:4;
+    unsigned int K1DIV:7;
+    unsigned int reserved_23:9;
+} Ifx_SCU_PLLERAYCON1_Bits;
+
+
+typedef struct _Ifx_SCU_PLLERAYSTAT_Bits
+{
+    unsigned int VCOBYST:1;
+    unsigned int PWDSTAT:1;
+    unsigned int VCOLOCK:1;
+    unsigned int FINDIS:1;
+    unsigned int K1RDY:1;
+    unsigned int K2RDY:1;
+    unsigned int reserved_6:26;
+} Ifx_SCU_PLLERAYSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_PLLSTAT_Bits
+{
+    unsigned int VCOBYST:1;
+    unsigned int reserved_1:1;
+    unsigned int VCOLOCK:1;
+    unsigned int FINDIS:1;
+    unsigned int K1RDY:1;
+    unsigned int K2RDY:1;
+    unsigned int reserved_6:1;
+    unsigned int MODRUN:1;
+    unsigned int reserved_8:24;
+} Ifx_SCU_PLLSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_PMCSR_Bits
+{
+    unsigned int REQSLP:2;
+    unsigned int SMUSLP:1;
+    unsigned int reserved_3:5;
+    unsigned int PMST:3;
+    unsigned int reserved_11:21;
+} Ifx_SCU_PMCSR_Bits;
+
+
+typedef struct _Ifx_SCU_PMSWCR0_Bits
+{
+    unsigned int reserved_0:1;
+    unsigned int ESR1WKEN:1;
+    unsigned int PINAWKEN:1;
+    unsigned int PINBWKEN:1;
+    unsigned int ESR0DFEN:1;
+    unsigned int ESR0EDCON:2;
+    unsigned int ESR1DFEN:1;
+    unsigned int ESR1EDCON:2;
+    unsigned int PINADFEN:1;
+    unsigned int PINAEDCON:2;
+    unsigned int PINBDFEN:1;
+    unsigned int PINBEDCON:2;
+    unsigned int reserved_16:1;
+    unsigned int STBYRAMSEL:2;
+    unsigned int reserved_19:2;
+    unsigned int TRISTEN:1;
+    unsigned int TRISTREQ:1;
+    unsigned int PORSTDF:1;
+    unsigned int PWRWKEN:1;
+    unsigned int DCDCSYNC:1;
+    unsigned int BLNKFIL:3;
+    unsigned int ESR0TRIST:1;
+    unsigned int reserved_30:1;
+    unsigned int LCK:1;
+} Ifx_SCU_PMSWCR0_Bits;
+
+
+typedef struct _Ifx_SCU_PMSWCR1_Bits
+{
+    unsigned int reserved_0:8;
+    unsigned int CPUIDLSEL:3;
+    unsigned int reserved_11:1;
+    unsigned int IRADIS:1;
+    unsigned int reserved_13:11;
+    unsigned int CPUSEL:3;
+    unsigned int STBYEVEN:1;
+    unsigned int STBYEV:3;
+    unsigned int reserved_31:1;
+} Ifx_SCU_PMSWCR1_Bits;
+
+
+typedef struct _Ifx_SCU_PMSWSTAT_Bits
+{
+    unsigned int reserved_0:2;
+    unsigned int ESR1WKP:1;
+    unsigned int ESR1OVRUN:1;
+    unsigned int PINAWKP:1;
+    unsigned int PINAOVRUN:1;
+    unsigned int PINBWKP:1;
+    unsigned int PINBOVRUN:1;
+    unsigned int PWRWKP:1;
+    unsigned int PORSTDF:1;
+    unsigned int HWCFGEVR:3;
+    unsigned int STBYRAM:2;
+    unsigned int TRIST:1;
+    unsigned int reserved_16:4;
+    unsigned int ESR1WKEN:1;
+    unsigned int PINAWKEN:1;
+    unsigned int PINBWKEN:1;
+    unsigned int PWRWKEN:1;
+    unsigned int BLNKFIL:3;
+    unsigned int ESR0TRIST:1;
+    unsigned int reserved_28:4;
+} Ifx_SCU_PMSWSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_PMSWSTATCLR_Bits
+{
+    unsigned int reserved_0:2;
+    unsigned int ESR1WKPCLR:1;
+    unsigned int ESR1OVRUNCLR:1;
+    unsigned int PINAWKPCLR:1;
+    unsigned int PINAOVRUNCLR:1;
+    unsigned int PINBWKPCLR:1;
+    unsigned int PINBOVRUNCLR:1;
+    unsigned int PWRWKPCLR:1;
+    unsigned int reserved_9:23;
+} Ifx_SCU_PMSWSTATCLR_Bits;
+
+
+typedef struct _Ifx_SCU_RSTCON2_Bits
+{
+    unsigned int reserved_0:1;
+    unsigned int CLRC:1;
+    unsigned int reserved_2:10;
+    unsigned int CSS0:1;
+    unsigned int CSS1:1;
+    unsigned int CSS2:1;
+    unsigned int reserved_15:1;
+    unsigned int USRINFO:16;
+} Ifx_SCU_RSTCON2_Bits;
+
+
+typedef struct _Ifx_SCU_RSTCON_Bits
+{
+    unsigned int ESR0:2;
+    unsigned int ESR1:2;
+    unsigned int reserved_4:2;
+    unsigned int SMU:2;
+    unsigned int SW:2;
+    unsigned int STM0:2;
+    unsigned int STM1:2;
+    unsigned int STM2:2;
+    unsigned int reserved_16:16;
+} Ifx_SCU_RSTCON_Bits;
+
+
+typedef struct _Ifx_SCU_RSTSTAT_Bits
+{
+    unsigned int ESR0:1;
+    unsigned int ESR1:1;
+    unsigned int reserved_2:1;
+    unsigned int SMU:1;
+    unsigned int SW:1;
+    unsigned int STM0:1;
+    unsigned int STM1:1;
+    unsigned int STM2:1;
+    unsigned int reserved_8:8;
+    unsigned int PORST:1;
+    unsigned int reserved_17:1;
+    unsigned int CB0:1;
+    unsigned int CB1:1;
+    unsigned int CB3:1;
+    unsigned int reserved_21:2;
+    unsigned int EVR13:1;
+    unsigned int EVR33:1;
+    unsigned int SWD:1;
+    unsigned int reserved_26:2;
+    unsigned int STBYR:1;
+    unsigned int reserved_29:3;
+} Ifx_SCU_RSTSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_SAFECON_Bits
+{
+    unsigned int HBT:1;
+    unsigned int reserved_1:31;
+} Ifx_SCU_SAFECON_Bits;
+
+
+typedef struct _Ifx_SCU_STSTAT_Bits
+{
+    unsigned int HWCFG:8;
+    unsigned int FTM:7;
+    unsigned int MODE:1;
+    unsigned int reserved_16:1;
+    unsigned int LUDIS:1;
+    unsigned int reserved_18:1;
+    unsigned int TRSTL:1;
+    unsigned int SPDEN:1;
+    unsigned int reserved_21:3;
+    unsigned int RAMINT:1;
+    unsigned int reserved_25:7;
+} Ifx_SCU_STSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_SWRSTCON_Bits
+{
+    unsigned int reserved_0:1;
+    unsigned int SWRSTREQ:1;
+    unsigned int reserved_2:30;
+} Ifx_SCU_SWRSTCON_Bits;
+
+
+typedef struct _Ifx_SCU_SYSCON_Bits
+{
+    unsigned int CCTRIG0:1;
+    unsigned int reserved_1:1;
+    unsigned int RAMINTM:2;
+    unsigned int SETLUDIS:1;
+    unsigned int reserved_5:3;
+    unsigned int DATM:1;
+    unsigned int reserved_9:23;
+} Ifx_SCU_SYSCON_Bits;
+
+
+typedef struct _Ifx_SCU_TRAPCLR_Bits
+{
+    unsigned int ESR0T:1;
+    unsigned int ESR1T:1;
+    unsigned int reserved_2:1;
+    unsigned int SMUT:1;
+    unsigned int reserved_4:28;
+} Ifx_SCU_TRAPCLR_Bits;
+
+
+typedef struct _Ifx_SCU_TRAPDIS_Bits
+{
+    unsigned int ESR0T:1;
+    unsigned int ESR1T:1;
+    unsigned int reserved_2:1;
+    unsigned int SMUT:1;
+    unsigned int reserved_4:28;
+} Ifx_SCU_TRAPDIS_Bits;
+
+
+typedef struct _Ifx_SCU_TRAPSET_Bits
+{
+    unsigned int ESR0T:1;
+    unsigned int ESR1T:1;
+    unsigned int reserved_2:1;
+    unsigned int SMUT:1;
+    unsigned int reserved_4:28;
+} Ifx_SCU_TRAPSET_Bits;
+
+
+typedef struct _Ifx_SCU_TRAPSTAT_Bits
+{
+    unsigned int ESR0T:1;
+    unsigned int ESR1T:1;
+    unsigned int reserved_2:1;
+    unsigned int SMUT:1;
+    unsigned int reserved_4:28;
+} Ifx_SCU_TRAPSTAT_Bits;
+
+
+typedef struct _Ifx_SCU_WDTCPU_CON0_Bits
+{
+    volatile unsigned int ENDINIT:1;
+    volatile unsigned int LCK:1;
+    volatile unsigned int PW:14;
+    volatile unsigned int REL:16;
+} Ifx_SCU_WDTCPU_CON0_Bits;
+
+
+typedef struct _Ifx_SCU_WDTCPU_CON1_Bits
+{
+    unsigned int reserved_0:2;
+    unsigned int IR0:1;
+    unsigned int DR:1;
+    unsigned int reserved_4:1;
+    unsigned int IR1:1;
+    unsigned int UR:1;
+    unsigned int PAR:1;
+    unsigned int TCR:1;
+    unsigned int TCTR:7;
+    unsigned int reserved_16:16;
+} Ifx_SCU_WDTCPU_CON1_Bits;
+
+
+typedef struct _Ifx_SCU_WDTCPU_SR_Bits
+{
+    unsigned int AE:1;
+    unsigned int OE:1;
+    unsigned int IS0:1;
+    unsigned int DS:1;
+    unsigned int TO:1;
+    unsigned int IS1:1;
+    unsigned int US:1;
+    unsigned int PAS:1;
+    unsigned int TCS:1;
+    unsigned int TCT:7;
+    unsigned int TIM:16;
+} Ifx_SCU_WDTCPU_SR_Bits;
+
+
+typedef struct _Ifx_SCU_WDTS_CON0_Bits
+{
+    volatile unsigned int ENDINIT:1;
+    volatile unsigned int LCK:1;
+    volatile unsigned int PW:14;
+    volatile unsigned int REL:16;
+} Ifx_SCU_WDTS_CON0_Bits;
+
+
+typedef struct _Ifx_SCU_WDTS_CON1_Bits
+{
+    unsigned int CLRIRF:1;
+    unsigned int reserved_1:1;
+    unsigned int IR0:1;
+    unsigned int DR:1;
+    unsigned int reserved_4:1;
+    unsigned int IR1:1;
+    unsigned int UR:1;
+    unsigned int PAR:1;
+    unsigned int TCR:1;
+    unsigned int TCTR:7;
+    unsigned int reserved_16:16;
+} Ifx_SCU_WDTS_CON1_Bits;
+
+
+typedef struct _Ifx_SCU_WDTS_SR_Bits
+{
+    unsigned int AE:1;
+    unsigned int OE:1;
+    unsigned int IS0:1;
+    unsigned int DS:1;
+    unsigned int TO:1;
+    unsigned int IS1:1;
+    unsigned int US:1;
+    unsigned int PAS:1;
+    unsigned int TCS:1;
+    unsigned int TCT:7;
+    unsigned int TIM:16;
+} Ifx_SCU_WDTS_SR_Bits;
+
+
+
+
+
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_ACCEN0_Bits B;
+} Ifx_SCU_ACCEN0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_ACCEN1_Bits B;
+} Ifx_SCU_ACCEN1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_ARSTDIS_Bits B;
+} Ifx_SCU_ARSTDIS;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CCUCON0_Bits B;
+} Ifx_SCU_CCUCON0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CCUCON1_Bits B;
+} Ifx_SCU_CCUCON1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CCUCON2_Bits B;
+} Ifx_SCU_CCUCON2;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CCUCON3_Bits B;
+} Ifx_SCU_CCUCON3;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CCUCON4_Bits B;
+} Ifx_SCU_CCUCON4;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CCUCON5_Bits B;
+} Ifx_SCU_CCUCON5;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CCUCON6_Bits B;
+} Ifx_SCU_CCUCON6;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CCUCON7_Bits B;
+} Ifx_SCU_CCUCON7;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CCUCON8_Bits B;
+} Ifx_SCU_CCUCON8;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_CHIPID_Bits B;
+} Ifx_SCU_CHIPID;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_DTSCON_Bits B;
+} Ifx_SCU_DTSCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_DTSLIM_Bits B;
+} Ifx_SCU_DTSLIM;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_DTSSTAT_Bits B;
+} Ifx_SCU_DTSSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EICR_Bits B;
+} Ifx_SCU_EICR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EIFR_Bits B;
+} Ifx_SCU_EIFR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EMSR_Bits B;
+} Ifx_SCU_EMSR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_ESRCFG_Bits B;
+} Ifx_SCU_ESRCFG;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_ESROCFG_Bits B;
+} Ifx_SCU_ESROCFG;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVR13CON_Bits B;
+} Ifx_SCU_EVR13CON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVR33CON_Bits B;
+} Ifx_SCU_EVR33CON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRADCSTAT_Bits B;
+} Ifx_SCU_EVRADCSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRDVSTAT_Bits B;
+} Ifx_SCU_EVRDVSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRMONCTRL_Bits B;
+} Ifx_SCU_EVRMONCTRL;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVROVMON_Bits B;
+} Ifx_SCU_EVROVMON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRRSTCON_Bits B;
+} Ifx_SCU_EVRRSTCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCOEFF1_Bits B;
+} Ifx_SCU_EVRSDCOEFF1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCOEFF2_Bits B;
+} Ifx_SCU_EVRSDCOEFF2;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCOEFF3_Bits B;
+} Ifx_SCU_EVRSDCOEFF3;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCOEFF4_Bits B;
+} Ifx_SCU_EVRSDCOEFF4;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCOEFF5_Bits B;
+} Ifx_SCU_EVRSDCOEFF5;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCOEFF6_Bits B;
+} Ifx_SCU_EVRSDCOEFF6;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCTRL1_Bits B;
+} Ifx_SCU_EVRSDCTRL1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCTRL2_Bits B;
+} Ifx_SCU_EVRSDCTRL2;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCTRL3_Bits B;
+} Ifx_SCU_EVRSDCTRL3;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSDCTRL4_Bits B;
+} Ifx_SCU_EVRSDCTRL4;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRSTAT_Bits B;
+} Ifx_SCU_EVRSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRTRIM_Bits B;
+} Ifx_SCU_EVRTRIM;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EVRUVMON_Bits B;
+} Ifx_SCU_EVRUVMON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_EXTCON_Bits B;
+} Ifx_SCU_EXTCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_FDR_Bits B;
+} Ifx_SCU_FDR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_FMR_Bits B;
+} Ifx_SCU_FMR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_ID_Bits B;
+} Ifx_SCU_ID;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_IGCR_Bits B;
+} Ifx_SCU_IGCR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_IN_Bits B;
+} Ifx_SCU_IN;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_IOCR_Bits B;
+} Ifx_SCU_IOCR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_LBISTCTRL0_Bits B;
+} Ifx_SCU_LBISTCTRL0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_LBISTCTRL1_Bits B;
+} Ifx_SCU_LBISTCTRL1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_LBISTCTRL2_Bits B;
+} Ifx_SCU_LBISTCTRL2;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_LCLCON_Bits B;
+} Ifx_SCU_LCLCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_LCLTEST_Bits B;
+} Ifx_SCU_LCLTEST;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_MANID_Bits B;
+} Ifx_SCU_MANID;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_OMR_Bits B;
+} Ifx_SCU_OMR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_OSCCON_Bits B;
+} Ifx_SCU_OSCCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_OUT_Bits B;
+} Ifx_SCU_OUT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_OVCCON_Bits B;
+} Ifx_SCU_OVCCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_OVCENABLE_Bits B;
+} Ifx_SCU_OVCENABLE;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PDISC_Bits B;
+} Ifx_SCU_PDISC;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PDR_Bits B;
+} Ifx_SCU_PDR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PDRR_Bits B;
+} Ifx_SCU_PDRR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PLLCON0_Bits B;
+} Ifx_SCU_PLLCON0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PLLCON1_Bits B;
+} Ifx_SCU_PLLCON1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PLLCON2_Bits B;
+} Ifx_SCU_PLLCON2;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PLLERAYCON0_Bits B;
+} Ifx_SCU_PLLERAYCON0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PLLERAYCON1_Bits B;
+} Ifx_SCU_PLLERAYCON1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PLLERAYSTAT_Bits B;
+} Ifx_SCU_PLLERAYSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PLLSTAT_Bits B;
+} Ifx_SCU_PLLSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PMCSR_Bits B;
+} Ifx_SCU_PMCSR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PMSWCR0_Bits B;
+} Ifx_SCU_PMSWCR0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PMSWCR1_Bits B;
+} Ifx_SCU_PMSWCR1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PMSWSTAT_Bits B;
+} Ifx_SCU_PMSWSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_PMSWSTATCLR_Bits B;
+} Ifx_SCU_PMSWSTATCLR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_RSTCON_Bits B;
+} Ifx_SCU_RSTCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_RSTCON2_Bits B;
+} Ifx_SCU_RSTCON2;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_RSTSTAT_Bits B;
+} Ifx_SCU_RSTSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_SAFECON_Bits B;
+} Ifx_SCU_SAFECON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_STSTAT_Bits B;
+} Ifx_SCU_STSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_SWRSTCON_Bits B;
+} Ifx_SCU_SWRSTCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_SYSCON_Bits B;
+} Ifx_SCU_SYSCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_TRAPCLR_Bits B;
+} Ifx_SCU_TRAPCLR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_TRAPDIS_Bits B;
+} Ifx_SCU_TRAPDIS;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_TRAPSET_Bits B;
+} Ifx_SCU_TRAPSET;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_TRAPSTAT_Bits B;
+} Ifx_SCU_TRAPSTAT;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_WDTCPU_CON0_Bits B;
+} Ifx_SCU_WDTCPU_CON0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_WDTCPU_CON1_Bits B;
+} Ifx_SCU_WDTCPU_CON1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_WDTCPU_SR_Bits B;
+} Ifx_SCU_WDTCPU_SR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_WDTS_CON0_Bits B;
+} Ifx_SCU_WDTS_CON0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_WDTS_CON1_Bits B;
+} Ifx_SCU_WDTS_CON1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_SCU_WDTS_SR_Bits B;
+} Ifx_SCU_WDTS_SR;
+# 1933 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_regdef.h"
+typedef volatile struct _Ifx_SCU_WDTCPU
+{
+    Ifx_SCU_WDTCPU_CON0 CON0;
+    Ifx_SCU_WDTCPU_CON1 CON1;
+    Ifx_SCU_WDTCPU_SR SR;
+} Ifx_SCU_WDTCPU;
+
+
+typedef volatile struct _Ifx_SCU_WDTS
+{
+    Ifx_SCU_WDTS_CON0 CON0;
+    Ifx_SCU_WDTS_CON1 CON1;
+    Ifx_SCU_WDTS_SR SR;
+} Ifx_SCU_WDTS;
+# 1959 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_regdef.h"
+typedef volatile struct _Ifx_SCU
+{
+    unsigned char reserved_0[8];
+    Ifx_SCU_ID ID;
+    unsigned char reserved_C[4];
+    Ifx_SCU_OSCCON OSCCON;
+    Ifx_SCU_PLLSTAT PLLSTAT;
+    Ifx_SCU_PLLCON0 PLLCON0;
+    Ifx_SCU_PLLCON1 PLLCON1;
+    Ifx_SCU_PLLCON2 PLLCON2;
+    Ifx_SCU_PLLERAYSTAT PLLERAYSTAT;
+    Ifx_SCU_PLLERAYCON0 PLLERAYCON0;
+    Ifx_SCU_PLLERAYCON1 PLLERAYCON1;
+    Ifx_SCU_CCUCON0 CCUCON0;
+    Ifx_SCU_CCUCON1 CCUCON1;
+    Ifx_SCU_FDR FDR;
+    Ifx_SCU_EXTCON EXTCON;
+    Ifx_SCU_CCUCON2 CCUCON2;
+    Ifx_SCU_CCUCON3 CCUCON3;
+    Ifx_SCU_CCUCON4 CCUCON4;
+    Ifx_SCU_CCUCON5 CCUCON5;
+    Ifx_SCU_RSTSTAT RSTSTAT;
+    unsigned char reserved_54[4];
+    Ifx_SCU_RSTCON RSTCON;
+    Ifx_SCU_ARSTDIS ARSTDIS;
+    Ifx_SCU_SWRSTCON SWRSTCON;
+    Ifx_SCU_RSTCON2 RSTCON2;
+    unsigned char reserved_68[4];
+    Ifx_SCU_EVRRSTCON EVRRSTCON;
+    Ifx_SCU_ESRCFG ESRCFG[2];
+    Ifx_SCU_ESROCFG ESROCFG;
+    Ifx_SCU_SYSCON SYSCON;
+    Ifx_SCU_CCUCON6 CCUCON6;
+    Ifx_SCU_CCUCON7 CCUCON7;
+    Ifx_SCU_CCUCON8 CCUCON8;
+    unsigned char reserved_8C[16];
+    Ifx_SCU_PDR PDR;
+    Ifx_SCU_IOCR IOCR;
+    Ifx_SCU_OUT OUT;
+    Ifx_SCU_OMR OMR;
+    Ifx_SCU_IN IN;
+    Ifx_SCU_EVRSTAT EVRSTAT;
+    Ifx_SCU_EVRDVSTAT EVRDVSTAT;
+    Ifx_SCU_EVR13CON EVR13CON;
+    Ifx_SCU_EVR33CON EVR33CON;
+    Ifx_SCU_STSTAT STSTAT;
+    unsigned char reserved_C4[4];
+    Ifx_SCU_PMSWCR0 PMSWCR0;
+    Ifx_SCU_PMSWSTAT PMSWSTAT;
+    Ifx_SCU_PMSWSTATCLR PMSWSTATCLR;
+    Ifx_SCU_PMCSR PMCSR[3];
+    Ifx_SCU_DTSSTAT DTSSTAT;
+    Ifx_SCU_DTSCON DTSCON;
+    Ifx_SCU_PMSWCR1 PMSWCR1;
+    unsigned char reserved_EC[4];
+    Ifx_SCU_WDTS WDTS;
+    Ifx_SCU_EMSR EMSR;
+    Ifx_SCU_WDTCPU WDTCPU[3];
+    Ifx_SCU_TRAPSTAT TRAPSTAT;
+    Ifx_SCU_TRAPSET TRAPSET;
+    Ifx_SCU_TRAPCLR TRAPCLR;
+    Ifx_SCU_TRAPDIS TRAPDIS;
+    Ifx_SCU_LCLCON LCLCON0;
+    Ifx_SCU_LCLCON LCLCON1;
+    Ifx_SCU_LCLTEST LCLTEST;
+    Ifx_SCU_CHIPID CHIPID;
+    Ifx_SCU_MANID MANID;
+    unsigned char reserved_148[8];
+    Ifx_SCU_SAFECON SAFECON;
+    unsigned char reserved_154[16];
+    Ifx_SCU_LBISTCTRL0 LBISTCTRL0;
+    Ifx_SCU_LBISTCTRL1 LBISTCTRL1;
+    Ifx_SCU_LBISTCTRL2 LBISTCTRL2;
+    unsigned char reserved_170[28];
+    Ifx_SCU_PDISC PDISC;
+    unsigned char reserved_190[8];
+    Ifx_SCU_EVRTRIM EVRTRIM;
+    Ifx_SCU_EVRADCSTAT EVRADCSTAT;
+    Ifx_SCU_EVRUVMON EVRUVMON;
+    Ifx_SCU_EVROVMON EVROVMON;
+    Ifx_SCU_EVRMONCTRL EVRMONCTRL;
+    unsigned char reserved_1AC[4];
+    Ifx_SCU_EVRSDCTRL1 EVRSDCTRL1;
+    Ifx_SCU_EVRSDCTRL2 EVRSDCTRL2;
+    Ifx_SCU_EVRSDCTRL3 EVRSDCTRL3;
+    Ifx_SCU_EVRSDCTRL4 EVRSDCTRL4;
+    Ifx_SCU_EVRSDCOEFF1 EVRSDCOEFF1;
+    Ifx_SCU_EVRSDCOEFF2 EVRSDCOEFF2;
+    Ifx_SCU_EVRSDCOEFF3 EVRSDCOEFF3;
+    Ifx_SCU_EVRSDCOEFF4 EVRSDCOEFF4;
+    Ifx_SCU_EVRSDCOEFF5 EVRSDCOEFF5;
+    Ifx_SCU_EVRSDCOEFF6 EVRSDCOEFF6;
+    unsigned char reserved_1D8[8];
+    Ifx_SCU_OVCENABLE OVCENABLE;
+    Ifx_SCU_OVCCON OVCCON;
+    unsigned char reserved_1E8[40];
+    Ifx_SCU_EICR EICR[4];
+    Ifx_SCU_EIFR EIFR;
+    Ifx_SCU_FMR FMR;
+    Ifx_SCU_PDRR PDRR;
+    Ifx_SCU_IGCR IGCR[4];
+    unsigned char reserved_23C[4];
+    Ifx_SCU_DTSLIM DTSLIM;
+    unsigned char reserved_244[436];
+    Ifx_SCU_ACCEN1 ACCEN1;
+    Ifx_SCU_ACCEN0 ACCEN0;
+} Ifx_SCU;
+# 37 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_reg.h" 2
+# 49 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h" 2
+
+# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.asm.h" 1
+# 45 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.asm.h"
+static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_calculateLfsr(uint16 password);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_calculateLfsr(uint16 password)
+{
+
+    uint32 temp = password;
+    uint16 res;
+    __asm("xor.t  %0,%1,0,%1,2   \n           xor.t  %0,%0,0,%1,12  \n           xor.t  %0,%0,0,%1,13  \n           xor.t  %0,%0,0,%1,14  \n           sh     %1,-1 \n           ins.t  %0,%1,14,%0,0   \n"
+
+
+
+
+                                      : "=&d" (res) : "d" (temp));
+    return res;
+
+}
+# 51 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h" 2
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/IfxCpu_Intrinsics.h" 1
 # 30 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/IfxCpu_Intrinsics.h"
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/Ifx_Types.h" 1
@@ -1714,7 +3768,250 @@ static inline __attribute__ ((always_inline)) void __st64_lu(void *addr, uint32 
     register uint64 value = ((uint64)valueUpper << 32) | valueLower;
     __st64(addr, value);
 }
-# 35 "0_Src/BaseSw/Service/CpuGeneric/SysSe/Bsp/Bsp.h" 2
+# 52 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h" 2
+# 69 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+typedef struct
+{
+    uint16 password;
+    uint16 reload;
+    IfxScu_WDTCON1_IR inputFrequency;
+    boolean disableWatchdog;
+    boolean enableSmuRestriction;
+    boolean enableAutomaticPasswordChange;
+    boolean enableTimerCheck;
+    boolean enableTimerCheckTolerance;
+    boolean clrInternalResetFlag;
+} IfxScuWdt_Config;
+# 96 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_initConfig(IfxScuWdt_Config *config);
+# 109 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_initCpuWatchdog(Ifx_SCU_WDTCPU *wdt, const IfxScuWdt_Config *config);
+# 122 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_initSafetyWatchdog(Ifx_SCU_WDTS *wdt, const IfxScuWdt_Config *config);
+# 145 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+static inline __attribute__ ((always_inline)) void IfxScuWdt_clearCpuEndinitInline(Ifx_SCU_WDTCPU *watchdog, uint16 password);
+# 158 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+static inline __attribute__ ((always_inline)) void IfxScuWdt_clearSafetyEndinitInline(uint16 password);
+# 170 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+static inline __attribute__ ((always_inline)) void IfxScuWdt_setCpuEndinitInline(Ifx_SCU_WDTCPU *watchdog, uint16 password);
+# 181 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+static inline __attribute__ ((always_inline)) void IfxScuWdt_setSafetyEndinitInline(uint16 password);
+# 197 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_clearCpuEndinit(uint16 password);
+# 209 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_clearSafetyEndinit(uint16 password);
+# 219 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_setCpuEndinit(uint16 password);
+# 229 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_setSafetyEndinit(uint16 password);
+# 249 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_getCpuWatchdogPasswordInline(Ifx_SCU_WDTCPU *watchdog);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxScuWdt_getCpuWatchdogEndInitInline(Ifx_SCU_WDTCPU *watchdog);
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxScuWdt_getSafetyWatchdogEndInit(void);
+# 270 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_getSafetyWatchdogPasswordInline(void);
+# 284 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_changeCpuWatchdogPassword(uint16 password, uint16 newPassword);
+# 295 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_changeCpuWatchdogReload(uint16 password, uint16 reload);
+# 305 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_changeSafetyWatchdogPassword(uint16 password, uint16 newPassword);
+# 316 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_changeSafetyWatchdogReload(uint16 password, uint16 reload);
+# 326 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_disableCpuWatchdog(uint16 password);
+# 336 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_disableSafetyWatchdog(uint16 password);
+# 346 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_enableCpuWatchdog(uint16 password);
+# 356 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_enableSafetyWatchdog(uint16 password);
+# 365 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern uint16 IfxScuWdt_getCpuWatchdogPassword(void);
+
+
+
+
+extern boolean IfxScuWdt_getCpuWatchdogEndInit(void);
+# 379 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern uint16 IfxScuWdt_getSafetyWatchdogPassword(void);
+# 389 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_serviceCpuWatchdog(uint16 password);
+# 399 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern void IfxScuWdt_serviceSafetyWatchdog(uint16 password);
+# 411 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
+extern boolean IfxScuWdt_enableWatchdogWithDebugger(void);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxScuWdt_clearCpuEndinitInline(Ifx_SCU_WDTCPU *watchdog, uint16 password)
+{
+    if (watchdog->CON0.B.LCK)
+    {
+
+        watchdog->CON0.U = (1 << (0u)) |
+                           (0 << (1u)) |
+                           (password << (2u)) |
+                           (watchdog->CON0.B.REL << (16u));
+    }
+
+
+    watchdog->CON0.U = (0 << (0u)) |
+                       (1 << (1u)) |
+                       (password << (2u)) |
+                       (watchdog->CON0.B.REL << (16u));
+
+
+    while (watchdog->CON0.B.ENDINIT == 1)
+    {}
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxScuWdt_clearSafetyEndinitInline(uint16 password)
+{
+    if ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.LCK)
+    {
+
+        (*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).U = (1 << (0u)) |
+                          (0 << (1u)) |
+                          (password << (2u)) |
+                          ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.REL << (16u));
+    }
+
+
+    (*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).U = (0 << (0u)) |
+                      (1 << (1u)) |
+                      (password << (2u)) |
+                      ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.REL << (16u));
+
+
+    while ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.ENDINIT == 1)
+    {}
+}
+
+
+static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_getCpuWatchdogPasswordInline(Ifx_SCU_WDTCPU *watchdog)
+{
+    uint16 password;
+
+
+
+
+    password = watchdog->CON0.B.PW;
+    password ^= 0x003F;
+
+    return password;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxScuWdt_getCpuWatchdogEndInitInline(Ifx_SCU_WDTCPU *watchdog)
+{
+    return (boolean)watchdog->CON0.B.ENDINIT;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxScuWdt_getSafetyWatchdogEndInit(void)
+{
+    return (boolean)(*(Ifx_SCU*)0xF0036000u).WDTS.CON0.B.ENDINIT;
+}
+
+
+static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_getSafetyWatchdogPasswordInline(void)
+{
+    uint16 password;
+    Ifx_SCU_WDTS *watchdog = &(*(Ifx_SCU*)0xF0036000u).WDTS;
+
+
+
+
+    password = watchdog->CON0.B.PW;
+    password ^= 0x003F;
+
+    return password;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxScuWdt_setCpuEndinitInline(Ifx_SCU_WDTCPU *watchdog, uint16 password)
+{
+    if (watchdog->CON0.B.LCK)
+    {
+
+        watchdog->CON0.U = (1 << (0u)) |
+                           (0 << (1u)) |
+                           (password << (2u)) |
+                           (watchdog->CON0.B.REL << (16u));
+    }
+
+
+    watchdog->CON0.U = (1 << (0u)) |
+                       (1 << (1u)) |
+                       (password << (2u)) |
+                       (watchdog->CON0.B.REL << (16u));
+
+
+    while (watchdog->CON0.B.ENDINIT == 0)
+    {}
+
+
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxScuWdt_setSafetyEndinitInline(uint16 password)
+{
+    if ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.LCK)
+    {
+
+        (*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).U = (1 << (0u)) |
+                          (0 << (1u)) |
+                          (password << (2u)) |
+                          ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.REL << (16u));
+    }
+
+
+    (*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).U = (1 << (0u)) |
+                      (1 << (1u)) |
+                      (password << (2u)) |
+                      ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.REL << (16u));
+
+
+    while ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.ENDINIT == 0)
+    {}
+}
+# 38 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h" 2
+# 47 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h"
+typedef struct
+{
+    float32 sysFreq;
+    float32 cpuFreq;
+    float32 pllFreq;
+    float32 stmFreq;
+} AppInfo;
+
+
+typedef struct
+{
+    AppInfo info;
+} App_Cpu0;
+
+
+
+
+
+extern App_Cpu0 g_AppCpu0;
+# 29 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c" 2
+# 1 "0_Src/BaseSw/Service/CpuGeneric/SysSe/Bsp/Bsp.h" 1
+# 35 "0_Src/BaseSw/Service/CpuGeneric/SysSe/Bsp/Bsp.h"
 # 1 "0_Src/BaseSw/Service/CpuGeneric/_Utilities/Ifx_Assert.h" 1
 # 36 "0_Src/BaseSw/Service/CpuGeneric/SysSe/Bsp/Bsp.h" 2
 
@@ -1725,14 +4022,7 @@ static inline __attribute__ ((always_inline)) void __st64_lu(void *addr, uint32 
 # 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxCpu_reg.h" 1
 # 54 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxCpu_reg.h"
 # 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxCpu_regdef.h" 1
-# 39 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxCpu_regdef.h"
-# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/Ifx_TypesReg.h" 1
-# 40 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxCpu_regdef.h" 2
-
-
-
-
-
+# 45 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxCpu_regdef.h"
 typedef struct _Ifx_CPU_A_Bits
 {
     volatile unsigned int ADDR:32;
@@ -3745,2013 +6035,7 @@ typedef volatile struct _Ifx_SRC
 } Ifx_SRC;
 # 37 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxSrc_reg.h" 2
 # 52 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/IfxCpu.h" 2
-# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_reg.h" 1
-# 36 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_reg.h"
-# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_regdef.h" 1
-# 45 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_regdef.h"
-typedef struct _Ifx_SCU_ACCEN0_Bits
-{
-    unsigned int EN0:1;
-    unsigned int EN1:1;
-    unsigned int EN2:1;
-    unsigned int EN3:1;
-    unsigned int EN4:1;
-    unsigned int EN5:1;
-    unsigned int EN6:1;
-    unsigned int EN7:1;
-    unsigned int EN8:1;
-    unsigned int EN9:1;
-    unsigned int EN10:1;
-    unsigned int EN11:1;
-    unsigned int EN12:1;
-    unsigned int EN13:1;
-    unsigned int EN14:1;
-    unsigned int EN15:1;
-    unsigned int EN16:1;
-    unsigned int EN17:1;
-    unsigned int EN18:1;
-    unsigned int EN19:1;
-    unsigned int EN20:1;
-    unsigned int EN21:1;
-    unsigned int EN22:1;
-    unsigned int EN23:1;
-    unsigned int EN24:1;
-    unsigned int EN25:1;
-    unsigned int EN26:1;
-    unsigned int EN27:1;
-    unsigned int EN28:1;
-    unsigned int EN29:1;
-    unsigned int EN30:1;
-    unsigned int EN31:1;
-} Ifx_SCU_ACCEN0_Bits;
 
-
-typedef struct _Ifx_SCU_ACCEN1_Bits
-{
-    unsigned int reserved_0:32;
-} Ifx_SCU_ACCEN1_Bits;
-
-
-typedef struct _Ifx_SCU_ARSTDIS_Bits
-{
-    unsigned int STM0DIS:1;
-    unsigned int STM1DIS:1;
-    unsigned int STM2DIS:1;
-    unsigned int reserved_3:29;
-} Ifx_SCU_ARSTDIS_Bits;
-
-
-typedef struct _Ifx_SCU_CCUCON0_Bits
-{
-    unsigned int BAUD1DIV:4;
-    unsigned int BAUD2DIV:4;
-    unsigned int SRIDIV:4;
-    unsigned int LPDIV:4;
-    unsigned int SPBDIV:4;
-    unsigned int FSI2DIV:2;
-    unsigned int reserved_22:2;
-    unsigned int FSIDIV:2;
-    unsigned int reserved_26:2;
-    unsigned int CLKSEL:2;
-    unsigned int UP:1;
-    unsigned int LCK:1;
-} Ifx_SCU_CCUCON0_Bits;
-
-
-typedef struct _Ifx_SCU_CCUCON1_Bits
-{
-    unsigned int CANDIV:4;
-    unsigned int ERAYDIV:4;
-    unsigned int STMDIV:4;
-    unsigned int GTMDIV:4;
-    unsigned int ETHDIV:4;
-    unsigned int ASCLINFDIV:4;
-    unsigned int ASCLINSDIV:4;
-    unsigned int INSEL:2;
-    unsigned int UP:1;
-    unsigned int LCK:1;
-} Ifx_SCU_CCUCON1_Bits;
-
-
-typedef struct _Ifx_SCU_CCUCON2_Bits
-{
-    unsigned int BBBDIV:4;
-    unsigned int reserved_4:26;
-    unsigned int UP:1;
-    unsigned int LCK:1;
-} Ifx_SCU_CCUCON2_Bits;
-
-
-typedef struct _Ifx_SCU_CCUCON3_Bits
-{
-    unsigned int PLLDIV:6;
-    unsigned int PLLSEL:2;
-    unsigned int PLLERAYDIV:6;
-    unsigned int PLLERAYSEL:2;
-    unsigned int SRIDIV:6;
-    unsigned int SRISEL:2;
-    unsigned int reserved_24:5;
-    unsigned int SLCK:1;
-    unsigned int UP:1;
-    unsigned int LCK:1;
-} Ifx_SCU_CCUCON3_Bits;
-
-
-typedef struct _Ifx_SCU_CCUCON4_Bits
-{
-    unsigned int SPBDIV:6;
-    unsigned int SPBSEL:2;
-    unsigned int GTMDIV:6;
-    unsigned int GTMSEL:2;
-    unsigned int STMDIV:6;
-    unsigned int STMSEL:2;
-    unsigned int reserved_24:5;
-    unsigned int SLCK:1;
-    unsigned int UP:1;
-    unsigned int LCK:1;
-} Ifx_SCU_CCUCON4_Bits;
-
-
-typedef struct _Ifx_SCU_CCUCON5_Bits
-{
-    unsigned int MAXDIV:4;
-    unsigned int reserved_4:26;
-    unsigned int UP:1;
-    unsigned int LCK:1;
-} Ifx_SCU_CCUCON5_Bits;
-
-
-typedef struct _Ifx_SCU_CCUCON6_Bits
-{
-    unsigned int CPU0DIV:6;
-    unsigned int reserved_6:26;
-} Ifx_SCU_CCUCON6_Bits;
-
-
-typedef struct _Ifx_SCU_CCUCON7_Bits
-{
-    unsigned int CPU1DIV:6;
-    unsigned int reserved_6:26;
-} Ifx_SCU_CCUCON7_Bits;
-
-
-typedef struct _Ifx_SCU_CCUCON8_Bits
-{
-    unsigned int CPU2DIV:6;
-    unsigned int reserved_6:26;
-} Ifx_SCU_CCUCON8_Bits;
-
-
-typedef struct _Ifx_SCU_CHIPID_Bits
-{
-    unsigned int CHREV:6;
-    unsigned int CHTEC:2;
-    unsigned int CHID:8;
-    unsigned int EEA:1;
-    unsigned int UCODE:7;
-    unsigned int FSIZE:4;
-    unsigned int SP:2;
-    unsigned int SEC:1;
-    unsigned int reserved_31:1;
-} Ifx_SCU_CHIPID_Bits;
-
-
-typedef struct _Ifx_SCU_DTSCON_Bits
-{
-    unsigned int PWD:1;
-    unsigned int START:1;
-    unsigned int reserved_2:2;
-    unsigned int CAL:22;
-    unsigned int reserved_26:5;
-    unsigned int SLCK:1;
-} Ifx_SCU_DTSCON_Bits;
-
-
-typedef struct _Ifx_SCU_DTSLIM_Bits
-{
-    unsigned int LOWER:10;
-    unsigned int reserved_10:5;
-    unsigned int LLU:1;
-    unsigned int UPPER:10;
-    unsigned int reserved_26:4;
-    unsigned int SLCK:1;
-    unsigned int UOF:1;
-} Ifx_SCU_DTSLIM_Bits;
-
-
-typedef struct _Ifx_SCU_DTSSTAT_Bits
-{
-    unsigned int RESULT:10;
-    unsigned int reserved_10:4;
-    unsigned int RDY:1;
-    unsigned int BUSY:1;
-    unsigned int reserved_16:16;
-} Ifx_SCU_DTSSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_EICR_Bits
-{
-    unsigned int reserved_0:4;
-    unsigned int EXIS0:3;
-    unsigned int reserved_7:1;
-    unsigned int FEN0:1;
-    unsigned int REN0:1;
-    unsigned int LDEN0:1;
-    unsigned int EIEN0:1;
-    unsigned int INP0:3;
-    unsigned int reserved_15:5;
-    unsigned int EXIS1:3;
-    unsigned int reserved_23:1;
-    unsigned int FEN1:1;
-    unsigned int REN1:1;
-    unsigned int LDEN1:1;
-    unsigned int EIEN1:1;
-    unsigned int INP1:3;
-    unsigned int reserved_31:1;
-} Ifx_SCU_EICR_Bits;
-
-
-typedef struct _Ifx_SCU_EIFR_Bits
-{
-    unsigned int INTF0:1;
-    unsigned int INTF1:1;
-    unsigned int INTF2:1;
-    unsigned int INTF3:1;
-    unsigned int INTF4:1;
-    unsigned int INTF5:1;
-    unsigned int INTF6:1;
-    unsigned int INTF7:1;
-    unsigned int reserved_8:24;
-} Ifx_SCU_EIFR_Bits;
-
-
-typedef struct _Ifx_SCU_EMSR_Bits
-{
-    unsigned int POL:1;
-    unsigned int MODE:1;
-    unsigned int ENON:1;
-    unsigned int PSEL:1;
-    unsigned int reserved_4:12;
-    unsigned int EMSF:1;
-    unsigned int SEMSF:1;
-    unsigned int reserved_18:6;
-    unsigned int EMSFM:2;
-    unsigned int SEMSFM:2;
-    unsigned int reserved_28:4;
-} Ifx_SCU_EMSR_Bits;
-
-
-typedef struct _Ifx_SCU_ESRCFG_Bits
-{
-    unsigned int reserved_0:7;
-    unsigned int EDCON:2;
-    unsigned int reserved_9:23;
-} Ifx_SCU_ESRCFG_Bits;
-
-
-typedef struct _Ifx_SCU_ESROCFG_Bits
-{
-    unsigned int ARI:1;
-    unsigned int ARC:1;
-    unsigned int reserved_2:30;
-} Ifx_SCU_ESROCFG_Bits;
-
-
-typedef struct _Ifx_SCU_EVR13CON_Bits
-{
-    unsigned int reserved_0:28;
-    unsigned int EVR13OFF:1;
-    unsigned int BPEVR13OFF:1;
-    unsigned int reserved_30:1;
-    unsigned int LCK:1;
-} Ifx_SCU_EVR13CON_Bits;
-
-
-typedef struct _Ifx_SCU_EVR33CON_Bits
-{
-    unsigned int reserved_0:28;
-    unsigned int EVR33OFF:1;
-    unsigned int BPEVR33OFF:1;
-    unsigned int reserved_30:1;
-    unsigned int LCK:1;
-} Ifx_SCU_EVR33CON_Bits;
-
-
-typedef struct _Ifx_SCU_EVRADCSTAT_Bits
-{
-    unsigned int ADC13V:8;
-    unsigned int ADC33V:8;
-    unsigned int ADCSWDV:8;
-    unsigned int reserved_24:7;
-    unsigned int VAL:1;
-} Ifx_SCU_EVRADCSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_EVRDVSTAT_Bits
-{
-    unsigned int DVS13TRIM:8;
-    unsigned int reserved_8:8;
-    unsigned int DVS33TRIM:8;
-    unsigned int reserved_24:7;
-    unsigned int VAL:1;
-} Ifx_SCU_EVRDVSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_EVRMONCTRL_Bits
-{
-    unsigned int EVR13OVMOD:2;
-    unsigned int reserved_2:2;
-    unsigned int EVR13UVMOD:2;
-    unsigned int reserved_6:2;
-    unsigned int EVR33OVMOD:2;
-    unsigned int reserved_10:2;
-    unsigned int EVR33UVMOD:2;
-    unsigned int reserved_14:2;
-    unsigned int SWDOVMOD:2;
-    unsigned int reserved_18:2;
-    unsigned int SWDUVMOD:2;
-    unsigned int reserved_22:8;
-    unsigned int SLCK:1;
-    unsigned int reserved_31:1;
-} Ifx_SCU_EVRMONCTRL_Bits;
-
-
-typedef struct _Ifx_SCU_EVROVMON_Bits
-{
-    unsigned int EVR13OVVAL:8;
-    unsigned int EVR33OVVAL:8;
-    unsigned int SWDOVVAL:8;
-    unsigned int reserved_24:6;
-    unsigned int SLCK:1;
-    unsigned int LCK:1;
-} Ifx_SCU_EVROVMON_Bits;
-
-
-typedef struct _Ifx_SCU_EVRRSTCON_Bits
-{
-    unsigned int RST13TRIM:8;
-    unsigned int reserved_8:16;
-    unsigned int RST13OFF:1;
-    unsigned int BPRST13OFF:1;
-    unsigned int RST33OFF:1;
-    unsigned int BPRST33OFF:1;
-    unsigned int RSTSWDOFF:1;
-    unsigned int BPRSTSWDOFF:1;
-    unsigned int SLCK:1;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRRSTCON_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCOEFF1_Bits
-{
-    unsigned int SD5P:8;
-    unsigned int SD5I:8;
-    unsigned int SD5D:8;
-    unsigned int reserved_24:7;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCOEFF1_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCOEFF2_Bits
-{
-    unsigned int SD33P:8;
-    unsigned int SD33I:8;
-    unsigned int SD33D:8;
-    unsigned int reserved_24:7;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCOEFF2_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCOEFF3_Bits
-{
-    unsigned int CT5REG0:8;
-    unsigned int CT5REG1:8;
-    unsigned int CT5REG2:8;
-    unsigned int reserved_24:7;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCOEFF3_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCOEFF4_Bits
-{
-    unsigned int CT5REG3:8;
-    unsigned int CT5REG4:8;
-    unsigned int reserved_16:15;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCOEFF4_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCOEFF5_Bits
-{
-    unsigned int CT33REG0:8;
-    unsigned int CT33REG1:8;
-    unsigned int CT33REG2:8;
-    unsigned int reserved_24:7;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCOEFF5_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCOEFF6_Bits
-{
-    unsigned int CT33REG3:8;
-    unsigned int CT33REG4:8;
-    unsigned int reserved_16:15;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCOEFF6_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCTRL1_Bits
-{
-    unsigned int SDFREQSPRD:16;
-    unsigned int SDFREQ:8;
-    unsigned int SDSTEP:4;
-    unsigned int reserved_28:2;
-    unsigned int SDSAMPLE:1;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCTRL1_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCTRL2_Bits
-{
-    unsigned int DRVP:8;
-    unsigned int SDMINMAXDC:8;
-    unsigned int DRVN:8;
-    unsigned int SDLUT:6;
-    unsigned int reserved_30:1;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCTRL2_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCTRL3_Bits
-{
-    unsigned int SDPWMPRE:8;
-    unsigned int SDPID:8;
-    unsigned int SDVOKLVL:8;
-    unsigned int reserved_24:7;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCTRL3_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSDCTRL4_Bits
-{
-    unsigned int reserved_0:8;
-    unsigned int SYNCDIV:3;
-    unsigned int reserved_11:20;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRSDCTRL4_Bits;
-
-
-typedef struct _Ifx_SCU_EVRSTAT_Bits
-{
-    unsigned int EVR13:1;
-    unsigned int OV13:1;
-    unsigned int EVR33:1;
-    unsigned int OV33:1;
-    unsigned int OVSWD:1;
-    unsigned int UV13:1;
-    unsigned int UV33:1;
-    unsigned int UVSWD:1;
-    unsigned int EXTPASS13:1;
-    unsigned int EXTPASS33:1;
-    unsigned int BGPROK:1;
-    unsigned int reserved_11:21;
-} Ifx_SCU_EVRSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_EVRTRIM_Bits
-{
-    unsigned int EVR13TRIM:8;
-    unsigned int SDVOUTSEL:8;
-    unsigned int reserved_16:14;
-    unsigned int SLCK:1;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRTRIM_Bits;
-
-
-typedef struct _Ifx_SCU_EVRUVMON_Bits
-{
-    unsigned int EVR13UVVAL:8;
-    unsigned int EVR33UVVAL:8;
-    unsigned int SWDUVVAL:8;
-    unsigned int reserved_24:6;
-    unsigned int SLCK:1;
-    unsigned int LCK:1;
-} Ifx_SCU_EVRUVMON_Bits;
-
-
-typedef struct _Ifx_SCU_EXTCON_Bits
-{
-    unsigned int EN0:1;
-    unsigned int reserved_1:1;
-    unsigned int SEL0:4;
-    unsigned int reserved_6:10;
-    unsigned int EN1:1;
-    unsigned int NSEL:1;
-    unsigned int SEL1:4;
-    unsigned int reserved_22:2;
-    unsigned int DIV1:8;
-} Ifx_SCU_EXTCON_Bits;
-
-
-typedef struct _Ifx_SCU_FDR_Bits
-{
-    unsigned int STEP:10;
-    unsigned int reserved_10:4;
-    unsigned int DM:2;
-    unsigned int RESULT:10;
-    unsigned int reserved_26:5;
-    unsigned int DISCLK:1;
-} Ifx_SCU_FDR_Bits;
-
-
-typedef struct _Ifx_SCU_FMR_Bits
-{
-    unsigned int FS0:1;
-    unsigned int FS1:1;
-    unsigned int FS2:1;
-    unsigned int FS3:1;
-    unsigned int FS4:1;
-    unsigned int FS5:1;
-    unsigned int FS6:1;
-    unsigned int FS7:1;
-    unsigned int reserved_8:8;
-    unsigned int FC0:1;
-    unsigned int FC1:1;
-    unsigned int FC2:1;
-    unsigned int FC3:1;
-    unsigned int FC4:1;
-    unsigned int FC5:1;
-    unsigned int FC6:1;
-    unsigned int FC7:1;
-    unsigned int reserved_24:8;
-} Ifx_SCU_FMR_Bits;
-
-
-typedef struct _Ifx_SCU_ID_Bits
-{
-    unsigned int MODREV:8;
-    unsigned int MODTYPE:8;
-    unsigned int MODNUMBER:16;
-} Ifx_SCU_ID_Bits;
-
-
-typedef struct _Ifx_SCU_IGCR_Bits
-{
-    unsigned int IPEN00:1;
-    unsigned int IPEN01:1;
-    unsigned int IPEN02:1;
-    unsigned int IPEN03:1;
-    unsigned int IPEN04:1;
-    unsigned int IPEN05:1;
-    unsigned int IPEN06:1;
-    unsigned int IPEN07:1;
-    unsigned int reserved_8:5;
-    unsigned int GEEN0:1;
-    unsigned int IGP0:2;
-    unsigned int IPEN10:1;
-    unsigned int IPEN11:1;
-    unsigned int IPEN12:1;
-    unsigned int IPEN13:1;
-    unsigned int IPEN14:1;
-    unsigned int IPEN15:1;
-    unsigned int IPEN16:1;
-    unsigned int IPEN17:1;
-    unsigned int reserved_24:5;
-    unsigned int GEEN1:1;
-    unsigned int IGP1:2;
-} Ifx_SCU_IGCR_Bits;
-
-
-typedef struct _Ifx_SCU_IN_Bits
-{
-    unsigned int P0:1;
-    unsigned int P1:1;
-    unsigned int reserved_2:30;
-} Ifx_SCU_IN_Bits;
-
-
-typedef struct _Ifx_SCU_IOCR_Bits
-{
-    unsigned int reserved_0:4;
-    unsigned int PC0:4;
-    unsigned int reserved_8:4;
-    unsigned int PC1:4;
-    unsigned int reserved_16:16;
-} Ifx_SCU_IOCR_Bits;
-
-
-typedef struct _Ifx_SCU_LBISTCTRL0_Bits
-{
-    unsigned int LBISTREQ:1;
-    unsigned int LBISTREQP:1;
-    unsigned int PATTERNS:14;
-    unsigned int reserved_16:16;
-} Ifx_SCU_LBISTCTRL0_Bits;
-
-
-typedef struct _Ifx_SCU_LBISTCTRL1_Bits
-{
-    unsigned int SEED:23;
-    unsigned int reserved_23:1;
-    unsigned int SPLITSH:3;
-    unsigned int BODY:1;
-    unsigned int LBISTFREQU:4;
-} Ifx_SCU_LBISTCTRL1_Bits;
-
-
-typedef struct _Ifx_SCU_LBISTCTRL2_Bits
-{
-    unsigned int SIGNATURE:24;
-    unsigned int reserved_24:7;
-    unsigned int LBISTDONE:1;
-} Ifx_SCU_LBISTCTRL2_Bits;
-
-
-typedef struct _Ifx_SCU_LCLCON_Bits
-{
-    unsigned int reserved_0:16;
-    unsigned int LS:1;
-    unsigned int reserved_17:14;
-    unsigned int LSEN:1;
-} Ifx_SCU_LCLCON_Bits;
-
-
-typedef struct _Ifx_SCU_LCLTEST_Bits
-{
-    unsigned int LCLT0:1;
-    unsigned int LCLT1:1;
-    unsigned int reserved_2:30;
-} Ifx_SCU_LCLTEST_Bits;
-
-
-typedef struct _Ifx_SCU_MANID_Bits
-{
-    unsigned int DEPT:5;
-    unsigned int MANUF:11;
-    unsigned int reserved_16:16;
-} Ifx_SCU_MANID_Bits;
-
-
-typedef struct _Ifx_SCU_OMR_Bits
-{
-    unsigned int PS0:1;
-    unsigned int PS1:1;
-    unsigned int reserved_2:14;
-    unsigned int PCL0:1;
-    unsigned int PCL1:1;
-    unsigned int reserved_18:14;
-} Ifx_SCU_OMR_Bits;
-
-
-typedef struct _Ifx_SCU_OSCCON_Bits
-{
-    unsigned int reserved_0:1;
-    unsigned int PLLLV:1;
-    unsigned int OSCRES:1;
-    unsigned int GAINSEL:2;
-    unsigned int MODE:2;
-    unsigned int SHBY:1;
-    unsigned int PLLHV:1;
-    unsigned int reserved_9:1;
-    unsigned int X1D:1;
-    unsigned int X1DEN:1;
-    unsigned int reserved_12:4;
-    unsigned int OSCVAL:5;
-    unsigned int reserved_21:2;
-    unsigned int APREN:1;
-    unsigned int CAP0EN:1;
-    unsigned int CAP1EN:1;
-    unsigned int CAP2EN:1;
-    unsigned int CAP3EN:1;
-    unsigned int reserved_28:4;
-} Ifx_SCU_OSCCON_Bits;
-
-
-typedef struct _Ifx_SCU_OUT_Bits
-{
-    unsigned int P0:1;
-    unsigned int P1:1;
-    unsigned int reserved_2:30;
-} Ifx_SCU_OUT_Bits;
-
-
-typedef struct _Ifx_SCU_OVCCON_Bits
-{
-    unsigned int CSEL0:1;
-    unsigned int CSEL1:1;
-    unsigned int CSEL2:1;
-    unsigned int reserved_3:13;
-    unsigned int OVSTRT:1;
-    unsigned int OVSTP:1;
-    unsigned int DCINVAL:1;
-    unsigned int reserved_19:5;
-    unsigned int OVCONF:1;
-    unsigned int POVCONF:1;
-    unsigned int reserved_26:6;
-} Ifx_SCU_OVCCON_Bits;
-
-
-typedef struct _Ifx_SCU_OVCENABLE_Bits
-{
-    unsigned int OVEN0:1;
-    unsigned int OVEN1:1;
-    unsigned int OVEN2:1;
-    unsigned int reserved_3:29;
-} Ifx_SCU_OVCENABLE_Bits;
-
-
-typedef struct _Ifx_SCU_PDISC_Bits
-{
-    unsigned int PDIS0:1;
-    unsigned int PDIS1:1;
-    unsigned int reserved_2:30;
-} Ifx_SCU_PDISC_Bits;
-
-
-typedef struct _Ifx_SCU_PDR_Bits
-{
-    unsigned int PD0:3;
-    unsigned int PL0:1;
-    unsigned int PD1:3;
-    unsigned int PL1:1;
-    unsigned int reserved_8:24;
-} Ifx_SCU_PDR_Bits;
-
-
-typedef struct _Ifx_SCU_PDRR_Bits
-{
-    unsigned int PDR0:1;
-    unsigned int PDR1:1;
-    unsigned int PDR2:1;
-    unsigned int PDR3:1;
-    unsigned int PDR4:1;
-    unsigned int PDR5:1;
-    unsigned int PDR6:1;
-    unsigned int PDR7:1;
-    unsigned int reserved_8:24;
-} Ifx_SCU_PDRR_Bits;
-
-
-typedef struct _Ifx_SCU_PLLCON0_Bits
-{
-    unsigned int VCOBYP:1;
-    unsigned int VCOPWD:1;
-    unsigned int MODEN:1;
-    unsigned int reserved_3:1;
-    unsigned int SETFINDIS:1;
-    unsigned int CLRFINDIS:1;
-    unsigned int OSCDISCDIS:1;
-    unsigned int reserved_7:2;
-    unsigned int NDIV:7;
-    unsigned int PLLPWD:1;
-    unsigned int reserved_17:1;
-    unsigned int RESLD:1;
-    unsigned int reserved_19:5;
-    unsigned int PDIV:4;
-    unsigned int reserved_28:4;
-} Ifx_SCU_PLLCON0_Bits;
-
-
-typedef struct _Ifx_SCU_PLLCON1_Bits
-{
-    unsigned int K2DIV:7;
-    unsigned int reserved_7:1;
-    unsigned int K3DIV:7;
-    unsigned int reserved_15:1;
-    unsigned int K1DIV:7;
-    unsigned int reserved_23:9;
-} Ifx_SCU_PLLCON1_Bits;
-
-
-typedef struct _Ifx_SCU_PLLCON2_Bits
-{
-    unsigned int MODCFG:16;
-    unsigned int reserved_16:16;
-} Ifx_SCU_PLLCON2_Bits;
-
-
-typedef struct _Ifx_SCU_PLLERAYCON0_Bits
-{
-    unsigned int VCOBYP:1;
-    unsigned int VCOPWD:1;
-    unsigned int reserved_2:2;
-    unsigned int SETFINDIS:1;
-    unsigned int CLRFINDIS:1;
-    unsigned int OSCDISCDIS:1;
-    unsigned int reserved_7:2;
-    unsigned int NDIV:5;
-    unsigned int reserved_14:2;
-    unsigned int PLLPWD:1;
-    unsigned int reserved_17:1;
-    unsigned int RESLD:1;
-    unsigned int reserved_19:5;
-    unsigned int PDIV:4;
-    unsigned int reserved_28:4;
-} Ifx_SCU_PLLERAYCON0_Bits;
-
-
-typedef struct _Ifx_SCU_PLLERAYCON1_Bits
-{
-    unsigned int K2DIV:7;
-    unsigned int reserved_7:1;
-    unsigned int K3DIV:4;
-    unsigned int reserved_12:4;
-    unsigned int K1DIV:7;
-    unsigned int reserved_23:9;
-} Ifx_SCU_PLLERAYCON1_Bits;
-
-
-typedef struct _Ifx_SCU_PLLERAYSTAT_Bits
-{
-    unsigned int VCOBYST:1;
-    unsigned int PWDSTAT:1;
-    unsigned int VCOLOCK:1;
-    unsigned int FINDIS:1;
-    unsigned int K1RDY:1;
-    unsigned int K2RDY:1;
-    unsigned int reserved_6:26;
-} Ifx_SCU_PLLERAYSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_PLLSTAT_Bits
-{
-    unsigned int VCOBYST:1;
-    unsigned int reserved_1:1;
-    unsigned int VCOLOCK:1;
-    unsigned int FINDIS:1;
-    unsigned int K1RDY:1;
-    unsigned int K2RDY:1;
-    unsigned int reserved_6:1;
-    unsigned int MODRUN:1;
-    unsigned int reserved_8:24;
-} Ifx_SCU_PLLSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_PMCSR_Bits
-{
-    unsigned int REQSLP:2;
-    unsigned int SMUSLP:1;
-    unsigned int reserved_3:5;
-    unsigned int PMST:3;
-    unsigned int reserved_11:21;
-} Ifx_SCU_PMCSR_Bits;
-
-
-typedef struct _Ifx_SCU_PMSWCR0_Bits
-{
-    unsigned int reserved_0:1;
-    unsigned int ESR1WKEN:1;
-    unsigned int PINAWKEN:1;
-    unsigned int PINBWKEN:1;
-    unsigned int ESR0DFEN:1;
-    unsigned int ESR0EDCON:2;
-    unsigned int ESR1DFEN:1;
-    unsigned int ESR1EDCON:2;
-    unsigned int PINADFEN:1;
-    unsigned int PINAEDCON:2;
-    unsigned int PINBDFEN:1;
-    unsigned int PINBEDCON:2;
-    unsigned int reserved_16:1;
-    unsigned int STBYRAMSEL:2;
-    unsigned int reserved_19:2;
-    unsigned int TRISTEN:1;
-    unsigned int TRISTREQ:1;
-    unsigned int PORSTDF:1;
-    unsigned int PWRWKEN:1;
-    unsigned int DCDCSYNC:1;
-    unsigned int BLNKFIL:3;
-    unsigned int ESR0TRIST:1;
-    unsigned int reserved_30:1;
-    unsigned int LCK:1;
-} Ifx_SCU_PMSWCR0_Bits;
-
-
-typedef struct _Ifx_SCU_PMSWCR1_Bits
-{
-    unsigned int reserved_0:8;
-    unsigned int CPUIDLSEL:3;
-    unsigned int reserved_11:1;
-    unsigned int IRADIS:1;
-    unsigned int reserved_13:11;
-    unsigned int CPUSEL:3;
-    unsigned int STBYEVEN:1;
-    unsigned int STBYEV:3;
-    unsigned int reserved_31:1;
-} Ifx_SCU_PMSWCR1_Bits;
-
-
-typedef struct _Ifx_SCU_PMSWSTAT_Bits
-{
-    unsigned int reserved_0:2;
-    unsigned int ESR1WKP:1;
-    unsigned int ESR1OVRUN:1;
-    unsigned int PINAWKP:1;
-    unsigned int PINAOVRUN:1;
-    unsigned int PINBWKP:1;
-    unsigned int PINBOVRUN:1;
-    unsigned int PWRWKP:1;
-    unsigned int PORSTDF:1;
-    unsigned int HWCFGEVR:3;
-    unsigned int STBYRAM:2;
-    unsigned int TRIST:1;
-    unsigned int reserved_16:4;
-    unsigned int ESR1WKEN:1;
-    unsigned int PINAWKEN:1;
-    unsigned int PINBWKEN:1;
-    unsigned int PWRWKEN:1;
-    unsigned int BLNKFIL:3;
-    unsigned int ESR0TRIST:1;
-    unsigned int reserved_28:4;
-} Ifx_SCU_PMSWSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_PMSWSTATCLR_Bits
-{
-    unsigned int reserved_0:2;
-    unsigned int ESR1WKPCLR:1;
-    unsigned int ESR1OVRUNCLR:1;
-    unsigned int PINAWKPCLR:1;
-    unsigned int PINAOVRUNCLR:1;
-    unsigned int PINBWKPCLR:1;
-    unsigned int PINBOVRUNCLR:1;
-    unsigned int PWRWKPCLR:1;
-    unsigned int reserved_9:23;
-} Ifx_SCU_PMSWSTATCLR_Bits;
-
-
-typedef struct _Ifx_SCU_RSTCON2_Bits
-{
-    unsigned int reserved_0:1;
-    unsigned int CLRC:1;
-    unsigned int reserved_2:10;
-    unsigned int CSS0:1;
-    unsigned int CSS1:1;
-    unsigned int CSS2:1;
-    unsigned int reserved_15:1;
-    unsigned int USRINFO:16;
-} Ifx_SCU_RSTCON2_Bits;
-
-
-typedef struct _Ifx_SCU_RSTCON_Bits
-{
-    unsigned int ESR0:2;
-    unsigned int ESR1:2;
-    unsigned int reserved_4:2;
-    unsigned int SMU:2;
-    unsigned int SW:2;
-    unsigned int STM0:2;
-    unsigned int STM1:2;
-    unsigned int STM2:2;
-    unsigned int reserved_16:16;
-} Ifx_SCU_RSTCON_Bits;
-
-
-typedef struct _Ifx_SCU_RSTSTAT_Bits
-{
-    unsigned int ESR0:1;
-    unsigned int ESR1:1;
-    unsigned int reserved_2:1;
-    unsigned int SMU:1;
-    unsigned int SW:1;
-    unsigned int STM0:1;
-    unsigned int STM1:1;
-    unsigned int STM2:1;
-    unsigned int reserved_8:8;
-    unsigned int PORST:1;
-    unsigned int reserved_17:1;
-    unsigned int CB0:1;
-    unsigned int CB1:1;
-    unsigned int CB3:1;
-    unsigned int reserved_21:2;
-    unsigned int EVR13:1;
-    unsigned int EVR33:1;
-    unsigned int SWD:1;
-    unsigned int reserved_26:2;
-    unsigned int STBYR:1;
-    unsigned int reserved_29:3;
-} Ifx_SCU_RSTSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_SAFECON_Bits
-{
-    unsigned int HBT:1;
-    unsigned int reserved_1:31;
-} Ifx_SCU_SAFECON_Bits;
-
-
-typedef struct _Ifx_SCU_STSTAT_Bits
-{
-    unsigned int HWCFG:8;
-    unsigned int FTM:7;
-    unsigned int MODE:1;
-    unsigned int reserved_16:1;
-    unsigned int LUDIS:1;
-    unsigned int reserved_18:1;
-    unsigned int TRSTL:1;
-    unsigned int SPDEN:1;
-    unsigned int reserved_21:3;
-    unsigned int RAMINT:1;
-    unsigned int reserved_25:7;
-} Ifx_SCU_STSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_SWRSTCON_Bits
-{
-    unsigned int reserved_0:1;
-    unsigned int SWRSTREQ:1;
-    unsigned int reserved_2:30;
-} Ifx_SCU_SWRSTCON_Bits;
-
-
-typedef struct _Ifx_SCU_SYSCON_Bits
-{
-    unsigned int CCTRIG0:1;
-    unsigned int reserved_1:1;
-    unsigned int RAMINTM:2;
-    unsigned int SETLUDIS:1;
-    unsigned int reserved_5:3;
-    unsigned int DATM:1;
-    unsigned int reserved_9:23;
-} Ifx_SCU_SYSCON_Bits;
-
-
-typedef struct _Ifx_SCU_TRAPCLR_Bits
-{
-    unsigned int ESR0T:1;
-    unsigned int ESR1T:1;
-    unsigned int reserved_2:1;
-    unsigned int SMUT:1;
-    unsigned int reserved_4:28;
-} Ifx_SCU_TRAPCLR_Bits;
-
-
-typedef struct _Ifx_SCU_TRAPDIS_Bits
-{
-    unsigned int ESR0T:1;
-    unsigned int ESR1T:1;
-    unsigned int reserved_2:1;
-    unsigned int SMUT:1;
-    unsigned int reserved_4:28;
-} Ifx_SCU_TRAPDIS_Bits;
-
-
-typedef struct _Ifx_SCU_TRAPSET_Bits
-{
-    unsigned int ESR0T:1;
-    unsigned int ESR1T:1;
-    unsigned int reserved_2:1;
-    unsigned int SMUT:1;
-    unsigned int reserved_4:28;
-} Ifx_SCU_TRAPSET_Bits;
-
-
-typedef struct _Ifx_SCU_TRAPSTAT_Bits
-{
-    unsigned int ESR0T:1;
-    unsigned int ESR1T:1;
-    unsigned int reserved_2:1;
-    unsigned int SMUT:1;
-    unsigned int reserved_4:28;
-} Ifx_SCU_TRAPSTAT_Bits;
-
-
-typedef struct _Ifx_SCU_WDTCPU_CON0_Bits
-{
-    volatile unsigned int ENDINIT:1;
-    volatile unsigned int LCK:1;
-    volatile unsigned int PW:14;
-    volatile unsigned int REL:16;
-} Ifx_SCU_WDTCPU_CON0_Bits;
-
-
-typedef struct _Ifx_SCU_WDTCPU_CON1_Bits
-{
-    unsigned int reserved_0:2;
-    unsigned int IR0:1;
-    unsigned int DR:1;
-    unsigned int reserved_4:1;
-    unsigned int IR1:1;
-    unsigned int UR:1;
-    unsigned int PAR:1;
-    unsigned int TCR:1;
-    unsigned int TCTR:7;
-    unsigned int reserved_16:16;
-} Ifx_SCU_WDTCPU_CON1_Bits;
-
-
-typedef struct _Ifx_SCU_WDTCPU_SR_Bits
-{
-    unsigned int AE:1;
-    unsigned int OE:1;
-    unsigned int IS0:1;
-    unsigned int DS:1;
-    unsigned int TO:1;
-    unsigned int IS1:1;
-    unsigned int US:1;
-    unsigned int PAS:1;
-    unsigned int TCS:1;
-    unsigned int TCT:7;
-    unsigned int TIM:16;
-} Ifx_SCU_WDTCPU_SR_Bits;
-
-
-typedef struct _Ifx_SCU_WDTS_CON0_Bits
-{
-    volatile unsigned int ENDINIT:1;
-    volatile unsigned int LCK:1;
-    volatile unsigned int PW:14;
-    volatile unsigned int REL:16;
-} Ifx_SCU_WDTS_CON0_Bits;
-
-
-typedef struct _Ifx_SCU_WDTS_CON1_Bits
-{
-    unsigned int CLRIRF:1;
-    unsigned int reserved_1:1;
-    unsigned int IR0:1;
-    unsigned int DR:1;
-    unsigned int reserved_4:1;
-    unsigned int IR1:1;
-    unsigned int UR:1;
-    unsigned int PAR:1;
-    unsigned int TCR:1;
-    unsigned int TCTR:7;
-    unsigned int reserved_16:16;
-} Ifx_SCU_WDTS_CON1_Bits;
-
-
-typedef struct _Ifx_SCU_WDTS_SR_Bits
-{
-    unsigned int AE:1;
-    unsigned int OE:1;
-    unsigned int IS0:1;
-    unsigned int DS:1;
-    unsigned int TO:1;
-    unsigned int IS1:1;
-    unsigned int US:1;
-    unsigned int PAS:1;
-    unsigned int TCS:1;
-    unsigned int TCT:7;
-    unsigned int TIM:16;
-} Ifx_SCU_WDTS_SR_Bits;
-
-
-
-
-
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_ACCEN0_Bits B;
-} Ifx_SCU_ACCEN0;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_ACCEN1_Bits B;
-} Ifx_SCU_ACCEN1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_ARSTDIS_Bits B;
-} Ifx_SCU_ARSTDIS;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CCUCON0_Bits B;
-} Ifx_SCU_CCUCON0;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CCUCON1_Bits B;
-} Ifx_SCU_CCUCON1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CCUCON2_Bits B;
-} Ifx_SCU_CCUCON2;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CCUCON3_Bits B;
-} Ifx_SCU_CCUCON3;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CCUCON4_Bits B;
-} Ifx_SCU_CCUCON4;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CCUCON5_Bits B;
-} Ifx_SCU_CCUCON5;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CCUCON6_Bits B;
-} Ifx_SCU_CCUCON6;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CCUCON7_Bits B;
-} Ifx_SCU_CCUCON7;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CCUCON8_Bits B;
-} Ifx_SCU_CCUCON8;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_CHIPID_Bits B;
-} Ifx_SCU_CHIPID;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_DTSCON_Bits B;
-} Ifx_SCU_DTSCON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_DTSLIM_Bits B;
-} Ifx_SCU_DTSLIM;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_DTSSTAT_Bits B;
-} Ifx_SCU_DTSSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EICR_Bits B;
-} Ifx_SCU_EICR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EIFR_Bits B;
-} Ifx_SCU_EIFR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EMSR_Bits B;
-} Ifx_SCU_EMSR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_ESRCFG_Bits B;
-} Ifx_SCU_ESRCFG;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_ESROCFG_Bits B;
-} Ifx_SCU_ESROCFG;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVR13CON_Bits B;
-} Ifx_SCU_EVR13CON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVR33CON_Bits B;
-} Ifx_SCU_EVR33CON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRADCSTAT_Bits B;
-} Ifx_SCU_EVRADCSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRDVSTAT_Bits B;
-} Ifx_SCU_EVRDVSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRMONCTRL_Bits B;
-} Ifx_SCU_EVRMONCTRL;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVROVMON_Bits B;
-} Ifx_SCU_EVROVMON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRRSTCON_Bits B;
-} Ifx_SCU_EVRRSTCON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCOEFF1_Bits B;
-} Ifx_SCU_EVRSDCOEFF1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCOEFF2_Bits B;
-} Ifx_SCU_EVRSDCOEFF2;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCOEFF3_Bits B;
-} Ifx_SCU_EVRSDCOEFF3;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCOEFF4_Bits B;
-} Ifx_SCU_EVRSDCOEFF4;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCOEFF5_Bits B;
-} Ifx_SCU_EVRSDCOEFF5;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCOEFF6_Bits B;
-} Ifx_SCU_EVRSDCOEFF6;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCTRL1_Bits B;
-} Ifx_SCU_EVRSDCTRL1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCTRL2_Bits B;
-} Ifx_SCU_EVRSDCTRL2;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCTRL3_Bits B;
-} Ifx_SCU_EVRSDCTRL3;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSDCTRL4_Bits B;
-} Ifx_SCU_EVRSDCTRL4;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRSTAT_Bits B;
-} Ifx_SCU_EVRSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRTRIM_Bits B;
-} Ifx_SCU_EVRTRIM;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EVRUVMON_Bits B;
-} Ifx_SCU_EVRUVMON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_EXTCON_Bits B;
-} Ifx_SCU_EXTCON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_FDR_Bits B;
-} Ifx_SCU_FDR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_FMR_Bits B;
-} Ifx_SCU_FMR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_ID_Bits B;
-} Ifx_SCU_ID;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_IGCR_Bits B;
-} Ifx_SCU_IGCR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_IN_Bits B;
-} Ifx_SCU_IN;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_IOCR_Bits B;
-} Ifx_SCU_IOCR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_LBISTCTRL0_Bits B;
-} Ifx_SCU_LBISTCTRL0;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_LBISTCTRL1_Bits B;
-} Ifx_SCU_LBISTCTRL1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_LBISTCTRL2_Bits B;
-} Ifx_SCU_LBISTCTRL2;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_LCLCON_Bits B;
-} Ifx_SCU_LCLCON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_LCLTEST_Bits B;
-} Ifx_SCU_LCLTEST;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_MANID_Bits B;
-} Ifx_SCU_MANID;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_OMR_Bits B;
-} Ifx_SCU_OMR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_OSCCON_Bits B;
-} Ifx_SCU_OSCCON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_OUT_Bits B;
-} Ifx_SCU_OUT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_OVCCON_Bits B;
-} Ifx_SCU_OVCCON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_OVCENABLE_Bits B;
-} Ifx_SCU_OVCENABLE;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PDISC_Bits B;
-} Ifx_SCU_PDISC;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PDR_Bits B;
-} Ifx_SCU_PDR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PDRR_Bits B;
-} Ifx_SCU_PDRR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PLLCON0_Bits B;
-} Ifx_SCU_PLLCON0;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PLLCON1_Bits B;
-} Ifx_SCU_PLLCON1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PLLCON2_Bits B;
-} Ifx_SCU_PLLCON2;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PLLERAYCON0_Bits B;
-} Ifx_SCU_PLLERAYCON0;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PLLERAYCON1_Bits B;
-} Ifx_SCU_PLLERAYCON1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PLLERAYSTAT_Bits B;
-} Ifx_SCU_PLLERAYSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PLLSTAT_Bits B;
-} Ifx_SCU_PLLSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PMCSR_Bits B;
-} Ifx_SCU_PMCSR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PMSWCR0_Bits B;
-} Ifx_SCU_PMSWCR0;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PMSWCR1_Bits B;
-} Ifx_SCU_PMSWCR1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PMSWSTAT_Bits B;
-} Ifx_SCU_PMSWSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_PMSWSTATCLR_Bits B;
-} Ifx_SCU_PMSWSTATCLR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_RSTCON_Bits B;
-} Ifx_SCU_RSTCON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_RSTCON2_Bits B;
-} Ifx_SCU_RSTCON2;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_RSTSTAT_Bits B;
-} Ifx_SCU_RSTSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_SAFECON_Bits B;
-} Ifx_SCU_SAFECON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_STSTAT_Bits B;
-} Ifx_SCU_STSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_SWRSTCON_Bits B;
-} Ifx_SCU_SWRSTCON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_SYSCON_Bits B;
-} Ifx_SCU_SYSCON;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_TRAPCLR_Bits B;
-} Ifx_SCU_TRAPCLR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_TRAPDIS_Bits B;
-} Ifx_SCU_TRAPDIS;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_TRAPSET_Bits B;
-} Ifx_SCU_TRAPSET;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_TRAPSTAT_Bits B;
-} Ifx_SCU_TRAPSTAT;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_WDTCPU_CON0_Bits B;
-} Ifx_SCU_WDTCPU_CON0;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_WDTCPU_CON1_Bits B;
-} Ifx_SCU_WDTCPU_CON1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_WDTCPU_SR_Bits B;
-} Ifx_SCU_WDTCPU_SR;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_WDTS_CON0_Bits B;
-} Ifx_SCU_WDTS_CON0;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_WDTS_CON1_Bits B;
-} Ifx_SCU_WDTS_CON1;
-
-
-typedef union
-{
-    unsigned int U;
-    signed int I;
-    Ifx_SCU_WDTS_SR_Bits B;
-} Ifx_SCU_WDTS_SR;
-# 1933 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_regdef.h"
-typedef volatile struct _Ifx_SCU_WDTCPU
-{
-    Ifx_SCU_WDTCPU_CON0 CON0;
-    Ifx_SCU_WDTCPU_CON1 CON1;
-    Ifx_SCU_WDTCPU_SR SR;
-} Ifx_SCU_WDTCPU;
-
-
-typedef volatile struct _Ifx_SCU_WDTS
-{
-    Ifx_SCU_WDTS_CON0 CON0;
-    Ifx_SCU_WDTS_CON1 CON1;
-    Ifx_SCU_WDTS_SR SR;
-} Ifx_SCU_WDTS;
-# 1959 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_regdef.h"
-typedef volatile struct _Ifx_SCU
-{
-    unsigned char reserved_0[8];
-    Ifx_SCU_ID ID;
-    unsigned char reserved_C[4];
-    Ifx_SCU_OSCCON OSCCON;
-    Ifx_SCU_PLLSTAT PLLSTAT;
-    Ifx_SCU_PLLCON0 PLLCON0;
-    Ifx_SCU_PLLCON1 PLLCON1;
-    Ifx_SCU_PLLCON2 PLLCON2;
-    Ifx_SCU_PLLERAYSTAT PLLERAYSTAT;
-    Ifx_SCU_PLLERAYCON0 PLLERAYCON0;
-    Ifx_SCU_PLLERAYCON1 PLLERAYCON1;
-    Ifx_SCU_CCUCON0 CCUCON0;
-    Ifx_SCU_CCUCON1 CCUCON1;
-    Ifx_SCU_FDR FDR;
-    Ifx_SCU_EXTCON EXTCON;
-    Ifx_SCU_CCUCON2 CCUCON2;
-    Ifx_SCU_CCUCON3 CCUCON3;
-    Ifx_SCU_CCUCON4 CCUCON4;
-    Ifx_SCU_CCUCON5 CCUCON5;
-    Ifx_SCU_RSTSTAT RSTSTAT;
-    unsigned char reserved_54[4];
-    Ifx_SCU_RSTCON RSTCON;
-    Ifx_SCU_ARSTDIS ARSTDIS;
-    Ifx_SCU_SWRSTCON SWRSTCON;
-    Ifx_SCU_RSTCON2 RSTCON2;
-    unsigned char reserved_68[4];
-    Ifx_SCU_EVRRSTCON EVRRSTCON;
-    Ifx_SCU_ESRCFG ESRCFG[2];
-    Ifx_SCU_ESROCFG ESROCFG;
-    Ifx_SCU_SYSCON SYSCON;
-    Ifx_SCU_CCUCON6 CCUCON6;
-    Ifx_SCU_CCUCON7 CCUCON7;
-    Ifx_SCU_CCUCON8 CCUCON8;
-    unsigned char reserved_8C[16];
-    Ifx_SCU_PDR PDR;
-    Ifx_SCU_IOCR IOCR;
-    Ifx_SCU_OUT OUT;
-    Ifx_SCU_OMR OMR;
-    Ifx_SCU_IN IN;
-    Ifx_SCU_EVRSTAT EVRSTAT;
-    Ifx_SCU_EVRDVSTAT EVRDVSTAT;
-    Ifx_SCU_EVR13CON EVR13CON;
-    Ifx_SCU_EVR33CON EVR33CON;
-    Ifx_SCU_STSTAT STSTAT;
-    unsigned char reserved_C4[4];
-    Ifx_SCU_PMSWCR0 PMSWCR0;
-    Ifx_SCU_PMSWSTAT PMSWSTAT;
-    Ifx_SCU_PMSWSTATCLR PMSWSTATCLR;
-    Ifx_SCU_PMCSR PMCSR[3];
-    Ifx_SCU_DTSSTAT DTSSTAT;
-    Ifx_SCU_DTSCON DTSCON;
-    Ifx_SCU_PMSWCR1 PMSWCR1;
-    unsigned char reserved_EC[4];
-    Ifx_SCU_WDTS WDTS;
-    Ifx_SCU_EMSR EMSR;
-    Ifx_SCU_WDTCPU WDTCPU[3];
-    Ifx_SCU_TRAPSTAT TRAPSTAT;
-    Ifx_SCU_TRAPSET TRAPSET;
-    Ifx_SCU_TRAPCLR TRAPCLR;
-    Ifx_SCU_TRAPDIS TRAPDIS;
-    Ifx_SCU_LCLCON LCLCON0;
-    Ifx_SCU_LCLCON LCLCON1;
-    Ifx_SCU_LCLTEST LCLTEST;
-    Ifx_SCU_CHIPID CHIPID;
-    Ifx_SCU_MANID MANID;
-    unsigned char reserved_148[8];
-    Ifx_SCU_SAFECON SAFECON;
-    unsigned char reserved_154[16];
-    Ifx_SCU_LBISTCTRL0 LBISTCTRL0;
-    Ifx_SCU_LBISTCTRL1 LBISTCTRL1;
-    Ifx_SCU_LBISTCTRL2 LBISTCTRL2;
-    unsigned char reserved_170[28];
-    Ifx_SCU_PDISC PDISC;
-    unsigned char reserved_190[8];
-    Ifx_SCU_EVRTRIM EVRTRIM;
-    Ifx_SCU_EVRADCSTAT EVRADCSTAT;
-    Ifx_SCU_EVRUVMON EVRUVMON;
-    Ifx_SCU_EVROVMON EVROVMON;
-    Ifx_SCU_EVRMONCTRL EVRMONCTRL;
-    unsigned char reserved_1AC[4];
-    Ifx_SCU_EVRSDCTRL1 EVRSDCTRL1;
-    Ifx_SCU_EVRSDCTRL2 EVRSDCTRL2;
-    Ifx_SCU_EVRSDCTRL3 EVRSDCTRL3;
-    Ifx_SCU_EVRSDCTRL4 EVRSDCTRL4;
-    Ifx_SCU_EVRSDCOEFF1 EVRSDCOEFF1;
-    Ifx_SCU_EVRSDCOEFF2 EVRSDCOEFF2;
-    Ifx_SCU_EVRSDCOEFF3 EVRSDCOEFF3;
-    Ifx_SCU_EVRSDCOEFF4 EVRSDCOEFF4;
-    Ifx_SCU_EVRSDCOEFF5 EVRSDCOEFF5;
-    Ifx_SCU_EVRSDCOEFF6 EVRSDCOEFF6;
-    unsigned char reserved_1D8[8];
-    Ifx_SCU_OVCENABLE OVCENABLE;
-    Ifx_SCU_OVCCON OVCCON;
-    unsigned char reserved_1E8[40];
-    Ifx_SCU_EICR EICR[4];
-    Ifx_SCU_EIFR EIFR;
-    Ifx_SCU_FMR FMR;
-    Ifx_SCU_PDRR PDRR;
-    Ifx_SCU_IGCR IGCR[4];
-    unsigned char reserved_23C[4];
-    Ifx_SCU_DTSLIM DTSLIM;
-    unsigned char reserved_244[436];
-    Ifx_SCU_ACCEN1 ACCEN1;
-    Ifx_SCU_ACCEN0 ACCEN0;
-} Ifx_SCU;
-# 37 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_reg.h" 2
-# 53 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/IfxCpu.h" 2
 # 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxStm_reg.h" 1
 # 42 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxStm_reg.h"
 # 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxStm_regdef.h" 1
@@ -6162,288 +6446,9 @@ typedef volatile struct _Ifx_STM
 } Ifx_STM;
 # 43 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxStm_reg.h" 2
 # 54 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/IfxCpu.h" 2
-# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h" 1
-# 36 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h"
-# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxScu_bf.h" 1
-# 37 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h" 2
-# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxFlash_bf.h" 1
-# 38 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h" 2
-# 1411 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h"
-typedef enum
-{
-    IfxScu_CCUCON0_CLKSEL_fBack = 0,
-    IfxScu_CCUCON0_CLKSEL_fPll = 1
-} IfxScu_CCUCON0_CLKSEL;
 
-
-typedef enum
-{
-    IfxScu_CCUCON1_INSEL_fOsc1 = 0,
-    IfxScu_CCUCON1_INSEL_fOsc0 = 1
-} IfxScu_CCUCON1_INSEL;
-
-
-typedef enum
-{
-    IfxScu_WDTCON1_IR_divBy16384 = 0,
-    IfxScu_WDTCON1_IR_divBy256 = 1,
-    IfxScu_WDTCON1_IR_divBy64 = 2
-} IfxScu_WDTCON1_IR;
-
-typedef enum
-{
-    IfxScu_PMCSR_REQSLP_Run = 0U,
-    IfxScu_PMCSR_REQSLP_Idle = 1U,
-    IfxScu_PMCSR_REQSLP_Sleep = 2U,
-    IfxScu_PMCSR_REQSLP_Stby = 3U
-} IfxScu_PMCSR_REQSLP;
-# 55 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/IfxCpu.h" 2
 
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h" 1
-# 50 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.asm.h" 1
-# 45 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.asm.h"
-static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_calculateLfsr(uint16 password);
-
-
-
-
-
-
-static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_calculateLfsr(uint16 password)
-{
-
-    uint32 temp = password;
-    uint16 res;
-    __asm("xor.t  %0,%1,0,%1,2   \n           xor.t  %0,%0,0,%1,12  \n           xor.t  %0,%0,0,%1,13  \n           xor.t  %0,%0,0,%1,14  \n           sh     %1,-1 \n           ins.t  %0,%1,14,%0,0   \n"
-
-
-
-
-                                      : "=&d" (res) : "d" (temp));
-    return res;
-
-}
-# 51 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h" 2
-# 69 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-typedef struct
-{
-    uint16 password;
-    uint16 reload;
-    IfxScu_WDTCON1_IR inputFrequency;
-    boolean disableWatchdog;
-    boolean enableSmuRestriction;
-    boolean enableAutomaticPasswordChange;
-    boolean enableTimerCheck;
-    boolean enableTimerCheckTolerance;
-    boolean clrInternalResetFlag;
-} IfxScuWdt_Config;
-# 96 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_initConfig(IfxScuWdt_Config *config);
-# 109 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_initCpuWatchdog(Ifx_SCU_WDTCPU *wdt, const IfxScuWdt_Config *config);
-# 122 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_initSafetyWatchdog(Ifx_SCU_WDTS *wdt, const IfxScuWdt_Config *config);
-# 145 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-static inline __attribute__ ((always_inline)) void IfxScuWdt_clearCpuEndinitInline(Ifx_SCU_WDTCPU *watchdog, uint16 password);
-# 158 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-static inline __attribute__ ((always_inline)) void IfxScuWdt_clearSafetyEndinitInline(uint16 password);
-# 170 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-static inline __attribute__ ((always_inline)) void IfxScuWdt_setCpuEndinitInline(Ifx_SCU_WDTCPU *watchdog, uint16 password);
-# 181 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-static inline __attribute__ ((always_inline)) void IfxScuWdt_setSafetyEndinitInline(uint16 password);
-# 197 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_clearCpuEndinit(uint16 password);
-# 209 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_clearSafetyEndinit(uint16 password);
-# 219 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_setCpuEndinit(uint16 password);
-# 229 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_setSafetyEndinit(uint16 password);
-# 249 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_getCpuWatchdogPasswordInline(Ifx_SCU_WDTCPU *watchdog);
-
-
-
-
-
-static inline __attribute__ ((always_inline)) boolean IfxScuWdt_getCpuWatchdogEndInitInline(Ifx_SCU_WDTCPU *watchdog);
-
-
-
-
-static inline __attribute__ ((always_inline)) boolean IfxScuWdt_getSafetyWatchdogEndInit(void);
-# 270 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_getSafetyWatchdogPasswordInline(void);
-# 284 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_changeCpuWatchdogPassword(uint16 password, uint16 newPassword);
-# 295 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_changeCpuWatchdogReload(uint16 password, uint16 reload);
-# 305 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_changeSafetyWatchdogPassword(uint16 password, uint16 newPassword);
-# 316 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_changeSafetyWatchdogReload(uint16 password, uint16 reload);
-# 326 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_disableCpuWatchdog(uint16 password);
-# 336 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_disableSafetyWatchdog(uint16 password);
-# 346 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_enableCpuWatchdog(uint16 password);
-# 356 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_enableSafetyWatchdog(uint16 password);
-# 365 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern uint16 IfxScuWdt_getCpuWatchdogPassword(void);
-
-
-
-
-extern boolean IfxScuWdt_getCpuWatchdogEndInit(void);
-# 379 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern uint16 IfxScuWdt_getSafetyWatchdogPassword(void);
-# 389 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_serviceCpuWatchdog(uint16 password);
-# 399 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern void IfxScuWdt_serviceSafetyWatchdog(uint16 password);
-# 411 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
-extern boolean IfxScuWdt_enableWatchdogWithDebugger(void);
-
-
-
-
-
-static inline __attribute__ ((always_inline)) void IfxScuWdt_clearCpuEndinitInline(Ifx_SCU_WDTCPU *watchdog, uint16 password)
-{
-    if (watchdog->CON0.B.LCK)
-    {
-
-        watchdog->CON0.U = (1 << (0u)) |
-                           (0 << (1u)) |
-                           (password << (2u)) |
-                           (watchdog->CON0.B.REL << (16u));
-    }
-
-
-    watchdog->CON0.U = (0 << (0u)) |
-                       (1 << (1u)) |
-                       (password << (2u)) |
-                       (watchdog->CON0.B.REL << (16u));
-
-
-    while (watchdog->CON0.B.ENDINIT == 1)
-    {}
-}
-
-
-static inline __attribute__ ((always_inline)) void IfxScuWdt_clearSafetyEndinitInline(uint16 password)
-{
-    if ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.LCK)
-    {
-
-        (*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).U = (1 << (0u)) |
-                          (0 << (1u)) |
-                          (password << (2u)) |
-                          ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.REL << (16u));
-    }
-
-
-    (*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).U = (0 << (0u)) |
-                      (1 << (1u)) |
-                      (password << (2u)) |
-                      ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.REL << (16u));
-
-
-    while ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.ENDINIT == 1)
-    {}
-}
-
-
-static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_getCpuWatchdogPasswordInline(Ifx_SCU_WDTCPU *watchdog)
-{
-    uint16 password;
-
-
-
-
-    password = watchdog->CON0.B.PW;
-    password ^= 0x003F;
-
-    return password;
-}
-
-
-static inline __attribute__ ((always_inline)) boolean IfxScuWdt_getCpuWatchdogEndInitInline(Ifx_SCU_WDTCPU *watchdog)
-{
-    return (boolean)watchdog->CON0.B.ENDINIT;
-}
-
-
-static inline __attribute__ ((always_inline)) boolean IfxScuWdt_getSafetyWatchdogEndInit(void)
-{
-    return (boolean)(*(Ifx_SCU*)0xF0036000u).WDTS.CON0.B.ENDINIT;
-}
-
-
-static inline __attribute__ ((always_inline)) uint16 IfxScuWdt_getSafetyWatchdogPasswordInline(void)
-{
-    uint16 password;
-    Ifx_SCU_WDTS *watchdog = &(*(Ifx_SCU*)0xF0036000u).WDTS;
-
-
-
-
-    password = watchdog->CON0.B.PW;
-    password ^= 0x003F;
-
-    return password;
-}
-
-
-static inline __attribute__ ((always_inline)) void IfxScuWdt_setCpuEndinitInline(Ifx_SCU_WDTCPU *watchdog, uint16 password)
-{
-    if (watchdog->CON0.B.LCK)
-    {
-
-        watchdog->CON0.U = (1 << (0u)) |
-                           (0 << (1u)) |
-                           (password << (2u)) |
-                           (watchdog->CON0.B.REL << (16u));
-    }
-
-
-    watchdog->CON0.U = (1 << (0u)) |
-                       (1 << (1u)) |
-                       (password << (2u)) |
-                       (watchdog->CON0.B.REL << (16u));
-
-
-    while (watchdog->CON0.B.ENDINIT == 0)
-    {}
-
-
-}
-
-
-static inline __attribute__ ((always_inline)) void IfxScuWdt_setSafetyEndinitInline(uint16 password)
-{
-    if ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.LCK)
-    {
-
-        (*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).U = (1 << (0u)) |
-                          (0 << (1u)) |
-                          (password << (2u)) |
-                          ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.REL << (16u));
-    }
-
-
-    (*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).U = (1 << (0u)) |
-                      (1 << (1u)) |
-                      (password << (2u)) |
-                      ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.REL << (16u));
-
-
-    while ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.ENDINIT == 0)
-    {}
-}
 # 57 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/IfxCpu.h" 2
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.h" 1
 # 107 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuCcu.h"
@@ -10855,787 +10860,3754 @@ static inline __attribute__ ((always_inline)) void wait(Ifx_TickTime timeout)
     {}
 }
 # 30 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c" 2
-# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h" 1
-# 31 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c" 2
-# 1 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h" 1
-# 32 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h"
+
+
+
+
+# 1 "0_Src/AppSw/Tricore/Asclin/AsclinAscDemo.h" 1
+# 36 "0_Src/AppSw/Tricore/Asclin/AsclinAscDemo.h"
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/Ifx_Types.h" 1
-# 33 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h" 2
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 1 3
-# 29 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\_ansi.h" 1 3
-# 15 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\_ansi.h" 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\newlib.h" 1 3
-# 16 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\_ansi.h" 2 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\config.h" 1 3
+# 37 "0_Src/AppSw/Tricore/Asclin/AsclinAscDemo.h" 2
 
 
-
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\ieeefp.h" 1 3
-# 5 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\config.h" 2 3
-# 17 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\_ansi.h" 2 3
-# 30 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 2 3
-
-
-
-
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\lib\\gcc\\tricore\\4.9.4\\include\\stddef.h" 1 3 4
-# 35 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 2 3
-
-
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\lib\\gcc\\tricore\\4.9.4\\include\\stdarg.h" 1 3 4
-# 40 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\lib\\gcc\\tricore\\4.9.4\\include\\stdarg.h" 3 4
-typedef __builtin_va_list __gnuc_va_list;
-# 38 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 2 3
-
-
-
-
-
-
-
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 1 3
-# 13 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\_ansi.h" 1 3
-# 14 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 2 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\_types.h" 1 3
-# 12 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\_types.h" 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\_types.h" 1 3
-
-
-
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\_default_types.h" 1 3
-# 26 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\_default_types.h" 3
-typedef signed char __int8_t ;
-typedef unsigned char __uint8_t ;
-# 36 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\_default_types.h" 3
-typedef signed short __int16_t;
-typedef unsigned short __uint16_t;
-# 46 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\_default_types.h" 3
-typedef __int16_t __int_least16_t;
-typedef __uint16_t __uint_least16_t;
-# 58 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\_default_types.h" 3
-typedef signed int __int32_t;
-typedef unsigned int __uint32_t;
-# 76 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\_default_types.h" 3
-typedef __int32_t __int_least32_t;
-typedef __uint32_t __uint_least32_t;
-# 99 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\_default_types.h" 3
-typedef signed long long __int64_t;
-typedef unsigned long long __uint64_t;
-# 5 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\_types.h" 2 3
-# 13 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\_types.h" 2 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\lock.h" 1 3
-
-
-
-
-
-typedef int _LOCK_T;
-typedef int _LOCK_RECURSIVE_T;
-# 14 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\_types.h" 2 3
-
-
-typedef long _off_t;
-
-
-
-
-
-
-
-typedef short __dev_t;
-
-
-
-
-typedef unsigned short __uid_t;
-
-
-typedef unsigned short __gid_t;
-
-
-
-__extension__ typedef long long _off64_t;
-
-
-
-
-
-
-
-typedef long _fpos_t;
-# 56 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\_types.h" 3
-typedef int _ssize_t;
-
-
-
-
-
-
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\lib\\gcc\\tricore\\4.9.4\\include\\stddef.h" 1 3 4
-# 353 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\lib\\gcc\\tricore\\4.9.4\\include\\stddef.h" 3 4
-typedef unsigned int wint_t;
-# 64 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\_types.h" 2 3
-
-
-
-typedef struct
+# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h" 1
+# 221 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h" 1
+# 45 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxAsclin_cfg.h" 1
+# 42 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxAsclin_cfg.h"
+# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxAsclin_reg.h" 1
+# 45 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxAsclin_reg.h"
+# 1 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxAsclin_regdef.h" 1
+# 45 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxAsclin_regdef.h"
+typedef struct _Ifx_ASCLIN_ACCEN0_Bits
 {
-  int __count;
-  union
-  {
-    wint_t __wch;
-    unsigned char __wchb[4];
-  } __value;
-} _mbstate_t;
+    unsigned int EN0:1;
+    unsigned int EN1:1;
+    unsigned int EN2:1;
+    unsigned int EN3:1;
+    unsigned int EN4:1;
+    unsigned int EN5:1;
+    unsigned int EN6:1;
+    unsigned int EN7:1;
+    unsigned int EN8:1;
+    unsigned int EN9:1;
+    unsigned int EN10:1;
+    unsigned int EN11:1;
+    unsigned int EN12:1;
+    unsigned int EN13:1;
+    unsigned int EN14:1;
+    unsigned int EN15:1;
+    unsigned int EN16:1;
+    unsigned int EN17:1;
+    unsigned int EN18:1;
+    unsigned int EN19:1;
+    unsigned int EN20:1;
+    unsigned int EN21:1;
+    unsigned int EN22:1;
+    unsigned int EN23:1;
+    unsigned int EN24:1;
+    unsigned int EN25:1;
+    unsigned int EN26:1;
+    unsigned int EN27:1;
+    unsigned int EN28:1;
+    unsigned int EN29:1;
+    unsigned int EN30:1;
+    unsigned int EN31:1;
+} Ifx_ASCLIN_ACCEN0_Bits;
 
 
-
-typedef _LOCK_RECURSIVE_T _flock_t;
-
-
-
-
-typedef void *_iconv_t;
-# 15 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 2 3
-
-
-
-
-
-
-typedef unsigned long __ULong;
-# 37 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 3
-struct _reent;
-
-
-
-
-
-
-struct _Bigint
+typedef struct _Ifx_ASCLIN_ACCEN1_Bits
 {
-  struct _Bigint *_next;
-  int _k, _maxwds, _sign, _wds;
-  __ULong _x[1];
-};
+    unsigned int reserved_0:32;
+} Ifx_ASCLIN_ACCEN1_Bits;
 
 
-struct __tm
+typedef struct _Ifx_ASCLIN_BITCON_Bits
 {
-  int __tm_sec;
-  int __tm_min;
-  int __tm_hour;
-  int __tm_mday;
-  int __tm_mon;
-  int __tm_year;
-  int __tm_wday;
-  int __tm_yday;
-  int __tm_isdst;
-};
+    unsigned int PRESCALER:12;
+    unsigned int reserved_12:4;
+    unsigned int OVERSAMPLING:4;
+    unsigned int reserved_20:4;
+    unsigned int SAMPLEPOINT:4;
+    unsigned int reserved_28:3;
+    unsigned int SM:1;
+} Ifx_ASCLIN_BITCON_Bits;
 
 
-
-
-
-
-
-struct _on_exit_args {
- void * _fnargs[32];
- void * _dso_handle[32];
-
- __ULong _fntypes;
-
-
- __ULong _is_cxa;
-};
-# 89 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 3
-struct _atexit {
- struct _atexit *_next;
- int _ind;
-
- void (*_fns[32])(void);
-        struct _on_exit_args _on_exit_args;
-};
-# 105 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 3
-struct __sbuf {
- unsigned char *_base;
- int _size;
-};
-# 169 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 3
-struct __sFILE {
-  unsigned char *_p;
-  int _r;
-  int _w;
-  short _flags;
-  short _file;
-  struct __sbuf _bf;
-  int _lbfsize;
-
-
-
-
-
-
-  void * _cookie;
-
-  int (* _read) (struct _reent *, void *, char *, int)
-                     ;
-  int (* _write) (struct _reent *, void *, const char *, int)
-                            ;
-  _fpos_t (* _seek) (struct _reent *, void *, _fpos_t, int);
-  int (* _close) (struct _reent *, void *);
-
-
-  struct __sbuf _ub;
-  unsigned char *_up;
-  int _ur;
-
-
-  unsigned char _ubuf[3];
-  unsigned char _nbuf[1];
-
-
-  struct __sbuf _lb;
-
-
-  int _blksize;
-  int _offset;
-
-
-  struct _reent *_data;
-
-
-
-  _flock_t _lock;
-
-  _mbstate_t _mbstate;
-  int _flags2;
-};
-# 273 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 3
-typedef struct __sFILE __FILE;
-
-
-
-struct _glue
+typedef struct _Ifx_ASCLIN_BRD_Bits
 {
-  struct _glue *_next;
-  int _niobs;
-  __FILE *_iobs;
-};
-# 305 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 3
-struct _rand48 {
-  unsigned short _seed[3];
-  unsigned short _mult[3];
-  unsigned short _add;
+    unsigned int LOWERLIMIT:8;
+    unsigned int UPPERLIMIT:8;
+    unsigned int MEASURED:12;
+    unsigned int reserved_28:4;
+} Ifx_ASCLIN_BRD_Bits;
 
 
-
-
-};
-# 579 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 3
-struct _reent
+typedef struct _Ifx_ASCLIN_BRG_Bits
 {
-  int _errno;
+    unsigned int DENOMINATOR:12;
+    unsigned int reserved_12:4;
+    unsigned int NUMERATOR:12;
+    unsigned int reserved_28:4;
+} Ifx_ASCLIN_BRG_Bits;
 
 
-
-
-  __FILE *_stdin, *_stdout, *_stderr;
-
-  int _inc;
-  char _emergency[25];
-
-  int _current_category;
-  const char *_current_locale;
-
-  int __sdidinit;
-
-  void (* __cleanup) (struct _reent *);
-
-
-  struct _Bigint *_result;
-  int _result_k;
-  struct _Bigint *_p5s;
-  struct _Bigint **_freelist;
-
-
-  int _cvtlen;
-  char *_cvtbuf;
-
-  union
-    {
-      struct
-        {
-          unsigned int _unused_rand;
-          char * _strtok_last;
-          char _asctime_buf[26];
-          struct __tm _localtime_buf;
-          int _gamma_signgam;
-          __extension__ unsigned long long _rand_next;
-          struct _rand48 _r48;
-          _mbstate_t _mblen_state;
-          _mbstate_t _mbtowc_state;
-          _mbstate_t _wctomb_state;
-          char _l64a_buf[8];
-          char _signal_buf[24];
-          int _getdate_err;
-          _mbstate_t _mbrlen_state;
-          _mbstate_t _mbrtowc_state;
-          _mbstate_t _mbsrtowcs_state;
-          _mbstate_t _wcrtomb_state;
-          _mbstate_t _wcsrtombs_state;
-   int _h_errno;
-        } _reent;
-
-
-
-      struct
-        {
-
-          unsigned char * _nextf[30];
-          unsigned int _nmalloc[30];
-        } _unused;
-    } _new;
-
-
-  struct _atexit *_atexit;
-  struct _atexit _atexit0;
-
-
-  void (**(_sig_func))(int);
-
-
-
-
-  struct _glue __sglue;
-  __FILE __sf[3];
-};
-# 817 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\reent.h" 3
-extern struct _reent *_impure_ptr __attribute__((__fardata__));
-extern struct _reent *const _global_impure_ptr __attribute__((__fardata__));
-
-void _reclaim_reent (struct _reent *);
-# 46 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 2 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 1 3
-# 69 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\lib\\gcc\\tricore\\4.9.4\\include\\stddef.h" 1 3 4
-# 70 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 2 3
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\types.h" 1 3
-# 19 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\machine\\types.h" 3
-typedef long int __off_t;
-typedef int __pid_t;
-
-__extension__ typedef long long int __loff_t;
-# 71 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 2 3
-# 92 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 3
-typedef unsigned char u_char;
-typedef unsigned short u_short;
-typedef unsigned int u_int;
-typedef unsigned long u_long;
-
-
-
-typedef unsigned short ushort;
-typedef unsigned int uint;
-
-
-
-typedef unsigned long clock_t;
-
-
-
-
-typedef long time_t;
-
-
-
-
-struct timespec {
-  time_t tv_sec;
-  long tv_nsec;
-};
-
-struct itimerspec {
-  struct timespec it_interval;
-  struct timespec it_value;
-};
-
-
-typedef long daddr_t;
-typedef char * caddr_t;
-
-
-
-
-
-
-typedef unsigned short ino_t;
-# 162 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 3
-typedef _off_t off_t;
-typedef __dev_t dev_t;
-typedef __uid_t uid_t;
-typedef __gid_t gid_t;
-
-
-
-
-
-typedef int pid_t;
-
-
-
-typedef long key_t;
-
-typedef _ssize_t ssize_t;
-# 191 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 3
-typedef unsigned int mode_t __attribute__ ((__mode__ (__SI__)));
-
-
-
-
-typedef unsigned short nlink_t;
-# 218 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 3
-typedef long fd_mask;
-
-
-
-
-
-
-
-typedef struct _types_fd_set {
- fd_mask fds_bits[(((64)+(((sizeof (fd_mask) * 8))-1))/((sizeof (fd_mask) * 8)))];
-} _types_fd_set;
-# 249 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 3
-typedef unsigned long clockid_t;
-
-
-
-
-typedef unsigned long timer_t;
-
-
-
-typedef unsigned long useconds_t;
-typedef long suseconds_t;
-
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\features.h" 1 3
-# 262 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\types.h" 2 3
-# 47 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 2 3
-
-
-
-typedef __FILE FILE;
-# 59 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 3
-typedef _fpos_t fpos_t;
-
-
-
-
-
-# 1 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\sys\\stdio.h" 1 3
-# 66 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 2 3
-# 175 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 3
-FILE * tmpfile (void);
-char * tmpnam (char *);
-int fclose (FILE *);
-int fflush (FILE *);
-FILE * freopen (const char *, const char *, FILE *);
-void setbuf (FILE *, char *);
-int setvbuf (FILE *, char *, int, size_t);
-int fprintf (FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
-                                                            ;
-int fscanf (FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
-                                                           ;
-int printf (const char *, ...) __attribute__ ((__format__ (__printf__, 1, 2)))
-                                                            ;
-int scanf (const char *, ...) __attribute__ ((__format__ (__scanf__, 1, 2)))
-                                                           ;
-int sscanf (const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
-                                                           ;
-int vfprintf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
-                                                            ;
-int vprintf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 1, 0)))
-                                                            ;
-int vsprintf (char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
-                                                            ;
-int fgetc (FILE *);
-char * fgets (char *, int, FILE *);
-int fputc (int, FILE *);
-int fputs (const char *, FILE *);
-int getc (FILE *);
-int getchar (void);
-char * gets (char *);
-int putc (int, FILE *);
-int putchar (int);
-int puts (const char *);
-int ungetc (int, FILE *);
-size_t fread (void *, size_t _size, size_t _n, FILE *);
-size_t fwrite (const void * , size_t _size, size_t _n, FILE *);
-
-
-
-int fgetpos (FILE *, fpos_t *);
-
-int fseek (FILE *, long, int);
-
-
-
-int fsetpos (FILE *, const fpos_t *);
-
-long ftell ( FILE *);
-void rewind (FILE *);
-void clearerr (FILE *);
-int feof (FILE *);
-int ferror (FILE *);
-void perror (const char *);
-
-FILE * fopen (const char *_name, const char *_type);
-int sprintf (char *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
-                                                            ;
-int remove (const char *);
-int rename (const char *, const char *);
-# 246 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 3
-int asiprintf (char **, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
-                                                            ;
-char * asniprintf (char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-char * asnprintf (char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-int asprintf (char **, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
-                                                            ;
-
-int diprintf (int, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
-                                                            ;
-
-int fcloseall (void);
-int fiprintf (FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
-                                                            ;
-int fiscanf (FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
-                                                           ;
-int iprintf (const char *, ...) __attribute__ ((__format__ (__printf__, 1, 2)))
-                                                            ;
-int iscanf (const char *, ...) __attribute__ ((__format__ (__scanf__, 1, 2)))
-                                                           ;
-int siprintf (char *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
-                                                            ;
-int siscanf (const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
-                                                           ;
-int snprintf (char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-int sniprintf (char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-char * tempnam (const char *, const char *);
-int vasiprintf (char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
-                                                            ;
-char * vasniprintf (char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-char * vasnprintf (char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int vasprintf (char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
-                                                            ;
-int vdiprintf (int, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
-                                                            ;
-int vfiprintf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
-                                                            ;
-int vfiscanf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
-                                                           ;
-int vfscanf (FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
-                                                           ;
-int viprintf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 1, 0)))
-                                                            ;
-int viscanf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 1, 0)))
-                                                           ;
-int vscanf (const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 1, 0)))
-                                                           ;
-int vsiprintf (char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
-                                                            ;
-int vsiscanf (const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
-                                                           ;
-int vsniprintf (char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int vsnprintf (char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int vsscanf (const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
-                                                           ;
-# 361 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 3
-int _asiprintf_r (struct _reent *, char **, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-char * _asniprintf_r (struct _reent *, char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)))
-                                                            ;
-char * _asnprintf_r (struct _reent *, char *, size_t *, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)))
-                                                            ;
-int _asprintf_r (struct _reent *, char **, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-int _diprintf_r (struct _reent *, int, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-int _dprintf_r (struct _reent *, int, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-int _fclose_r (struct _reent *, FILE *);
-int _fcloseall_r (struct _reent *);
-FILE * _fdopen_r (struct _reent *, int, const char *);
-int _fflush_r (struct _reent *, FILE *);
-int _fgetc_r (struct _reent *, FILE *);
-char * _fgets_r (struct _reent *, char *, int, FILE *);
-
-
-
-
-int _fgetpos_r (struct _reent *, FILE *, fpos_t *);
-int _fsetpos_r (struct _reent *, FILE *, const fpos_t *);
-
-int _fiprintf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-int _fiscanf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)))
-                                                           ;
-FILE * _fmemopen_r (struct _reent *, void *, size_t, const char *);
-FILE * _fopen_r (struct _reent *, const char *, const char *);
-FILE * _freopen_r (struct _reent *, const char *, const char *, FILE *);
-int _fprintf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-int _fpurge_r (struct _reent *, FILE *);
-int _fputc_r (struct _reent *, int, FILE *);
-int _fputs_r (struct _reent *, const char *, FILE *);
-size_t _fread_r (struct _reent *, void *, size_t _size, size_t _n, FILE *);
-int _fscanf_r (struct _reent *, FILE *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)))
-                                                           ;
-int _fseek_r (struct _reent *, FILE *, long, int);
-int _fseeko_r (struct _reent *, FILE *, _off_t, int);
-long _ftell_r (struct _reent *, FILE *);
-_off_t _ftello_r (struct _reent *, FILE *);
-void _rewind_r (struct _reent *, FILE *);
-size_t _fwrite_r (struct _reent *, const void * , size_t _size, size_t _n, FILE *);
-int _getc_r (struct _reent *, FILE *);
-int _getc_unlocked_r (struct _reent *, FILE *);
-int _getchar_r (struct _reent *);
-int _getchar_unlocked_r (struct _reent *);
-char * _gets_r (struct _reent *, char *);
-int _iprintf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
-                                                            ;
-int _iscanf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
-                                                           ;
-FILE * _open_memstream_r (struct _reent *, char **, size_t *);
-void _perror_r (struct _reent *, const char *);
-int _printf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__printf__, 2, 3)))
-                                                            ;
-int _putc_r (struct _reent *, int, FILE *);
-int _putc_unlocked_r (struct _reent *, int, FILE *);
-int _putchar_unlocked_r (struct _reent *, int);
-int _putchar_r (struct _reent *, int);
-int _puts_r (struct _reent *, const char *);
-int _remove_r (struct _reent *, const char *);
-int _rename_r (struct _reent *, const char *_old, const char *_new)
-                                          ;
-int _scanf_r (struct _reent *, const char *, ...) __attribute__ ((__format__ (__scanf__, 2, 3)))
-                                                           ;
-int _siprintf_r (struct _reent *, char *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-int _siscanf_r (struct _reent *, const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)))
-                                                           ;
-int _sniprintf_r (struct _reent *, char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)))
-                                                            ;
-int _snprintf_r (struct _reent *, char *, size_t, const char *, ...) __attribute__ ((__format__ (__printf__, 4, 5)))
-                                                            ;
-int _sprintf_r (struct _reent *, char *, const char *, ...) __attribute__ ((__format__ (__printf__, 3, 4)))
-                                                            ;
-int _sscanf_r (struct _reent *, const char *, const char *, ...) __attribute__ ((__format__ (__scanf__, 3, 4)))
-                                                           ;
-char * _tempnam_r (struct _reent *, const char *, const char *);
-FILE * _tmpfile_r (struct _reent *);
-char * _tmpnam_r (struct _reent *, char *);
-int _ungetc_r (struct _reent *, int, FILE *);
-int _vasiprintf_r (struct _reent *, char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-char * _vasniprintf_r (struct _reent*, char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)))
-                                                            ;
-char * _vasnprintf_r (struct _reent*, char *, size_t *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)))
-                                                            ;
-int _vasprintf_r (struct _reent *, char **, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int _vdiprintf_r (struct _reent *, int, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int _vdprintf_r (struct _reent *, int, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int _vfiprintf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int _vfiscanf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)))
-                                                           ;
-int _vfprintf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int _vfscanf_r (struct _reent *, FILE *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)))
-                                                           ;
-int _viprintf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
-                                                            ;
-int _viscanf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
-                                                           ;
-int _vprintf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 2, 0)))
-                                                            ;
-int _vscanf_r (struct _reent *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 2, 0)))
-                                                           ;
-int _vsiprintf_r (struct _reent *, char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int _vsiscanf_r (struct _reent *, const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)))
-                                                           ;
-int _vsniprintf_r (struct _reent *, char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)))
-                                                            ;
-int _vsnprintf_r (struct _reent *, char *, size_t, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 4, 0)))
-                                                            ;
-int _vsprintf_r (struct _reent *, char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__printf__, 3, 0)))
-                                                            ;
-int _vsscanf_r (struct _reent *, const char *, const char *, __gnuc_va_list) __attribute__ ((__format__ (__scanf__, 3, 0)))
-                                                           ;
-
-
-
-int fpurge (FILE *);
-ssize_t __getdelim (char **, size_t *, int, FILE *);
-ssize_t __getline (char **, size_t *, FILE *);
-# 519 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 3
-int __srget_r (struct _reent *, FILE *);
-int __swbuf_r (struct _reent *, int, FILE *);
-# 687 "c:\\hightec\\toolchains\\tricore\\v4.9.3.0-infineon-1.0\\tricore\\include\\stdio.h" 3
-
-# 34 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h" 2
-# 1 "0_Src/BaseSw/Service/CpuGeneric/SysSe/Bsp/Bsp.h" 1
-# 35 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h" 2
-# 1 "0_Src/AppSw/Tricore/Cfg_Illd/ConfigurationIsr.h" 1
-# 36 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h" 2
-# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Irq/IfxCpu_Irq.h" 1
-# 84 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Irq/IfxCpu_Irq.h"
-static inline __attribute__ ((always_inline)) IfxSrc_Tos IfxCpu_Irq_getTos(IfxCpu_ResourceCpu coreId)
+typedef struct _Ifx_ASCLIN_CLC_Bits
 {
-    return (IfxSrc_Tos)coreId;
+    unsigned int DISR:1;
+    unsigned int DISS:1;
+    unsigned int reserved_2:1;
+    unsigned int EDIS:1;
+    unsigned int reserved_4:28;
+} Ifx_ASCLIN_CLC_Bits;
+
+
+typedef struct _Ifx_ASCLIN_CSR_Bits
+{
+    unsigned int CLKSEL:5;
+    unsigned int reserved_5:26;
+    unsigned int CON:1;
+} Ifx_ASCLIN_CSR_Bits;
+
+
+typedef struct _Ifx_ASCLIN_DATCON_Bits
+{
+    unsigned int DATLEN:4;
+    unsigned int reserved_4:9;
+    unsigned int HO:1;
+    unsigned int RM:1;
+    unsigned int CSM:1;
+    unsigned int RESPONSE:8;
+    unsigned int reserved_24:8;
+} Ifx_ASCLIN_DATCON_Bits;
+
+
+typedef struct _Ifx_ASCLIN_FLAGS_Bits
+{
+    unsigned int TH:1;
+    unsigned int TR:1;
+    unsigned int RH:1;
+    unsigned int RR:1;
+    unsigned int reserved_4:1;
+    unsigned int FED:1;
+    unsigned int RED:1;
+    unsigned int reserved_7:6;
+    unsigned int TWRQ:1;
+    unsigned int THRQ:1;
+    unsigned int TRRQ:1;
+    unsigned int PE:1;
+    unsigned int TC:1;
+    unsigned int FE:1;
+    unsigned int HT:1;
+    unsigned int RT:1;
+    unsigned int BD:1;
+    unsigned int LP:1;
+    unsigned int LA:1;
+    unsigned int LC:1;
+    unsigned int CE:1;
+    unsigned int RFO:1;
+    unsigned int RFU:1;
+    unsigned int RFL:1;
+    unsigned int reserved_29:1;
+    unsigned int TFO:1;
+    unsigned int TFL:1;
+} Ifx_ASCLIN_FLAGS_Bits;
+
+
+typedef struct _Ifx_ASCLIN_FLAGSCLEAR_Bits
+{
+    unsigned int THC:1;
+    unsigned int TRC:1;
+    unsigned int RHC:1;
+    unsigned int RRC:1;
+    unsigned int reserved_4:1;
+    unsigned int FEDC:1;
+    unsigned int REDC:1;
+    unsigned int reserved_7:6;
+    unsigned int TWRQC:1;
+    unsigned int THRQC:1;
+    unsigned int TRRQC:1;
+    unsigned int PEC:1;
+    unsigned int TCC:1;
+    unsigned int FEC:1;
+    unsigned int HTC:1;
+    unsigned int RTC:1;
+    unsigned int BDC:1;
+    unsigned int LPC:1;
+    unsigned int LAC:1;
+    unsigned int LCC:1;
+    unsigned int CEC:1;
+    unsigned int RFOC:1;
+    unsigned int RFUC:1;
+    unsigned int RFLC:1;
+    unsigned int reserved_29:1;
+    unsigned int TFOC:1;
+    unsigned int TFLC:1;
+} Ifx_ASCLIN_FLAGSCLEAR_Bits;
+
+
+typedef struct _Ifx_ASCLIN_FLAGSENABLE_Bits
+{
+    unsigned int THE:1;
+    unsigned int TRE:1;
+    unsigned int RHE:1;
+    unsigned int RRE:1;
+    unsigned int reserved_4:1;
+    unsigned int FEDE:1;
+    unsigned int REDE:1;
+    unsigned int reserved_7:9;
+    unsigned int PEE:1;
+    unsigned int TCE:1;
+    unsigned int FEE:1;
+    unsigned int HTE:1;
+    unsigned int RTE:1;
+    unsigned int BDE:1;
+    unsigned int LPE:1;
+    unsigned int ABE:1;
+    unsigned int LCE:1;
+    unsigned int CEE:1;
+    unsigned int RFOE:1;
+    unsigned int RFUE:1;
+    unsigned int RFLE:1;
+    unsigned int reserved_29:1;
+    unsigned int TFOE:1;
+    unsigned int TFLE:1;
+} Ifx_ASCLIN_FLAGSENABLE_Bits;
+
+
+typedef struct _Ifx_ASCLIN_FLAGSSET_Bits
+{
+    unsigned int THS:1;
+    unsigned int TRS:1;
+    unsigned int RHS:1;
+    unsigned int RRS:1;
+    unsigned int reserved_4:1;
+    unsigned int FEDS:1;
+    unsigned int REDS:1;
+    unsigned int reserved_7:6;
+    unsigned int TWRQS:1;
+    unsigned int THRQS:1;
+    unsigned int TRRQS:1;
+    unsigned int PES:1;
+    unsigned int TCS:1;
+    unsigned int FES:1;
+    unsigned int HTS:1;
+    unsigned int RTS:1;
+    unsigned int BDS:1;
+    unsigned int LPS:1;
+    unsigned int LAS:1;
+    unsigned int LCS:1;
+    unsigned int CES:1;
+    unsigned int RFOS:1;
+    unsigned int RFUS:1;
+    unsigned int RFLS:1;
+    unsigned int reserved_29:1;
+    unsigned int TFOS:1;
+    unsigned int TFLS:1;
+} Ifx_ASCLIN_FLAGSSET_Bits;
+
+
+typedef struct _Ifx_ASCLIN_FRAMECON_Bits
+{
+    unsigned int reserved_0:6;
+    unsigned int IDLE:3;
+    unsigned int STOP:3;
+    unsigned int LEAD:3;
+    unsigned int reserved_15:1;
+    unsigned int MODE:2;
+    unsigned int reserved_18:10;
+    unsigned int MSB:1;
+    unsigned int CEN:1;
+    unsigned int PEN:1;
+    unsigned int ODD:1;
+} Ifx_ASCLIN_FRAMECON_Bits;
+
+
+typedef struct _Ifx_ASCLIN_ID_Bits
+{
+    unsigned int MODREV:8;
+    unsigned int MODTYPE:8;
+    unsigned int MODNUMBER:16;
+} Ifx_ASCLIN_ID_Bits;
+
+
+typedef struct _Ifx_ASCLIN_IOCR_Bits
+{
+    unsigned int ALTI:3;
+    unsigned int reserved_3:1;
+    unsigned int DEPTH:6;
+    unsigned int reserved_10:6;
+    unsigned int CTS:2;
+    unsigned int reserved_18:7;
+    unsigned int RCPOL:1;
+    unsigned int CPOL:1;
+    unsigned int SPOL:1;
+    unsigned int LB:1;
+    unsigned int CTSEN:1;
+    unsigned int RXM:1;
+    unsigned int TXM:1;
+} Ifx_ASCLIN_IOCR_Bits;
+
+
+typedef struct _Ifx_ASCLIN_KRST0_Bits
+{
+    unsigned int RST:1;
+    unsigned int RSTSTAT:1;
+    unsigned int reserved_2:30;
+} Ifx_ASCLIN_KRST0_Bits;
+
+
+typedef struct _Ifx_ASCLIN_KRST1_Bits
+{
+    unsigned int RST:1;
+    unsigned int reserved_1:31;
+} Ifx_ASCLIN_KRST1_Bits;
+
+
+typedef struct _Ifx_ASCLIN_KRSTCLR_Bits
+{
+    unsigned int CLR:1;
+    unsigned int reserved_1:31;
+} Ifx_ASCLIN_KRSTCLR_Bits;
+
+
+typedef struct _Ifx_ASCLIN_LIN_BTIMER_Bits
+{
+    unsigned int BREAK:6;
+    unsigned int reserved_6:26;
+} Ifx_ASCLIN_LIN_BTIMER_Bits;
+
+
+typedef struct _Ifx_ASCLIN_LIN_CON_Bits
+{
+    unsigned int reserved_0:23;
+    unsigned int CSI:1;
+    unsigned int reserved_24:1;
+    unsigned int CSEN:1;
+    unsigned int MS:1;
+    unsigned int ABD:1;
+    unsigned int reserved_28:4;
+} Ifx_ASCLIN_LIN_CON_Bits;
+
+
+typedef struct _Ifx_ASCLIN_LIN_HTIMER_Bits
+{
+    unsigned int HEADER:8;
+    unsigned int reserved_8:24;
+} Ifx_ASCLIN_LIN_HTIMER_Bits;
+
+
+typedef struct _Ifx_ASCLIN_OCS_Bits
+{
+    unsigned int reserved_0:24;
+    unsigned int SUS:4;
+    unsigned int SUS_P:1;
+    unsigned int SUSSTA:1;
+    unsigned int reserved_30:2;
+} Ifx_ASCLIN_OCS_Bits;
+
+
+typedef struct _Ifx_ASCLIN_RXDATA_Bits
+{
+    unsigned int DATA:32;
+} Ifx_ASCLIN_RXDATA_Bits;
+
+
+typedef struct _Ifx_ASCLIN_RXDATAD_Bits
+{
+    unsigned int DATA:32;
+} Ifx_ASCLIN_RXDATAD_Bits;
+
+
+typedef struct _Ifx_ASCLIN_RXFIFOCON_Bits
+{
+    unsigned int FLUSH:1;
+    unsigned int ENI:1;
+    unsigned int reserved_2:4;
+    unsigned int OUTW:2;
+    unsigned int INTLEVEL:4;
+    unsigned int reserved_12:4;
+    unsigned int FILL:5;
+    unsigned int reserved_21:10;
+    unsigned int BUF:1;
+} Ifx_ASCLIN_RXFIFOCON_Bits;
+
+
+typedef struct _Ifx_ASCLIN_TXDATA_Bits
+{
+    unsigned int DATA:32;
+} Ifx_ASCLIN_TXDATA_Bits;
+
+
+typedef struct _Ifx_ASCLIN_TXFIFOCON_Bits
+{
+    unsigned int FLUSH:1;
+    unsigned int ENO:1;
+    unsigned int reserved_2:4;
+    unsigned int INW:2;
+    unsigned int INTLEVEL:4;
+    unsigned int reserved_12:4;
+    unsigned int FILL:5;
+    unsigned int reserved_21:11;
+} Ifx_ASCLIN_TXFIFOCON_Bits;
+
+
+
+
+
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_ACCEN0_Bits B;
+} Ifx_ASCLIN_ACCEN0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_ACCEN1_Bits B;
+} Ifx_ASCLIN_ACCEN1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_BITCON_Bits B;
+} Ifx_ASCLIN_BITCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_BRD_Bits B;
+} Ifx_ASCLIN_BRD;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_BRG_Bits B;
+} Ifx_ASCLIN_BRG;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_CLC_Bits B;
+} Ifx_ASCLIN_CLC;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_CSR_Bits B;
+} Ifx_ASCLIN_CSR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_DATCON_Bits B;
+} Ifx_ASCLIN_DATCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_FLAGS_Bits B;
+} Ifx_ASCLIN_FLAGS;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_FLAGSCLEAR_Bits B;
+} Ifx_ASCLIN_FLAGSCLEAR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_FLAGSENABLE_Bits B;
+} Ifx_ASCLIN_FLAGSENABLE;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_FLAGSSET_Bits B;
+} Ifx_ASCLIN_FLAGSSET;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_FRAMECON_Bits B;
+} Ifx_ASCLIN_FRAMECON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_ID_Bits B;
+} Ifx_ASCLIN_ID;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_IOCR_Bits B;
+} Ifx_ASCLIN_IOCR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_KRST0_Bits B;
+} Ifx_ASCLIN_KRST0;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_KRST1_Bits B;
+} Ifx_ASCLIN_KRST1;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_KRSTCLR_Bits B;
+} Ifx_ASCLIN_KRSTCLR;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_LIN_BTIMER_Bits B;
+} Ifx_ASCLIN_LIN_BTIMER;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_LIN_CON_Bits B;
+} Ifx_ASCLIN_LIN_CON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_LIN_HTIMER_Bits B;
+} Ifx_ASCLIN_LIN_HTIMER;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_OCS_Bits B;
+} Ifx_ASCLIN_OCS;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_RXDATA_Bits B;
+} Ifx_ASCLIN_RXDATA;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_RXDATAD_Bits B;
+} Ifx_ASCLIN_RXDATAD;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_RXFIFOCON_Bits B;
+} Ifx_ASCLIN_RXFIFOCON;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_TXDATA_Bits B;
+} Ifx_ASCLIN_TXDATA;
+
+
+typedef union
+{
+    unsigned int U;
+    signed int I;
+    Ifx_ASCLIN_TXFIFOCON_Bits B;
+} Ifx_ASCLIN_TXFIFOCON;
+# 647 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxAsclin_regdef.h"
+typedef volatile struct _Ifx_ASCLIN_LIN
+{
+    Ifx_ASCLIN_LIN_CON CON;
+    Ifx_ASCLIN_LIN_BTIMER BTIMER;
+    Ifx_ASCLIN_LIN_HTIMER HTIMER;
+} Ifx_ASCLIN_LIN;
+# 665 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxAsclin_regdef.h"
+typedef volatile struct _Ifx_ASCLIN
+{
+    Ifx_ASCLIN_CLC CLC;
+    Ifx_ASCLIN_IOCR IOCR;
+    Ifx_ASCLIN_ID ID;
+    Ifx_ASCLIN_TXFIFOCON TXFIFOCON;
+    Ifx_ASCLIN_RXFIFOCON RXFIFOCON;
+    Ifx_ASCLIN_BITCON BITCON;
+    Ifx_ASCLIN_FRAMECON FRAMECON;
+    Ifx_ASCLIN_DATCON DATCON;
+    Ifx_ASCLIN_BRG BRG;
+    Ifx_ASCLIN_BRD BRD;
+    Ifx_ASCLIN_LIN LIN;
+    Ifx_ASCLIN_FLAGS FLAGS;
+    Ifx_ASCLIN_FLAGSSET FLAGSSET;
+    Ifx_ASCLIN_FLAGSCLEAR FLAGSCLEAR;
+    Ifx_ASCLIN_FLAGSENABLE FLAGSENABLE;
+    Ifx_ASCLIN_TXDATA TXDATA;
+    Ifx_ASCLIN_RXDATA RXDATA;
+    Ifx_ASCLIN_CSR CSR;
+    Ifx_ASCLIN_RXDATAD RXDATAD;
+    unsigned char reserved_54[148];
+    Ifx_ASCLIN_OCS OCS;
+    Ifx_ASCLIN_KRSTCLR KRSTCLR;
+    Ifx_ASCLIN_KRST1 KRST1;
+    Ifx_ASCLIN_KRST0 KRST0;
+    Ifx_ASCLIN_ACCEN1 ACCEN1;
+    Ifx_ASCLIN_ACCEN0 ACCEN0;
+} Ifx_ASCLIN;
+# 46 "0_Src/BaseSw/Infra/Sfr/TC27D/_Reg/IfxAsclin_reg.h" 2
+# 43 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxAsclin_cfg.h" 2
+# 58 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxAsclin_cfg.h"
+typedef enum
+{
+    IfxAsclin_Index_none = -1,
+    IfxAsclin_Index_0 = 0,
+    IfxAsclin_Index_1,
+    IfxAsclin_Index_2,
+    IfxAsclin_Index_3
+} IfxAsclin_Index;
+
+
+
+
+
+
+
+extern const IfxModule_IndexMap IfxAsclin_cfg_indexMap[(4)];
+# 46 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h" 2
+
+
+
+
+
+# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/_PinMap/IfxAsclin_PinMap.h" 1
+# 39 "0_Src/BaseSw/iLLD/TC27D/Tricore/_PinMap/IfxAsclin_PinMap.h"
+typedef const struct
+{
+    Ifx_ASCLIN* module;
+    IfxPort_Pin pin;
+    Ifx_RxSel select;
+} IfxAsclin_Cts_In;
+
+
+typedef const struct
+{
+    Ifx_ASCLIN* module;
+    IfxPort_Pin pin;
+    Ifx_RxSel select;
+} IfxAsclin_Rx_In;
+
+
+typedef const struct
+{
+    Ifx_ASCLIN* module;
+    IfxPort_Pin pin;
+    IfxPort_OutputIdx select;
+} IfxAsclin_Rts_Out;
+
+
+typedef const struct
+{
+    Ifx_ASCLIN* module;
+    IfxPort_Pin pin;
+    IfxPort_OutputIdx select;
+} IfxAsclin_Sclk_Out;
+
+
+typedef const struct
+{
+    Ifx_ASCLIN* module;
+    IfxPort_Pin pin;
+    IfxPort_OutputIdx select;
+} IfxAsclin_Slso_Out;
+
+
+typedef const struct
+{
+    Ifx_ASCLIN* module;
+    IfxPort_Pin pin;
+    IfxPort_OutputIdx select;
+} IfxAsclin_Tx_Out;
+
+extern IfxAsclin_Cts_In IfxAsclin0_CTSA_P14_9_IN;
+extern IfxAsclin_Cts_In IfxAsclin1_CTSA_P20_7_IN;
+extern IfxAsclin_Cts_In IfxAsclin1_CTSB_P32_4_IN;
+extern IfxAsclin_Cts_In IfxAsclin2_CTSA_P10_7_IN;
+extern IfxAsclin_Cts_In IfxAsclin2_CTSB_P33_5_IN;
+extern IfxAsclin_Cts_In IfxAsclin3_CTSA_P00_12_IN;
+extern IfxAsclin_Rts_Out IfxAsclin0_RTS_P14_7_OUT;
+extern IfxAsclin_Rts_Out IfxAsclin1_RTS_P20_6_OUT;
+extern IfxAsclin_Rts_Out IfxAsclin1_RTS_P23_1_OUT;
+extern IfxAsclin_Rts_Out IfxAsclin2_RTS_P10_8_OUT;
+extern IfxAsclin_Rts_Out IfxAsclin2_RTS_P33_4_OUT;
+extern IfxAsclin_Rts_Out IfxAsclin3_RTS_P00_9_OUT;
+extern IfxAsclin_Rx_In IfxAsclin0_RXA_P14_1_IN;
+extern IfxAsclin_Rx_In IfxAsclin0_RXB_P15_3_IN;
+extern IfxAsclin_Rx_In IfxAsclin0_RXD_P34_2_IN;
+extern IfxAsclin_Rx_In IfxAsclin1_RXA_P15_1_IN;
+extern IfxAsclin_Rx_In IfxAsclin1_RXB_P15_5_IN;
+extern IfxAsclin_Rx_In IfxAsclin1_RXC_P20_9_IN;
+extern IfxAsclin_Rx_In IfxAsclin1_RXD_P14_8_IN;
+extern IfxAsclin_Rx_In IfxAsclin1_RXE_P11_10_IN;
+extern IfxAsclin_Rx_In IfxAsclin1_RXF_P33_13_IN;
+extern IfxAsclin_Rx_In IfxAsclin1_RXG_P02_3_IN;
+extern IfxAsclin_Rx_In IfxAsclin2_RXA_P14_3_IN;
+extern IfxAsclin_Rx_In IfxAsclin2_RXB_P02_1_IN;
+extern IfxAsclin_Rx_In IfxAsclin2_RXC_P02_10_IN;
+extern IfxAsclin_Rx_In IfxAsclin2_RXD_P10_6_IN;
+extern IfxAsclin_Rx_In IfxAsclin2_RXE_P33_8_IN;
+extern IfxAsclin_Rx_In IfxAsclin2_RXF_P32_6_IN;
+extern IfxAsclin_Rx_In IfxAsclin2_RXG_P02_0_IN;
+extern IfxAsclin_Rx_In IfxAsclin3_RXA_P15_7_IN;
+extern IfxAsclin_Rx_In IfxAsclin3_RXB_P11_0_IN;
+extern IfxAsclin_Rx_In IfxAsclin3_RXC_P20_3_IN;
+extern IfxAsclin_Rx_In IfxAsclin3_RXD_P32_2_IN;
+extern IfxAsclin_Rx_In IfxAsclin3_RXE_P00_1_IN;
+extern IfxAsclin_Rx_In IfxAsclin3_RXF_P21_6_IN;
+extern IfxAsclin_Rx_In IfxAsclin3_RXG_P21_2_IN;
+extern IfxAsclin_Rx_In IfxAsclin3_RXG_P21_3_IN;
+extern IfxAsclin_Sclk_Out IfxAsclin0_SCLK_P14_0_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin0_SCLK_P15_2_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin1_SCLK_P15_0_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin1_SCLK_P20_10_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin1_SCLK_P33_11_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin1_SCLK_P33_12_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin2_SCLK_P02_4_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin2_SCLK_P10_6_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin2_SCLK_P14_2_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin2_SCLK_P33_7_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin2_SCLK_P33_9_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P00_0_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P00_2_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P11_1_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P11_4_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P15_6_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P15_8_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P20_0_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P21_5_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P21_7_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P32_3_OUT;
+extern IfxAsclin_Sclk_Out IfxAsclin3_SCLK_P33_2_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin1_SLSO_P14_3_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin1_SLSO_P20_8_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin1_SLSO_P33_10_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin2_SLSO_P02_3_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin2_SLSO_P10_5_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin2_SLSO_P33_6_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin3_SLSO_P00_3_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin3_SLSO_P12_1_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin3_SLSO_P14_3_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin3_SLSO_P21_2_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin3_SLSO_P21_6_OUT;
+extern IfxAsclin_Slso_Out IfxAsclin3_SLSO_P33_1_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin0_TX_P14_0_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin0_TX_P14_1_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin0_TX_P15_2_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin0_TX_P15_3_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin0_TX_P34_1_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P02_2_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P11_12_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P14_10_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P15_0_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P15_1_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P15_4_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P15_5_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P20_10_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P33_12_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin1_TX_P33_13_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin2_TX_P02_0_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin2_TX_P02_9_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin2_TX_P10_5_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin2_TX_P14_2_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin2_TX_P14_3_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin2_TX_P32_5_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin2_TX_P33_8_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin2_TX_P33_9_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P00_0_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P00_1_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P11_0_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P11_1_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P15_6_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P15_7_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P20_0_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P20_3_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P21_7_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P22_0_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P22_1_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P32_2_OUT;
+extern IfxAsclin_Tx_Out IfxAsclin3_TX_P32_3_OUT;
+# 205 "0_Src/BaseSw/iLLD/TC27D/Tricore/_PinMap/IfxAsclin_PinMap.h"
+extern const IfxAsclin_Cts_In *IfxAsclin_Cts_In_pinTable[4][2];
+
+
+extern const IfxAsclin_Rts_Out *IfxAsclin_Rts_Out_pinTable[4][2];
+
+
+extern const IfxAsclin_Rx_In *IfxAsclin_Rx_In_pinTable[4][7];
+
+
+extern const IfxAsclin_Sclk_Out *IfxAsclin_Sclk_Out_pinTable[4][11];
+
+
+extern const IfxAsclin_Slso_Out *IfxAsclin_Slso_Out_pinTable[4][6];
+
+
+extern const IfxAsclin_Tx_Out *IfxAsclin_Tx_Out_pinTable[4][13];
+# 52 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h" 2
+# 62 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+typedef enum
+{
+    IfxAsclin_Checksum_classic = 0,
+    IfxAsclin_Checksum_enhanced = 1
+} IfxAsclin_Checksum;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_ChecksumInjection_notWritten = 0,
+    IfxAsclin_ChecksumInjection_written = 1
+} IfxAsclin_ChecksumInjection;
+
+
+
+
+
+typedef enum
+{
+    IfxAsclin_ClockPolarity_idleLow = 0,
+    IfxAsclin_ClockPolarity_idleHigh = 1
+} IfxAsclin_ClockPolarity;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_ClockSource_noClock = 0,
+    IfxAsclin_ClockSource_kernelClock = 1,
+    IfxAsclin_ClockSource_oscillatorClock = 2,
+    IfxAsclin_ClockSource_flexRayClock = 4,
+    IfxAsclin_ClockSource_ascFastClock = 8,
+    IfxAsclin_ClockSource_ascSlowClock = 16
+} IfxAsclin_ClockSource;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_CtsInputSelect_0,
+    IfxAsclin_CtsInputSelect_1,
+    IfxAsclin_CtsInputSelect_2,
+    IfxAsclin_CtsInputSelect_3
+} IfxAsclin_CtsInputSelect;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_DataLength_1 = 0,
+    IfxAsclin_DataLength_2,
+    IfxAsclin_DataLength_3,
+    IfxAsclin_DataLength_4,
+    IfxAsclin_DataLength_5,
+    IfxAsclin_DataLength_6,
+    IfxAsclin_DataLength_7,
+    IfxAsclin_DataLength_8,
+    IfxAsclin_DataLength_9,
+    IfxAsclin_DataLength_10,
+    IfxAsclin_DataLength_11,
+    IfxAsclin_DataLength_12,
+    IfxAsclin_DataLength_13,
+    IfxAsclin_DataLength_14,
+    IfxAsclin_DataLength_15,
+    IfxAsclin_DataLength_16
+} IfxAsclin_DataLength;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_FrameMode_initialise = 0,
+    IfxAsclin_FrameMode_asc = 1,
+    IfxAsclin_FrameMode_spi = 2,
+    IfxAsclin_FrameMode_lin = 3
+} IfxAsclin_FrameMode;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_HeaderResponseSelect_headerAndResponse = 0,
+    IfxAsclin_HeaderResponseSelect_headerOnly = 1
+} IfxAsclin_HeaderResponseSelect;
+
+
+
+
+
+
+typedef enum
+{
+    IfxAsclin_IdleDelay_0,
+    IfxAsclin_IdleDelay_1,
+    IfxAsclin_IdleDelay_2,
+    IfxAsclin_IdleDelay_3,
+    IfxAsclin_IdleDelay_4,
+    IfxAsclin_IdleDelay_5,
+    IfxAsclin_IdleDelay_6,
+    IfxAsclin_IdleDelay_7
+} IfxAsclin_IdleDelay;
+
+
+
+
+
+typedef enum
+{
+    IfxAsclin_LeadDelay_0,
+    IfxAsclin_LeadDelay_1,
+    IfxAsclin_LeadDelay_2,
+    IfxAsclin_LeadDelay_3,
+    IfxAsclin_LeadDelay_4,
+    IfxAsclin_LeadDelay_5,
+    IfxAsclin_LeadDelay_6,
+    IfxAsclin_LeadDelay_7
+} IfxAsclin_LeadDelay;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_LinMode_slave = 0,
+    IfxAsclin_LinMode_master = 1
+} IfxAsclin_LinMode;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_LinResponseTimeoutMode_frameTimeout = 0,
+    IfxAsclin_LinResponseTimeoutMode_responseTimeout = 1
+} IfxAsclin_LinResponseTimeoutMode;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_OversamplingFactor_4 = 3,
+    IfxAsclin_OversamplingFactor_5 = 4,
+    IfxAsclin_OversamplingFactor_6 = 5,
+    IfxAsclin_OversamplingFactor_7 = 6,
+    IfxAsclin_OversamplingFactor_8 = 7,
+    IfxAsclin_OversamplingFactor_9 = 8,
+    IfxAsclin_OversamplingFactor_10 = 9,
+    IfxAsclin_OversamplingFactor_11 = 10,
+    IfxAsclin_OversamplingFactor_12 = 11,
+    IfxAsclin_OversamplingFactor_13 = 12,
+    IfxAsclin_OversamplingFactor_14 = 13,
+    IfxAsclin_OversamplingFactor_15 = 14,
+    IfxAsclin_OversamplingFactor_16 = 15
+} IfxAsclin_OversamplingFactor;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_ParityType_even = 0,
+    IfxAsclin_ParityType_odd = 1
+} IfxAsclin_ParityType;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_ReceiveBufferMode_rxFifo = 0,
+    IfxAsclin_ReceiveBufferMode_rxBuffer = 1
+} IfxAsclin_ReceiveBufferMode;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_RtsCtsPolarity_activeHigh = 0,
+    IfxAsclin_RtsCtsPolarity_activeLow = 1
+} IfxAsclin_RtsCtsPolarity;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_RxFifoInterruptLevel_1,
+    IfxAsclin_RxFifoInterruptLevel_2,
+    IfxAsclin_RxFifoInterruptLevel_3,
+    IfxAsclin_RxFifoInterruptLevel_4,
+    IfxAsclin_RxFifoInterruptLevel_5,
+    IfxAsclin_RxFifoInterruptLevel_6,
+    IfxAsclin_RxFifoInterruptLevel_7,
+    IfxAsclin_RxFifoInterruptLevel_8,
+    IfxAsclin_RxFifoInterruptLevel_9,
+    IfxAsclin_RxFifoInterruptLevel_10,
+    IfxAsclin_RxFifoInterruptLevel_11,
+    IfxAsclin_RxFifoInterruptLevel_12,
+    IfxAsclin_RxFifoInterruptLevel_13,
+    IfxAsclin_RxFifoInterruptLevel_14,
+    IfxAsclin_RxFifoInterruptLevel_15,
+    IfxAsclin_RxFifoInterruptLevel_16
+} IfxAsclin_RxFifoInterruptLevel;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_RxFifoOutletWidth_0,
+    IfxAsclin_RxFifoOutletWidth_1,
+    IfxAsclin_RxFifoOutletWidth_2,
+    IfxAsclin_RxFifoOutletWidth_3
+} IfxAsclin_RxFifoOutletWidth;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_RxInputSelect_0,
+    IfxAsclin_RxInputSelect_1,
+    IfxAsclin_RxInputSelect_2,
+    IfxAsclin_RxInputSelect_3,
+    IfxAsclin_RxInputSelect_4,
+    IfxAsclin_RxInputSelect_5,
+    IfxAsclin_RxInputSelect_6,
+    IfxAsclin_RxInputSelect_7
+} IfxAsclin_RxInputSelect;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_SamplePointPosition_1 = 1,
+    IfxAsclin_SamplePointPosition_2 = 2,
+    IfxAsclin_SamplePointPosition_3 = 3,
+    IfxAsclin_SamplePointPosition_4 = 4,
+    IfxAsclin_SamplePointPosition_5 = 5,
+    IfxAsclin_SamplePointPosition_6 = 6,
+    IfxAsclin_SamplePointPosition_7 = 7,
+    IfxAsclin_SamplePointPosition_8 = 8,
+    IfxAsclin_SamplePointPosition_9 = 9,
+    IfxAsclin_SamplePointPosition_10 = 10,
+    IfxAsclin_SamplePointPosition_11 = 11,
+    IfxAsclin_SamplePointPosition_12 = 12,
+    IfxAsclin_SamplePointPosition_13 = 13,
+    IfxAsclin_SamplePointPosition_14 = 14,
+    IfxAsclin_SamplePointPosition_15 = 15
+} IfxAsclin_SamplePointPosition;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_SamplesPerBit_one = 0,
+    IfxAsclin_SamplesPerBit_three = 1
+} IfxAsclin_SamplesPerBit;
+
+
+
+
+
+typedef enum
+{
+    IfxAsclin_ShiftDirection_lsbFirst = 0,
+    IfxAsclin_ShiftDirection_msbFirst = 1
+} IfxAsclin_ShiftDirection;
+
+
+
+
+
+typedef enum
+{
+    IfxAsclin_SlavePolarity_idleLow = 0,
+    IfxAsclin_SlavePolarity_idlehigh = 1
+} IfxAsclin_SlavePolarity;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_SleepMode_enable = 0,
+    IfxAsclin_SleepMode_disable = 1
+} IfxAsclin_SleepMode;
+
+
+
+typedef enum
+{
+    IfxAsclin_Status_configurationError = 0,
+    IfxAsclin_Status_noError = 1
+} IfxAsclin_Status;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_StopBit_0,
+    IfxAsclin_StopBit_1,
+    IfxAsclin_StopBit_2,
+    IfxAsclin_StopBit_3,
+    IfxAsclin_StopBit_4,
+    IfxAsclin_StopBit_5,
+    IfxAsclin_StopBit_6,
+    IfxAsclin_StopBit_7
+} IfxAsclin_StopBit;
+
+
+
+typedef enum
+{
+    IfxAsclin_SuspendMode_none = 0,
+    IfxAsclin_SuspendMode_hard = 1,
+    IfxAsclin_SuspendMode_soft = 2
+} IfxAsclin_SuspendMode;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_TxFifoInletWidth_0,
+    IfxAsclin_TxFifoInletWidth_1,
+    IfxAsclin_TxFifoInletWidth_2,
+    IfxAsclin_TxFifoInletWidth_3
+} IfxAsclin_TxFifoInletWidth;
+
+
+
+
+typedef enum
+{
+    IfxAsclin_TxFifoInterruptLevel_0,
+    IfxAsclin_TxFifoInterruptLevel_1,
+    IfxAsclin_TxFifoInterruptLevel_2,
+    IfxAsclin_TxFifoInterruptLevel_3,
+    IfxAsclin_TxFifoInterruptLevel_4,
+    IfxAsclin_TxFifoInterruptLevel_5,
+    IfxAsclin_TxFifoInterruptLevel_6,
+    IfxAsclin_TxFifoInterruptLevel_7,
+    IfxAsclin_TxFifoInterruptLevel_8,
+    IfxAsclin_TxFifoInterruptLevel_9,
+    IfxAsclin_TxFifoInterruptLevel_10,
+    IfxAsclin_TxFifoInterruptLevel_11,
+    IfxAsclin_TxFifoInterruptLevel_12,
+    IfxAsclin_TxFifoInterruptLevel_13,
+    IfxAsclin_TxFifoInterruptLevel_14,
+    IfxAsclin_TxFifoInterruptLevel_15
+} IfxAsclin_TxFifoInterruptLevel;
+# 440 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearAllFlags(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearBreakDetectedFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearCollisionDetectionErrorFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearFallingEdgeDetectedFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearFrameErrorFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearHeaderTimeoutFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearKernelResetStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearLinAutoBaudDetectionErrorFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearLinChecksumErrorFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearLinParityErrorFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearParityErrorFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRaisingEdgeDetectedFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearResponseTimeoutFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxFifoFillLevelFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxFifoOverflowFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxFifoUnderflowFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxHeaderEndFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxResponseEndFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTransmissionCompletedFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTxFifoFillLevelFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTxFifoOverflowFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTxHeaderEndFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTxResponseEndFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_flushRxFifo(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_flushTxFifo(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setBrdLowerlimt(Ifx_ASCLIN *asclin, uint8 limit);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setBrdUpperlimt(Ifx_ASCLIN *asclin, uint8 limit);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setChecksumInjection(Ifx_ASCLIN *asclin, IfxAsclin_ChecksumInjection csi);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setChecksumMode(Ifx_ASCLIN *asclin, IfxAsclin_Checksum mode);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setDataLength(Ifx_ASCLIN *asclin, IfxAsclin_DataLength length);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setDenominator(Ifx_ASCLIN *asclin, uint16 denominator);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setDisableModuleRequest(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setEnableModuleRequest(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setFilterDepth(Ifx_ASCLIN *asclin, uint8 depth);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setHeaderResponseSelect(Ifx_ASCLIN *asclin, IfxAsclin_HeaderResponseSelect type);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setIdleDelay(Ifx_ASCLIN *asclin, IfxAsclin_IdleDelay delay);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setKernelResetOne(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setKernelResetZero(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLeadDelay(Ifx_ASCLIN *asclin, IfxAsclin_LeadDelay delay);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinBreakLength(Ifx_ASCLIN *asclin, uint8 length);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinHeaderTimeout(Ifx_ASCLIN *asclin, uint8 timeout);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinMode(Ifx_ASCLIN *asclin, IfxAsclin_LinMode mode);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinResponseTimeoutMode(Ifx_ASCLIN *asclin, IfxAsclin_LinResponseTimeoutMode mode);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinResponseTimeoutThreshold(Ifx_ASCLIN *asclin, uint16 threshold);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setNumerator(Ifx_ASCLIN *asclin, uint16 numerator);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setOversampling(Ifx_ASCLIN *asclin, IfxAsclin_OversamplingFactor ovsFactor);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setParityType(Ifx_ASCLIN *asclin, IfxAsclin_ParityType type);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setPrescaler(Ifx_ASCLIN *asclin, uint16 prescaler);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRxBufferMode(Ifx_ASCLIN *asclin, IfxAsclin_ReceiveBufferMode mode);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRxFifoInterruptLevel(Ifx_ASCLIN *asclin, IfxAsclin_RxFifoInterruptLevel level);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRxFifoOutletWidth(Ifx_ASCLIN *asclin, IfxAsclin_RxFifoOutletWidth width);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSampleMode(Ifx_ASCLIN *asclin, IfxAsclin_SamplesPerBit medianFilter);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSamplePointPosition(Ifx_ASCLIN *asclin, IfxAsclin_SamplePointPosition spPosition);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setShiftDirection(Ifx_ASCLIN *asclin, IfxAsclin_ShiftDirection dir);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setStopBit(Ifx_ASCLIN *asclin, IfxAsclin_StopBit stopBit);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTransmitHeaderRequestFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTransmitResponseRequestFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTransmitWakeRequestFlag(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTxFifoInletWidth(Ifx_ASCLIN *asclin, IfxAsclin_TxFifoInletWidth width);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTxFifoInterruptLevel(Ifx_ASCLIN *asclin, IfxAsclin_TxFifoInterruptLevel level);
+# 837 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getBreakDetectedFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getClockSource(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getClockStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getCollisionDetectionErrorFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getFallingEdgeDetectedFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getFrameErrorFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getHeaderTimeoutFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getKernelResetStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getLinAutoBaudDetectionErrorFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getLinChecksumErrorFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getLinParityErrorFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getModuleStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getParityErrorFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) uint16 IfxAsclin_getPrescaler(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRaisingEdgeDetectedFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getReceiveSignalStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getResponseTimeoutFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getRxFifoFillLevel(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxFifoFillLevelFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getRxFifoOutletWidth(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxFifoOverflowFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxFifoUnderflowFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxHeaderEndFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxResponseEndFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTransmissionCompletedFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTransmitSignalStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getTxFifoFillLevel(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTxFifoFillLevelFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getTxFifoInletWidth(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTxFifoOverflowFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTxHeaderEndFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTxResponseEndFlagStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSleepMode(Ifx_ASCLIN *asclin, IfxAsclin_SleepMode mode);
+# 1040 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+extern Ifx_ASCLIN *IfxAsclin_getAddress(IfxAsclin_Index asclin);
+
+
+
+
+
+extern float32 IfxAsclin_getFaFrequency(Ifx_ASCLIN *asclin);
+
+
+
+
+extern IfxAsclin_Index IfxAsclin_getIndex(Ifx_ASCLIN *asclin);
+
+
+
+
+
+extern float32 IfxAsclin_getOvsFrequency(Ifx_ASCLIN *asclin);
+
+
+
+
+
+extern float32 IfxAsclin_getPdFrequency(Ifx_ASCLIN *asclin);
+
+
+
+
+
+extern float32 IfxAsclin_getShiftFrequency(Ifx_ASCLIN *asclin);
+
+
+
+
+
+extern void IfxAsclin_resetModule(Ifx_ASCLIN *asclin);
+# 1090 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+static inline __attribute__ ((always_inline)) void IfxAsclin_disableAllFlags(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableAutoBaudrateDetection(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableBreakDetectedFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableCollisionDetection(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableCollisionDetectionErrorFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableCts(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableFallingEdgeDetectedFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableFrameErrorFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableHardwareChecksum(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableHeaderTimeoutFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableLinAutoBaudDetectionErrorFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableLinChecksumErrorFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableLinParityErrorFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableLoopBackMode(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableParity(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableParityErrorFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRaisingEdgeDetectedFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableResponseTimeoutFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxFifoFillLevelFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxFifoInlet(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxFifoOverflowFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxFifoUnderflowFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxHeaderEndFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxResponseEndFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTransmissionCompletedFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxFifoFillLevelFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxFifoOutlet(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxFifoOverflowFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxHeaderEndFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxResponseEndFlag(Ifx_ASCLIN *asclin, boolean enable);
+
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_isModuleSuspended(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setClockPolarity(Ifx_ASCLIN *asclin, IfxAsclin_ClockPolarity cpol);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setCtsInput(Ifx_ASCLIN *asclin, IfxAsclin_CtsInputSelect ctsi);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setFrameMode(Ifx_ASCLIN *asclin, IfxAsclin_FrameMode mode);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRtsCtsPolarity(Ifx_ASCLIN *asclin, IfxAsclin_RtsCtsPolarity rcpol);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRxInput(Ifx_ASCLIN *asclin, IfxAsclin_RxInputSelect alti);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSlavePolarity(Ifx_ASCLIN *asclin, IfxAsclin_SlavePolarity spol);
+
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSuspendMode(Ifx_ASCLIN *asclin, IfxAsclin_SuspendMode mode);
+# 1367 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+extern boolean IfxAsclin_setBitTiming(Ifx_ASCLIN *asclin, float32 baudrate, IfxAsclin_OversamplingFactor oversampling, IfxAsclin_SamplePointPosition samplepoint, IfxAsclin_SamplesPerBit medianFilter);
+# 1382 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+extern void IfxAsclin_disableModule(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+
+extern void IfxAsclin_enableAscErrorFlags(Ifx_ASCLIN *asclin, boolean parEnable, boolean rfoEnable);
+
+
+
+
+
+extern void IfxAsclin_enableModule(Ifx_ASCLIN *asclin);
+
+
+
+
+extern volatile Ifx_SRC_SRCR *IfxAsclin_getSrcPointerEr(Ifx_ASCLIN *asclin);
+
+
+
+
+extern volatile Ifx_SRC_SRCR *IfxAsclin_getSrcPointerRx(Ifx_ASCLIN *asclin);
+
+
+
+
+extern volatile Ifx_SRC_SRCR *IfxAsclin_getSrcPointerTx(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+
+extern uint32 IfxAsclin_read16(Ifx_ASCLIN *asclin, uint16 *data, uint32 count);
+
+
+
+
+
+
+
+extern uint32 IfxAsclin_read32(Ifx_ASCLIN *asclin, uint32 *data, uint32 count);
+
+
+
+
+
+
+
+extern uint32 IfxAsclin_read8(Ifx_ASCLIN *asclin, uint8 *data, uint32 count);
+# 1445 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+extern void IfxAsclin_setBaudrateBitFields(Ifx_ASCLIN *asclin, uint16 prescaler, uint16 numerator, uint16 denominator, IfxAsclin_OversamplingFactor oversampling);
+
+
+
+
+
+
+extern void IfxAsclin_setClockSource(Ifx_ASCLIN *asclin, IfxAsclin_ClockSource clockSource);
+
+
+
+
+
+
+
+extern uint32 IfxAsclin_write16(Ifx_ASCLIN *asclin, uint16 *data, uint32 count);
+
+
+
+
+
+
+
+extern uint32 IfxAsclin_write32(Ifx_ASCLIN *asclin, uint32 *data, uint32 count);
+
+
+
+
+
+
+
+extern uint32 IfxAsclin_write8(Ifx_ASCLIN *asclin, uint8 *data, uint32 count);
+# 1499 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+static inline __attribute__ ((always_inline)) void IfxAsclin_initCtsPin(const IfxAsclin_Cts_In *cts, IfxPort_InputMode inputMode, IfxPort_PadDriver padDriver);
+
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initRtsPin(const IfxAsclin_Rts_Out *rts, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+# 1521 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+static inline __attribute__ ((always_inline)) void IfxAsclin_initRxPin(const IfxAsclin_Rx_In *rx, IfxPort_InputMode inputMode, IfxPort_PadDriver padDriver);
+
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initSclkPin(const IfxAsclin_Sclk_Out *sclk, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initSlsoPin(const IfxAsclin_Slso_Out *slso, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initTxPin(const IfxAsclin_Tx_Out *tx, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver);
+# 1557 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Std/IfxAsclin.h"
+static inline __attribute__ ((always_inline)) uint32 IfxAsclin_readRxData(Ifx_ASCLIN *asclin);
+
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_writeTxData(Ifx_ASCLIN *asclin, uint32 data);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) uint16 IfxAsclin_getAllErrorFlagsStatus(Ifx_ASCLIN *asclin);
+
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearAllFlags(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.U = 0xFFFFFFFF;
 }
-# 37 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h" 2
-# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Port/Std/IfxPort.h" 1
-# 38 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h" 2
 
 
-# 1 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h" 1
-# 41 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h" 2
-# 54 "0_Src/AppSw/Tricore/Demo_Illd/StmDemo.h"
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearBreakDetectedFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.BDC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearCollisionDetectionErrorFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.CEC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearFallingEdgeDetectedFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.FEDC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearFrameErrorFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.FEC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearHeaderTimeoutFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.HTC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearKernelResetStatus(Ifx_ASCLIN *asclin)
+{
+    asclin->KRSTCLR.B.CLR = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearLinAutoBaudDetectionErrorFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.LAC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearLinChecksumErrorFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.LCC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearLinParityErrorFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.LPC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearParityErrorFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.PEC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRaisingEdgeDetectedFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.REDC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearResponseTimeoutFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.RTC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxFifoFillLevelFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.RFLC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxFifoOverflowFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.RFOC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxFifoUnderflowFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.RFUC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxHeaderEndFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.RHC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearRxResponseEndFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.RRC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTransmissionCompletedFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.TCC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTxFifoFillLevelFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.TFLC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTxFifoOverflowFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.TFOC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTxHeaderEndFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.THC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_clearTxResponseEndFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSCLEAR.B.TRC = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_disableAllFlags(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSENABLE.U = 0x00000000;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableAutoBaudrateDetection(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->LIN.CON.B.ABD = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableBreakDetectedFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.BDE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableCollisionDetection(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FRAMECON.B.CEN = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableCollisionDetectionErrorFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.CEE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableCts(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->IOCR.B.CTSEN = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableFallingEdgeDetectedFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.FEDE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableFrameErrorFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.FEE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableHardwareChecksum(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->LIN.CON.B.CSEN = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableHeaderTimeoutFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.HTE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableLinAutoBaudDetectionErrorFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.ABE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableLinChecksumErrorFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.LCE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableLinParityErrorFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.LPE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableLoopBackMode(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->IOCR.B.LB = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableParity(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FRAMECON.B.PEN = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableParityErrorFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.PEE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRaisingEdgeDetectedFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.REDE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableResponseTimeoutFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.RTE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxFifoFillLevelFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.RFLE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxFifoInlet(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->RXFIFOCON.B.ENI = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxFifoOverflowFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.RFOE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxFifoUnderflowFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.RFUE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxHeaderEndFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.RHE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableRxResponseEndFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.RRE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTransmissionCompletedFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.TCE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxFifoFillLevelFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.TFLE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxFifoOutlet(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->TXFIFOCON.B.ENO = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxFifoOverflowFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.TFOE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxHeaderEndFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.THE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_enableTxResponseEndFlag(Ifx_ASCLIN *asclin, boolean enable)
+{
+    asclin->FLAGSENABLE.B.TRE = enable ? 1 : 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_flushRxFifo(Ifx_ASCLIN *asclin)
+{
+    asclin->RXFIFOCON.B.FLUSH = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_flushTxFifo(Ifx_ASCLIN *asclin)
+{
+    asclin->TXFIFOCON.B.FLUSH = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getBreakDetectedFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.BD;
+}
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getClockSource(Ifx_ASCLIN *asclin)
+{
+    return asclin->CSR.B.CLKSEL;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getClockStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->CSR.B.CON;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getCollisionDetectionErrorFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.CE;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getFallingEdgeDetectedFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.FED;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getFrameErrorFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.FE;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getHeaderTimeoutFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.HT;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getKernelResetStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->KRST0.B.RSTSTAT;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getLinAutoBaudDetectionErrorFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.LA;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getLinChecksumErrorFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.LC;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getLinParityErrorFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.LP;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getModuleStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->CLC.B.DISS;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getParityErrorFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.PE;
+}
+
+
+static inline __attribute__ ((always_inline)) uint16 IfxAsclin_getPrescaler(Ifx_ASCLIN *asclin)
+{
+    return asclin->BITCON.B.PRESCALER + 1;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRaisingEdgeDetectedFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.RED;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getReceiveSignalStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->IOCR.B.RXM;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getResponseTimeoutFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.RT;
+}
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getRxFifoFillLevel(Ifx_ASCLIN *asclin)
+{
+    return asclin->RXFIFOCON.B.FILL;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxFifoFillLevelFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.RFL;
+}
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getRxFifoOutletWidth(Ifx_ASCLIN *asclin)
+{
+    return asclin->RXFIFOCON.B.OUTW;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxFifoOverflowFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.RFO;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxFifoUnderflowFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.RFU;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxHeaderEndFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.RH;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getRxResponseEndFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.RR;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTransmissionCompletedFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.TC;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTransmitSignalStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->IOCR.B.TXM;
+}
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getTxFifoFillLevel(Ifx_ASCLIN *asclin)
+{
+    return asclin->TXFIFOCON.B.FILL;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTxFifoFillLevelFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.TFL;
+}
+
+
+static inline __attribute__ ((always_inline)) uint8 IfxAsclin_getTxFifoInletWidth(Ifx_ASCLIN *asclin)
+{
+    return asclin->TXFIFOCON.B.INW;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTxFifoOverflowFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.TFO;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTxHeaderEndFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.TH;
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_getTxResponseEndFlagStatus(Ifx_ASCLIN *asclin)
+{
+    return asclin->FLAGS.B.TR;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initCtsPin(const IfxAsclin_Cts_In *cts, IfxPort_InputMode inputMode, IfxPort_PadDriver padDriver)
+{
+    if (cts->pin.port != ((void *)0))
+    {
+        IfxPort_setPinModeInput(cts->pin.port, cts->pin.pinIndex, inputMode);
+        IfxPort_setPinPadDriver(cts->pin.port, cts->pin.pinIndex, padDriver);
+        IfxAsclin_enableCts(cts->module, 1);
+        IfxAsclin_setCtsInput(cts->module, (IfxAsclin_CtsInputSelect)cts->select);
+    }
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initRtsPin(const IfxAsclin_Rts_Out *rts, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver)
+{
+    IfxPort_setPinModeOutput(rts->pin.port, rts->pin.pinIndex, outputMode, rts->select);
+    IfxPort_setPinPadDriver(rts->pin.port, rts->pin.pinIndex, padDriver);
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initRxPin(const IfxAsclin_Rx_In *rx, IfxPort_InputMode inputMode, IfxPort_PadDriver padDriver)
+{
+    if (rx->pin.port != ((void *)0))
+    {
+        IfxPort_setPinModeInput(rx->pin.port, rx->pin.pinIndex, inputMode);
+        IfxPort_setPinPadDriver(rx->pin.port, rx->pin.pinIndex, padDriver);
+        IfxAsclin_setRxInput(rx->module, (IfxAsclin_RxInputSelect)rx->select);
+    }
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initSclkPin(const IfxAsclin_Sclk_Out *sclk, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver)
+{
+    IfxPort_setPinModeOutput(sclk->pin.port, sclk->pin.pinIndex, outputMode, sclk->select);
+    IfxPort_setPinPadDriver(sclk->pin.port, sclk->pin.pinIndex, padDriver);
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initSlsoPin(const IfxAsclin_Slso_Out *slso, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver)
+{
+    IfxPort_setPinModeOutput(slso->pin.port, slso->pin.pinIndex, outputMode, slso->select);
+    IfxPort_setPinPadDriver(slso->pin.port, slso->pin.pinIndex, padDriver);
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_initTxPin(const IfxAsclin_Tx_Out *tx, IfxPort_OutputMode outputMode, IfxPort_PadDriver padDriver)
+{
+    IfxPort_setPinModeOutput(tx->pin.port, tx->pin.pinIndex, outputMode, tx->select);
+    IfxPort_setPinPadDriver(tx->pin.port, tx->pin.pinIndex, padDriver);
+}
+
+
+static inline __attribute__ ((always_inline)) boolean IfxAsclin_isModuleSuspended(Ifx_ASCLIN *asclin)
+{
+    Ifx_ASCLIN_OCS ocs;
+
+
+    ocs.U = asclin->OCS.U;
+
+
+    return ocs.B.SUSSTA;
+}
+
+
+static inline __attribute__ ((always_inline)) uint32 IfxAsclin_readRxData(Ifx_ASCLIN *asclin)
+{
+    return asclin->RXDATA.U;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setBrdLowerlimt(Ifx_ASCLIN *asclin, uint8 limit)
+{
+    asclin->BRD.B.LOWERLIMIT = limit;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setBrdUpperlimt(Ifx_ASCLIN *asclin, uint8 limit)
+{
+    asclin->BRD.B.UPPERLIMIT = limit;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setChecksumInjection(Ifx_ASCLIN *asclin, IfxAsclin_ChecksumInjection csi)
+{
+    asclin->LIN.CON.B.CSI = csi;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setChecksumMode(Ifx_ASCLIN *asclin, IfxAsclin_Checksum mode)
+{
+    asclin->DATCON.B.CSM = mode;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setClockPolarity(Ifx_ASCLIN *asclin, IfxAsclin_ClockPolarity cpol)
+{
+    asclin->IOCR.B.CPOL = cpol;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setCtsInput(Ifx_ASCLIN *asclin, IfxAsclin_CtsInputSelect ctsi)
+{
+    asclin->IOCR.B.CTS = ctsi;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setDataLength(Ifx_ASCLIN *asclin, IfxAsclin_DataLength length)
+{
+    asclin->DATCON.B.DATLEN = length;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setDenominator(Ifx_ASCLIN *asclin, uint16 denominator)
+{
+    asclin->BRG.B.DENOMINATOR = denominator;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setDisableModuleRequest(Ifx_ASCLIN *asclin)
+{
+    asclin->CLC.B.DISR = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setEnableModuleRequest(Ifx_ASCLIN *asclin)
+{
+    asclin->CLC.B.DISR = 0;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setFilterDepth(Ifx_ASCLIN *asclin, uint8 depth)
+{
+    asclin->IOCR.B.DEPTH = __minu(depth, 63);
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setFrameMode(Ifx_ASCLIN *asclin, IfxAsclin_FrameMode mode)
+{
+    asclin->FRAMECON.B.MODE = mode;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setHeaderResponseSelect(Ifx_ASCLIN *asclin, IfxAsclin_HeaderResponseSelect type)
+{
+    asclin->DATCON.B.HO = type;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setIdleDelay(Ifx_ASCLIN *asclin, IfxAsclin_IdleDelay delay)
+{
+    asclin->FRAMECON.B.IDLE = delay;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setKernelResetOne(Ifx_ASCLIN *asclin)
+{
+    asclin->KRST1.B.RST = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setKernelResetZero(Ifx_ASCLIN *asclin)
+{
+    asclin->KRST0.B.RST = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLeadDelay(Ifx_ASCLIN *asclin, IfxAsclin_LeadDelay delay)
+{
+    asclin->FRAMECON.B.LEAD = delay;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinBreakLength(Ifx_ASCLIN *asclin, uint8 length)
+{
+    asclin->LIN.BTIMER.B.BREAK = length;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinHeaderTimeout(Ifx_ASCLIN *asclin, uint8 timeout)
+{
+    asclin->LIN.HTIMER.B.HEADER = timeout;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinMode(Ifx_ASCLIN *asclin, IfxAsclin_LinMode mode)
+{
+    asclin->LIN.CON.B.MS = mode;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinResponseTimeoutMode(Ifx_ASCLIN *asclin, IfxAsclin_LinResponseTimeoutMode mode)
+{
+    asclin->DATCON.B.RM = mode;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setLinResponseTimeoutThreshold(Ifx_ASCLIN *asclin, uint16 threshold)
+{
+    asclin->DATCON.B.RESPONSE = __minu(threshold, 256);
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setNumerator(Ifx_ASCLIN *asclin, uint16 numerator)
+{
+    asclin->BRG.B.NUMERATOR = numerator;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setOversampling(Ifx_ASCLIN *asclin, IfxAsclin_OversamplingFactor ovsFactor)
+{
+    asclin->BITCON.B.OVERSAMPLING = ovsFactor;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setParityType(Ifx_ASCLIN *asclin, IfxAsclin_ParityType type)
+{
+    asclin->FRAMECON.B.ODD = type;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setPrescaler(Ifx_ASCLIN *asclin, uint16 prescaler)
+{
+    asclin->BITCON.B.PRESCALER = prescaler - 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRtsCtsPolarity(Ifx_ASCLIN *asclin, IfxAsclin_RtsCtsPolarity rcpol)
+{
+    asclin->IOCR.B.RCPOL = rcpol;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRxBufferMode(Ifx_ASCLIN *asclin, IfxAsclin_ReceiveBufferMode mode)
+{
+    asclin->RXFIFOCON.B.BUF = mode;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRxFifoInterruptLevel(Ifx_ASCLIN *asclin, IfxAsclin_RxFifoInterruptLevel level)
+{
+    asclin->RXFIFOCON.B.INTLEVEL = __minu(level, 15);
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRxFifoOutletWidth(Ifx_ASCLIN *asclin, IfxAsclin_RxFifoOutletWidth width)
+{
+    asclin->RXFIFOCON.B.OUTW = width;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setRxInput(Ifx_ASCLIN *asclin, IfxAsclin_RxInputSelect alti)
+{
+    asclin->IOCR.B.ALTI = alti;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSampleMode(Ifx_ASCLIN *asclin, IfxAsclin_SamplesPerBit medianFilter)
+{
+    asclin->BITCON.B.SM = medianFilter;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSamplePointPosition(Ifx_ASCLIN *asclin, IfxAsclin_SamplePointPosition spPosition)
+{
+    asclin->BITCON.B.SAMPLEPOINT = __minu(spPosition, asclin->BITCON.B.OVERSAMPLING);
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setShiftDirection(Ifx_ASCLIN *asclin, IfxAsclin_ShiftDirection dir)
+{
+    asclin->FRAMECON.B.MSB = dir;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSlavePolarity(Ifx_ASCLIN *asclin, IfxAsclin_SlavePolarity spol)
+{
+    asclin->IOCR.B.SPOL = spol;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSleepMode(Ifx_ASCLIN *asclin, IfxAsclin_SleepMode mode)
+{
+    uint16 passwd = IfxScuWdt_getCpuWatchdogPassword();
+    IfxScuWdt_clearCpuEndinit(passwd);
+    asclin->CLC.B.EDIS = mode;
+    IfxScuWdt_setCpuEndinit(passwd);
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setStopBit(Ifx_ASCLIN *asclin, IfxAsclin_StopBit stopBit)
+{
+    asclin->FRAMECON.B.STOP = stopBit;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setSuspendMode(Ifx_ASCLIN *asclin, IfxAsclin_SuspendMode mode)
+{
+    Ifx_ASCLIN_OCS ocs;
+
+
+    ocs.B.SUS_P = 1;
+    ocs.B.SUS = mode;
+    asclin->OCS.U = ocs.U;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTransmitHeaderRequestFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSSET.B.THRQS = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTransmitResponseRequestFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSSET.B.TRRQS = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTransmitWakeRequestFlag(Ifx_ASCLIN *asclin)
+{
+    asclin->FLAGSSET.B.TWRQS = 1;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTxFifoInletWidth(Ifx_ASCLIN *asclin, IfxAsclin_TxFifoInletWidth width)
+{
+    asclin->TXFIFOCON.B.INW = width;
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_setTxFifoInterruptLevel(Ifx_ASCLIN *asclin, IfxAsclin_TxFifoInterruptLevel level)
+{
+    asclin->TXFIFOCON.B.INTLEVEL = __minu(level, 15);
+}
+
+
+static inline __attribute__ ((always_inline)) void IfxAsclin_writeTxData(Ifx_ASCLIN *asclin, uint32 data)
+{
+    asclin->TXDATA.U = data;
+}
+
+
+static inline __attribute__ ((always_inline)) uint16 IfxAsclin_getAllErrorFlagsStatus(Ifx_ASCLIN *asclin)
+{
+    return (uint16)(asclin->FLAGS.U >> 16);
+}
+# 222 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h" 2
+# 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h" 1
+# 40 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
 typedef struct
 {
-    Ifx_STM *stmSfr;
-    IfxStm_CompareConfig stmConfig;
-    volatile uint8 LedBlink;
-    volatile uint32 counter;
-} App_Stm;
+    Ifx_SizeT count;
+    sint32 readerWaitx;
+    sint32 writerWaitx;
+    Ifx_SizeT maxcount;
+} Ifx_Fifo_Shared;
 
 
 
-extern App_Stm g_Stm;
 
 
 
-extern void IfxStmDemo_init(void);
-extern void IfxStmDemo_run(void);
-# 32 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c" 2
-# 48 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c"
+typedef struct _Fifo
+{
+    void *buffer;
+    Ifx_Fifo_Shared shared;
+    Ifx_SizeT startIndex;
+    Ifx_SizeT endIndex;
+    Ifx_SizeT size;
+    Ifx_SizeT elementSize;
+    volatile boolean eventReader;
+    volatile boolean eventWriter;
+} Ifx_Fifo;
+# 75 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+extern boolean Ifx_Fifo_canReadCount(Ifx_Fifo *fifo, Ifx_SizeT count, Ifx_TickTime timeout);
+# 87 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+extern boolean Ifx_Fifo_canWriteCount(Ifx_Fifo *fifo, Ifx_SizeT count, Ifx_TickTime timeout);
+
+
+
+
+
+
+
+extern void Ifx_Fifo_clear(Ifx_Fifo *fifo);
+# 108 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+extern Ifx_Fifo *Ifx_Fifo_create(Ifx_SizeT size, Ifx_SizeT elementSize);
+# 119 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+extern void Ifx_Fifo_destroy(Ifx_Fifo *fifo);
+# 134 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+extern Ifx_Fifo *Ifx_Fifo_init(void *buffer, Ifx_SizeT size, Ifx_SizeT elementSize);
+# 148 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+extern Ifx_SizeT Ifx_Fifo_read(Ifx_Fifo *fifo, void *data, Ifx_SizeT count, Ifx_TickTime timeout);
+# 160 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+extern Ifx_SizeT Ifx_Fifo_write(Ifx_Fifo *fifo, const void *data, Ifx_SizeT count, Ifx_TickTime timeout);
+# 169 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+static inline __attribute__ ((always_inline)) boolean Ifx_Fifo_flush(Ifx_Fifo *fifo, Ifx_TickTime timeout)
+{
+    return Ifx_Fifo_canWriteCount(fifo, fifo->size, timeout);
+}
+# 186 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+static inline __attribute__ ((always_inline)) Ifx_SizeT Ifx_Fifo_readCount(Ifx_Fifo *fifo)
+{
+    return fifo->shared.count;
+}
+# 202 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+static inline __attribute__ ((always_inline)) Ifx_SizeT Ifx_Fifo_writeCount(Ifx_Fifo *fifo)
+{
+    return (Ifx_SizeT)(fifo->size - Ifx_Fifo_readCount(fifo));
+}
+# 215 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Lib/DataHandling/Ifx_Fifo.h"
+static inline __attribute__ ((always_inline)) boolean Ifx_Fifo_isEmpty(Ifx_Fifo *fifo)
+{
+    return (Ifx_Fifo_readCount(fifo) != 0) ? 0 : 1;
+}
+# 223 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h" 2
+
+# 1 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf_DPipe.h" 1
+# 44 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf_DPipe.h"
+# 1 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf.h" 1
+# 98 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf.h"
+typedef void *IfxStdIf_InterfaceDriver;
+# 45 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf_DPipe.h" 2
+
+
+
+
+
+
+typedef struct IfxStdIf_DPipe_ IfxStdIf_DPipe;
+
+typedef volatile boolean *IfxStdIf_DPipe_WriteEvent;
+typedef volatile boolean *IfxStdIf_DPipe_ReadEvent;
+# 72 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf_DPipe.h"
+typedef boolean (*IfxStdIf_DPipe_Write)(IfxStdIf_InterfaceDriver stdif, void *data, Ifx_SizeT *count, Ifx_TickTime timeout);
+# 87 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf_DPipe.h"
+typedef boolean (*IfxStdIf_DPipe_Read)(IfxStdIf_InterfaceDriver stdif, void *data, Ifx_SizeT *count, Ifx_TickTime timeout);
+
+
+
+
+
+
+
+typedef sint32 (*IfxStdIf_DPipe_GetReadCount)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+
+typedef IfxStdIf_DPipe_ReadEvent (*IfxStdIf_DPipe_GetReadEvent)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+
+typedef uint32 (*IfxStdIf_DPipe_GetSendCount)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+
+typedef Ifx_TickTime (*IfxStdIf_DPipe_GetTxTimeStamp)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+
+typedef sint32 (*IfxStdIf_DPipe_GetWriteCount)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+
+typedef IfxStdIf_DPipe_WriteEvent (*IfxStdIf_DPipe_GetWriteEvent)(IfxStdIf_InterfaceDriver stdif);
+# 146 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf_DPipe.h"
+typedef boolean (*IfxStdIf_DPipe_CanReadCount)(IfxStdIf_InterfaceDriver stdif, Ifx_SizeT count, Ifx_TickTime timeout);
+# 157 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf_DPipe.h"
+typedef boolean (*IfxStdIf_DPipe_CanWriteCount)(IfxStdIf_InterfaceDriver stdif, Ifx_SizeT count, Ifx_TickTime timeout);
+# 166 "0_Src/BaseSw/Service/CpuGeneric/StdIf/IfxStdIf_DPipe.h"
+typedef boolean (*IfxStdIf_DPipe_FlushTx)(IfxStdIf_InterfaceDriver stdif, Ifx_TickTime timeout);
+
+
+
+
+
+
+typedef void (*IfxStdIf_DPipe_ClearRx)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+typedef void (*IfxStdIf_DPipe_ClearTx)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+
+typedef void (*IfxStdIf_DPipe_OnReceive)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+typedef void (*IfxStdIf_DPipe_OnTransmit)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+typedef void (*IfxStdIf_DPipe_OnError)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+
+
+
+typedef void (*IfxStdIf_DPipe_ResetSendCount)(IfxStdIf_InterfaceDriver stdif);
+
+
+
+struct IfxStdIf_DPipe_
+{
+    IfxStdIf_InterfaceDriver driver;
+    boolean txDisabled;
+
+
+    IfxStdIf_DPipe_Write write;
+    IfxStdIf_DPipe_Read read;
+    IfxStdIf_DPipe_GetReadCount getReadCount;
+    IfxStdIf_DPipe_GetReadEvent getReadEvent;
+    IfxStdIf_DPipe_GetWriteCount getWriteCount;
+    IfxStdIf_DPipe_GetWriteEvent getWriteEvent;
+    IfxStdIf_DPipe_CanReadCount canReadCount;
+    IfxStdIf_DPipe_CanWriteCount canWriteCount;
+    IfxStdIf_DPipe_FlushTx flushTx;
+    IfxStdIf_DPipe_ClearTx clearTx;
+    IfxStdIf_DPipe_ClearRx clearRx;
+    IfxStdIf_DPipe_OnReceive onReceive;
+    IfxStdIf_DPipe_OnTransmit onTransmit;
+    IfxStdIf_DPipe_OnError onError;
+
+    IfxStdIf_DPipe_GetSendCount getSendCount;
+    IfxStdIf_DPipe_GetTxTimeStamp getTxTimeStamp;
+    IfxStdIf_DPipe_ResetSendCount resetSendCount;
+};
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxStdIf_DPipe_write(IfxStdIf_DPipe *stdif, void *data, Ifx_SizeT *count, Ifx_TickTime timeout)
+{
+    return stdif->write(stdif->driver, data, count, timeout);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxStdIf_DPipe_read(IfxStdIf_DPipe *stdif, void *data, Ifx_SizeT *count, Ifx_TickTime timeout)
+{
+    return stdif->read(stdif->driver, data, count, timeout);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) sint32 IfxStdIf_DPipe_getReadCount(IfxStdIf_DPipe *stdif)
+{
+    return stdif->getReadCount(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) sint32 IfxStdIf_DPipe_getWriteCount(IfxStdIf_DPipe *stdif)
+{
+    return stdif->getWriteCount(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxStdIf_DPipe_canReadCount(IfxStdIf_DPipe *stdif, Ifx_SizeT count, Ifx_TickTime timeout)
+{
+    return stdif->canReadCount(stdif->driver, count, timeout);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxStdIf_DPipe_canWriteCount(IfxStdIf_DPipe *stdif, Ifx_SizeT count, Ifx_TickTime timeout)
+{
+    return stdif->canWriteCount(stdif->driver, count, timeout);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) IfxStdIf_DPipe_ReadEvent IfxStdIf_DPipe_getReadEvent(IfxStdIf_DPipe *stdif)
+{
+    return stdif->getReadEvent(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) IfxStdIf_DPipe_WriteEvent IfxStdIf_DPipe_getWriteEvent(IfxStdIf_DPipe *stdif)
+{
+    return stdif->getWriteEvent(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) boolean IfxStdIf_DPipe_flushTx(IfxStdIf_DPipe *stdif, Ifx_TickTime timeout)
+{
+    return stdif->flushTx(stdif->driver, timeout);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxStdIf_DPipe_clearTx(IfxStdIf_DPipe *stdif)
+{
+    stdif->clearTx(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxStdIf_DPipe_clearRx(IfxStdIf_DPipe *stdif)
+{
+    stdif->clearRx(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxStdIf_DPipe_onReceive(IfxStdIf_DPipe *stdif)
+{
+    stdif->onReceive(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxStdIf_DPipe_onTransmit(IfxStdIf_DPipe *stdif)
+{
+    stdif->onTransmit(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxStdIf_DPipe_onError(IfxStdIf_DPipe *stdif)
+{
+    stdif->onError(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) uint32 IfxStdIf_DPipe_getSendCount(IfxStdIf_DPipe *stdif)
+{
+    return stdif->getSendCount(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) Ifx_TickTime IfxStdIf_DPipe_getTxTimeStamp(IfxStdIf_DPipe *stdif)
+{
+    return stdif->getTxTimeStamp(stdif->driver);
+}
+
+
+
+
+static inline __attribute__ ((always_inline)) void IfxStdIf_DPipe_resetSendCount(IfxStdIf_DPipe *stdif)
+{
+    stdif->resetSendCount(stdif->driver);
+}
+
+
+extern void IfxStdIf_DPipe_print(IfxStdIf_DPipe *stdif, pchar format, ...);
+# 225 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h" 2
+
+
+
+
+
+
+
+typedef struct
+{
+    uint8 parityError : 1;
+    uint8 frameError : 1;
+    uint8 rxFifoOverflow : 1;
+    uint8 rxFifoUnderflow : 1;
+    uint8 txFifoOverflow : 1;
+} IfxAsclin_Asc_ErrorFlags;
+
+
+
+
+
+typedef struct
+{
+    float32 baudrate;
+    uint16 prescaler;
+    IfxAsclin_OversamplingFactor oversampling;
+} IfxAsclin_Asc_BaudRate;
+
+
+
+typedef struct
+{
+    IfxAsclin_SamplesPerBit medianFilter;
+    IfxAsclin_SamplePointPosition samplePointPosition;
+} IfxAsclin_Asc_BitTimingControl;
+
+
+
+typedef struct
+{
+    IfxAsclin_TxFifoInletWidth inWidth;
+    IfxAsclin_RxFifoOutletWidth outWidth;
+    IfxAsclin_TxFifoInterruptLevel txFifoInterruptLevel;
+    IfxAsclin_RxFifoInterruptLevel rxFifoInterruptLevel;
+    IfxAsclin_ReceiveBufferMode buffMode;
+} IfxAsclin_Asc_FifoControl;
+
+
+
+typedef struct
+{
+    IfxAsclin_IdleDelay idleDelay;
+    IfxAsclin_StopBit stopBit;
+    IfxAsclin_FrameMode frameMode;
+    IfxAsclin_ShiftDirection shiftDir;
+    IfxAsclin_ParityType parityType;
+    IfxAsclin_DataLength dataLength;
+    boolean parityBit;
+} IfxAsclin_Asc_FrameControl;
+
+
+
+typedef struct
+{
+    uint16 txPriority;
+    uint16 rxPriority;
+    uint16 erPriority;
+    IfxSrc_Tos typeOfService;
+} IfxAsclin_Asc_InterruptConfig;
+
+
+
+typedef struct
+{
+    const IfxAsclin_Cts_In *cts;
+    IfxPort_InputMode ctsMode;
+    const IfxAsclin_Rx_In *rx;
+    IfxPort_InputMode rxMode;
+    const IfxAsclin_Rts_Out *rts;
+    IfxPort_OutputMode rtsMode;
+    const IfxAsclin_Tx_Out *tx;
+    IfxPort_OutputMode txMode;
+    IfxPort_PadDriver pinDriver;
+} IfxAsclin_Asc_Pins;
+
+
+
+
+
+typedef union
+{
+    uint8 ALL;
+    IfxAsclin_Asc_ErrorFlags flags;
+} IfxAsclin_Asc_ErrorFlagsUnion;
+
+
+
+
+
+typedef struct
+{
+    Ifx_ASCLIN *asclin;
+    Ifx_Fifo *tx;
+    Ifx_Fifo *rx;
+    volatile boolean txInProgress;
+    volatile boolean rxSwFifoOverflow;
+    IfxAsclin_Asc_ErrorFlagsUnion errorFlags;
+    Ifx_DataBufferMode dataBufferMode;
+    volatile uint32 sendCount;
+    volatile Ifx_TickTime txTimestamp;
+} IfxAsclin_Asc;
+
+
+
+typedef struct
+{
+    Ifx_ASCLIN *asclin;
+    IfxAsclin_Asc_BaudRate baudrate;
+    IfxAsclin_Asc_BitTimingControl bitTiming;
+    IfxAsclin_Asc_FrameControl frame;
+    IfxAsclin_Asc_FifoControl fifo;
+    IfxAsclin_Asc_InterruptConfig interrupt;
+    const IfxAsclin_Asc_Pins *pins;
+    IfxAsclin_ClockSource clockSource;
+    IfxAsclin_Asc_ErrorFlagsUnion errorFlags;
+    Ifx_SizeT txBufferSize;
+    void *txBuffer;
+
+
+
+
+    Ifx_SizeT rxBufferSize;
+    void *rxBuffer;
+
+
+
+
+    boolean loopBack;
+    Ifx_DataBufferMode dataBufferMode;
+} IfxAsclin_Asc_Config;
+# 382 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern void IfxAsclin_Asc_isrError(IfxAsclin_Asc *asclin);
+
+
+
+
+
+
+extern void IfxAsclin_Asc_isrReceive(IfxAsclin_Asc *asclin);
+
+
+
+
+
+
+extern void IfxAsclin_Asc_isrTransmit(IfxAsclin_Asc *asclin);
+# 414 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern uint8 IfxAsclin_Asc_blockingRead(IfxAsclin_Asc *asclin);
+# 424 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern boolean IfxAsclin_Asc_blockingWrite(IfxAsclin_Asc *asclin, uint8 data);
+# 441 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern boolean IfxAsclin_Asc_canReadCount(IfxAsclin_Asc *asclin, Ifx_SizeT count, Ifx_TickTime timeout);
+
+
+
+
+
+
+
+extern boolean IfxAsclin_Asc_canWriteCount(IfxAsclin_Asc *asclin, Ifx_SizeT count, Ifx_TickTime timeout);
+
+
+
+
+
+extern void IfxAsclin_Asc_clearRx(IfxAsclin_Asc *asclin);
+
+
+
+
+
+extern void IfxAsclin_Asc_clearTx(IfxAsclin_Asc *asclin);
+
+
+
+
+
+
+extern boolean IfxAsclin_Asc_flushTx(IfxAsclin_Asc *asclin, Ifx_TickTime timeout);
+
+
+
+
+
+extern sint32 IfxAsclin_Asc_getReadCount(IfxAsclin_Asc *asclin);
+
+
+
+
+
+extern IfxStdIf_DPipe_ReadEvent IfxAsclin_Asc_getReadEvent(IfxAsclin_Asc *asclin);
+
+
+
+
+
+extern uint32 IfxAsclin_Asc_getSendCount(IfxAsclin_Asc *asclin);
+
+
+
+
+
+extern Ifx_TickTime IfxAsclin_Asc_getTxTimeStamp(IfxAsclin_Asc *asclin);
+
+
+
+
+
+extern sint32 IfxAsclin_Asc_getWriteCount(IfxAsclin_Asc *asclin);
+
+
+
+
+
+extern IfxStdIf_DPipe_WriteEvent IfxAsclin_Asc_getWriteEvent(IfxAsclin_Asc *asclin);
+# 517 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern boolean IfxAsclin_Asc_read(IfxAsclin_Asc *asclin, void *data, Ifx_SizeT *count, Ifx_TickTime timeout);
+
+
+
+
+
+extern void IfxAsclin_Asc_resetSendCount(IfxAsclin_Asc *asclin);
+# 536 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern boolean IfxAsclin_Asc_write(IfxAsclin_Asc *asclin, void *data, Ifx_SizeT *count, Ifx_TickTime timeout);
+# 551 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern void IfxAsclin_Asc_disableModule(IfxAsclin_Asc *asclin);
+# 561 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern IfxAsclin_Status IfxAsclin_Asc_initModule(IfxAsclin_Asc *asclin, const IfxAsclin_Asc_Config *config);
+# 571 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern void IfxAsclin_Asc_initModuleConfig(IfxAsclin_Asc_Config *config, Ifx_ASCLIN *asclin);
+# 586 "0_Src/BaseSw/iLLD/TC27D/Tricore/Asclin/Asc/IfxAsclin_Asc.h"
+extern void IfxAsclin_Asc_initiateTransmission(IfxAsclin_Asc *asclin);
+
+
+
+
+
+
+extern boolean IfxAsclin_Asc_stdIfDPipeInit(IfxStdIf_DPipe *stdif, IfxAsclin_Asc *asclin);
+# 40 "0_Src/AppSw/Tricore/Asclin/AsclinAscDemo.h" 2
+# 56 "0_Src/AppSw/Tricore/Asclin/AsclinAscDemo.h"
+typedef struct
+{
+    uint8 tx[64 + sizeof(Ifx_Fifo) + 8];
+    uint8 rx[64 + sizeof(Ifx_Fifo) + 8];
+} AppAscBuffer;
+
+
+typedef struct
+{
+    AppAscBuffer ascBuffer;
+    struct
+    {
+        IfxAsclin_Asc asc1;
+    } drivers;
+
+    uint8 txData[5];
+    uint8 rxData[5];
+    Ifx_SizeT count;
+} App_AsclinAsc;
+
+
+
+
+
+extern App_AsclinAsc g_AsclinAsc;
+
+
+
+
+
+extern void AsclinAscDemo_init(void);
+extern void AsclinAscDemo_run(void);
+# 35 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c" 2
+# 54 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c"
 App_Cpu0 g_AppCpu0;
-# 58 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c"
+# 65 "0_Src/AppSw/Tricore/Main/Cpu0_Main.c"
 int core0_main(void)
 {
 
@@ -11655,13 +14627,16 @@ int core0_main(void)
     IfxCpu_enableInterrupts();
 
 
-    IfxStmDemo_init();
+
+
+
+    AsclinAscDemo_init();
 
 
     while (1)
     {
-        IfxStmDemo_run();
-
+        AsclinAscDemo_run();
+        printf("background loop\n");
         ;
     }
 

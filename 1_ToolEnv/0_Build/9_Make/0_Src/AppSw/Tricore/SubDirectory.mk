@@ -36,6 +36,5 @@
 
 
 # Include sub folder make files
-include 1_ToolEnv/0_Build/9_Make/0_Src/AppSw/Tricore/GtmTom/SubDirectory.mk
+include 1_ToolEnv/0_Build/9_Make/0_Src/AppSw/Tricore/Asclin/SubDirectory.mk
 include 1_ToolEnv/0_Build/9_Make/0_Src/AppSw/Tricore/Main/SubDirectory.mk
-include 1_ToolEnv/0_Build/9_Make/0_Src/AppSw/Tricore/Tom/SubDirectory.mk

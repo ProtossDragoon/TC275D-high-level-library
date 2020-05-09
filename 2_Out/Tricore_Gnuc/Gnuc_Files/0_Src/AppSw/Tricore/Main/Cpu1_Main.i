@@ -15,7 +15,6 @@
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxGlobal_cfg.h" 1
 # 37 "0_Src/AppSw/Tricore/Cfg_Illd/Configuration.h" 2
 # 36 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h" 2
-
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/Ifx_Types.h" 1
 # 29 "0_Src/BaseSw/iLLD/TC27D/Tricore/Cpu/Std/Ifx_Types.h"
 # 1 "0_Src/BaseSw/Infra/Platform/Tricore/Compilers/Compilers.h" 1
@@ -224,28 +223,7 @@ typedef struct
     sfract real;
     sfract imag;
 } csfract;
-# 38 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h" 2
-# 46 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h"
-typedef struct
-{
-    float32 sysFreq;
-    float32 cpuFreq;
-    float32 pllFreq;
-    float32 stmFreq;
-} AppInfo;
-
-
-typedef struct
-{
-    AppInfo info;
-} App_Cpu0;
-
-
-
-
-
-extern App_Cpu0 g_AppCpu0;
-# 29 "0_Src/AppSw/Tricore/Main/Cpu1_Main.c" 2
+# 37 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h" 2
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h" 1
 # 46 "0_Src/BaseSw/iLLD/TC27D/Tricore/Scu/Std/IfxScuWdt.h"
 # 1 "0_Src/BaseSw/iLLD/TC27D/Tricore/_Impl/IfxScu_cfg.h" 1
@@ -4010,7 +3988,28 @@ static inline __attribute__ ((always_inline)) void IfxScuWdt_setSafetyEndinitInl
     while ((*(volatile Ifx_SCU_WDTS_CON0*)0xF00360F0u).B.ENDINIT == 0)
     {}
 }
-# 30 "0_Src/AppSw/Tricore/Main/Cpu1_Main.c" 2
+# 38 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h" 2
+# 47 "0_Src/AppSw/Tricore/Main/Cpu0_Main.h"
+typedef struct
+{
+    float32 sysFreq;
+    float32 cpuFreq;
+    float32 pllFreq;
+    float32 stmFreq;
+} AppInfo;
+
+
+typedef struct
+{
+    AppInfo info;
+} App_Cpu0;
+
+
+
+
+
+extern App_Cpu0 g_AppCpu0;
+# 29 "0_Src/AppSw/Tricore/Main/Cpu1_Main.c" 2
 # 51 "0_Src/AppSw/Tricore/Main/Cpu1_Main.c"
 void core1_main(void)
 {

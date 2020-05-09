@@ -1,6 +1,6 @@
 /**
- * \file Cpu0_Main.c
- * \brief System initialisation and main program implementation.
+ * \file AsclinAscDemo.h
+ * \brief Demo AsclinAscDemo
  *
  * \version iLLD_Demos_1_0_1_8_0
  * \copyright Copyright (c) 2014 Infineon Technologies AG. All rights reserved.
@@ -19,79 +19,71 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
  * INFINEON SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL,
  * OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+ *
+ * \defgroup IfxLld_Demo_AsclinAsc_SrcDoc_Main Demo Source
+ * \ingroup IfxLld_Demo_AsclinAsc_SrcDoc
+ * \defgroup IfxLld_Demo_AsclinAsc_SrcDoc_Main_Interrupt Interrupts
+ * \ingroup IfxLld_Demo_AsclinAsc_SrcDoc_Main
  */
+
+#ifndef ASCLINASCDEMO_H
+#define ASCLINASCDEMO_H 1
 
 /******************************************************************************/
 /*----------------------------------Includes----------------------------------*/
 /******************************************************************************/
 
-#include "Cpu0_Main.h"
-#include "SysSe/Bsp/Bsp.h"
+#include <Ifx_Types.h>
+#include "Configuration.h"
 
-/* Branch : Hello World
- * https://aurixtutorial.readthedocs.io/ko/latest/HelloWorld/index.html
- */
-#include "AsclinAscDemo.h"
-
-
-
-/******************************************************************************/
-/*------------------------Inline Function Prototypes--------------------------*/
-/******************************************************************************/
+#include <Asclin/Asc/IfxAsclin_Asc.h>
 
 /******************************************************************************/
 /*-----------------------------------Macros-----------------------------------*/
 /******************************************************************************/
 
+#define ASC_TX_BUFFER_SIZE 64
+#define ASC_RX_BUFFER_SIZE 64
+
 /******************************************************************************/
-/*------------------------Private Variables/Constants-------------------------*/
+/*--------------------------------Enumerations--------------------------------*/
 /******************************************************************************/
+
+/******************************************************************************/
+/*-----------------------------Data Structures--------------------------------*/
+/******************************************************************************/
+
+typedef struct
+{
+    uint8 tx[ASC_TX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8];
+    uint8 rx[ASC_RX_BUFFER_SIZE + sizeof(Ifx_Fifo) + 8];
+} AppAscBuffer;
+
+/** \brief Asc information */
+typedef struct
+{
+    AppAscBuffer ascBuffer;                     /**< \brief ASC interface buffer */
+    struct
+    {
+        IfxAsclin_Asc asc1;                     /**< \brief ASC interface */
+    }         drivers;
+
+    uint8     txData[5];
+    uint8     rxData[5];
+    Ifx_SizeT count;
+} App_AsclinAsc;
 
 /******************************************************************************/
 /*------------------------------Global variables------------------------------*/
 /******************************************************************************/
 
-App_Cpu0 g_AppCpu0; /**< \brief CPU 0 global data */
+IFX_EXTERN App_AsclinAsc g_AsclinAsc;
 
 /******************************************************************************/
-/*-------------------------Function Implementations---------------------------*/
+/*-------------------------Function Prototypes--------------------------------*/
 /******************************************************************************/
 
+IFX_EXTERN void AsclinAscDemo_init(void);
+IFX_EXTERN void AsclinAscDemo_run(void);
 
-/** \brief Main entry point after CPU boot-up.
- *
- *  It initialise the system and enter the endless loop that handles the demo
- */
-int core0_main(void)
-{
-    /*
-     * !!WATCHDOG0 AND SAFETY WATCHDOG ARE DISABLED HERE!!
-     * Enable the watchdog in the demo if it is required and also service the watchdog periodically
-     * */
-    IfxScuWdt_disableCpuWatchdog(IfxScuWdt_getCpuWatchdogPassword());
-    IfxScuWdt_disableSafetyWatchdog(IfxScuWdt_getSafetyWatchdogPassword());
-
-    /* Initialise the application state */
-    g_AppCpu0.info.pllFreq = IfxScuCcu_getPllFrequency();
-    g_AppCpu0.info.cpuFreq = IfxScuCcu_getCpuFrequency(IfxCpu_getCoreIndex());
-    g_AppCpu0.info.sysFreq = IfxScuCcu_getSpbFrequency();
-    g_AppCpu0.info.stmFreq = IfxStm_getFrequency(&MODULE_STM0);
-
-    /* Enable the global interrupts of this CPU */
-    IfxCpu_enableInterrupts();    
-
-    /* Demo init */
-/* Branch : Hello World
- * https://aurixtutorial.readthedocs.io/ko/latest/HelloWorld/index.html
- */
-    AsclinAscDemo_init();
-
-    /* background endless loop */    
-    while (TRUE)
-    {
-        AsclinAscDemo_run();
-        REGRESSION_RUN_STOP_PASS;
-    }
-
-    return 0;
-}
+#endif

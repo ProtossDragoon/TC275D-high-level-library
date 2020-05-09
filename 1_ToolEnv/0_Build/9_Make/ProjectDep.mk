@@ -9,10 +9,9 @@
  0_Src/BaseSw/Service \
  0_Src/BaseSw/simio_pls \
  0_Src/AppSw/Config/Common \
+ 0_Src/AppSw/Tricore/Asclin \
  0_Src/AppSw/Tricore/Cfg_Illd \
- 0_Src/AppSw/Tricore/GtmTom \
  0_Src/AppSw/Tricore/Main \
- 0_Src/AppSw/Tricore/Tom \
  0_Src/BaseSw/iLLD/TC27D \
  0_Src/BaseSw/Infra/Platform \
  0_Src/BaseSw/Infra/Sfr \
@@ -165,13 +164,11 @@
 
 0_Src/AppSw/Config/Common:
 
+0_Src/AppSw/Tricore/Asclin:
+
 0_Src/AppSw/Tricore/Cfg_Illd:
 
-0_Src/AppSw/Tricore/GtmTom:
-
 0_Src/AppSw/Tricore/Main:
-
-0_Src/AppSw/Tricore/Tom:
 
 0_Src/BaseSw/iLLD/TC27D:
 

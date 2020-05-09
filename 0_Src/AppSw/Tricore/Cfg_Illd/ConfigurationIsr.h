@@ -42,9 +42,11 @@
 
 /** \brief extract the service provider  out of the ISR object */
 #define ISR_PROVIDER(no_cpu) (no_cpu % 8)
+
 /**
  * \addtogroup IfxLld_Demo_StmDemo_SrcDoc_InterruptConfig
- * \{ */
+ * \{
+ */
 
 /**
  * \name Interrupt priority configuration.
@@ -55,16 +57,32 @@
 #define ISR_PRIORITY_PRINTF_ASC0_TX 5  /**< \brief Define the ASC0 transmit interrupt priority used by printf.c */
 #define ISR_PRIORITY_PRINTF_ASC0_EX 6  /**< \brief Define the ASC0 error interrupt priority used by printf.c */
 
-#define ISR_PRIORITY_STM_INT0       40 /**< \brief Define the System Timer Interrupt priority.  */
+/* Branch : Hello World
+ * https://aurixtutorial.readthedocs.io/ko/latest/HelloWorld/index.html
+ */
+#define ISR_PRIORITY_ASC_0_TX     4   /**< \brief Define the ASC transmit interrupt priority.  */
+#define ISR_PRIORITY_ASC_0_RX     8   /**< \brief Define the ASC receive interrupt priority.  */
+#define ISR_PRIORITY_ASC_0_ER     12  /**< \brief Define the ASC error interrupt priority.  */
+
+
 /** \} */
 
 /**
  * \name Interrupt service provider configuration.
  * \{ */
 
-#define ISR_PROVIDER_PRINTF_ASC0_TX IfxSrc_Tos_cpu0         /**< \brief Define the ASC0 transmit interrupt provider used by printf.c   */
-#define ISR_PROVIDER_PRINTF_ASC0_EX IfxSrc_Tos_cpu0         /**< \brief Define the ASC0 error interrupt provider used by printf.c */
-#define ISR_PROVIDER_STM_INT0       IfxSrc_Tos_cpu0         /**< \brief Define the System Timer interrupt provider.  */
+#define ISR_PROVIDER_PRINTF_ASC0_TX IfxSrc_Tos_cpu0         /**< \brief Define the ASC transmit interrupt provider used by printf.c   */
+#define ISR_PROVIDER_PRINTF_ASC0_EX IfxSrc_Tos_cpu0         /**< \brief Define the ASC error interrupt provider used by printf.c */
+
+
+/* Branch : Hello World
+ * https://aurixtutorial.readthedocs.io/ko/latest/HelloWorld/index.html
+ */
+#define ISR_PROVIDER_ASC_0_TX     IfxSrc_Tos_cpu0 /**< \brief Define the ASC transmit interrupt provider.  */
+#define ISR_PROVIDER_ASC_0_RX     IfxSrc_Tos_cpu0 /**< \brief Define the ASC receive interrupt provider.  */
+#define ISR_PROVIDER_ASC_0_ER     IfxSrc_Tos_cpu0 /**< \brief Define the ASC error interrupt provider.  */
+
+
 /** \} */
 
 /**
@@ -74,7 +92,14 @@
 #define INTERRUPT_PRINTF_ASC0_TX    ISR_ASSIGN(ISR_PRIORITY_PRINTF_ASC0_TX, ISR_PROVIDER_PRINTF_ASC0_TX)                /**< \brief Define the ASC0 transmit interrupt priority used by printf.c */
 #define INTERRUPT_PRINTF_ASC0_EX    ISR_ASSIGN(ISR_PRIORITY_PRINTF_ASC0_EX, ISR_PROVIDER_PRINTF_ASC0_EX)                /**< \brief Define the ASC0 error interrupt priority used by printf.c */
 
-#define INTERRUPT_STM_INT0          ISR_ASSIGN(ISR_PRIORITY_STM_INT0, ISR_PROVIDER_STM_INT0)                            /**< \brief Define the System Timer interrupt priority.  */
+
+/* Branch : Hello World
+ * https://aurixtutorial.readthedocs.io/ko/latest/HelloWorld/index.html
+ */
+#define INTERRUPT_ASC_0_RX    ISR_ASSIGN(ISR_PRIORITY_ASC_0_RX, ISR_PROVIDER_ASC_0)
+#define INTERRUPT_ASC_0_TX    ISR_ASSIGN(ISR_PRIORITY_ASC_0_TX, ISR_PROVIDER_ASC_0)
+#define INTERRUPT_ASC_0_EX    ISR_ASSIGN(ISR_PRIORITY_ASC_0_EX, ISR_PROVIDER_ASC_0)
+
 /** \} */
 
 /** \} */
