@@ -26,4 +26,5 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 
 ## Study Source
 
+- Aurix Tutorial, 창원대학교 : https://aurixtutorial.readthedocs.io/ko/latest/index.html
 - Arduino Opentutorials, UART : https://opentutorials.org/module/2106/12247
