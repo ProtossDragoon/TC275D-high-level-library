@@ -30,7 +30,7 @@
 #include "IfxScuWdt.h"
 
 // handmaded
-#include "GtmTom_1ms.h"
+
 
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
@@ -75,13 +75,7 @@ int core0_main(void)
     g_AppCpu0.info.stmFreq = IfxStm_getFrequency(&MODULE_STM0);
 
     /* Enable the global interrupts of this CPU */
-    IfxCpu_enableInterrupts();
-
-    /* Demo init */
-    
-
-    /* Start PWM with Hand-Made Module */
-    StartTomPwmWith1msPeriodHalfDuty();
+    IfxCpu_enableInterrupts();    
 
     /* background endless loop */
     while (TRUE)
