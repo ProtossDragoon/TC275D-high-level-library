@@ -73,8 +73,6 @@
 
 #define INTERRUPT_PRINTF_ASC0_TX    ISR_ASSIGN(ISR_PRIORITY_PRINTF_ASC0_TX, ISR_PROVIDER_PRINTF_ASC0_TX)                /**< \brief Define the ASC0 transmit interrupt priority used by printf.c */
 #define INTERRUPT_PRINTF_ASC0_EX    ISR_ASSIGN(ISR_PRIORITY_PRINTF_ASC0_EX, ISR_PROVIDER_PRINTF_ASC0_EX)                /**< \brief Define the ASC0 error interrupt priority used by printf.c */
-
-#define INTERRUPT_STM_INT0          ISR_ASSIGN(ISR_PRIORITY_STM_INT0, ISR_PROVIDER_STM_INT0)                            /**< \brief Define the System Timer interrupt priority.  */
 /** \} */
 
 /** \} */
