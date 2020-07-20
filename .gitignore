@@ -1,5 +1,5 @@
 1_ToolEnv/
-2_Out/
+2_Out/*
 .cproject
 .project
 Makefile
