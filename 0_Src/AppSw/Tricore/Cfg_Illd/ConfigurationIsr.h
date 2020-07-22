@@ -56,15 +56,21 @@
 #define ISR_PRIORITY_PRINTF_ASC0_EX 6  /**< \brief Define the ASC0 error interrupt priority used by printf.c */
 
 #define ISR_PRIORITY_STM_INT0       40 /**< \brief Define the System Timer Interrupt priority.  */
+
+#define ISR_PRIORITY_JHLSCHEDULER   10
 /** \} */
 
 /**
  * \name Interrupt service provider configuration.
  * \{ */
 
-#define ISR_PROVIDER_PRINTF_ASC0_TX IfxSrc_Tos_cpu0         /**< \brief Define the ASC0 transmit interrupt provider used by printf.c   */
-#define ISR_PROVIDER_PRINTF_ASC0_EX IfxSrc_Tos_cpu0         /**< \brief Define the ASC0 error interrupt provider used by printf.c */
-#define ISR_PROVIDER_STM_INT0       IfxSrc_Tos_cpu0         /**< \brief Define the System Timer interrupt provider.  */
+#define ISR_PROVIDER_PRINTF_ASC0_TX          IfxSrc_Tos_cpu0         /**< \brief Define the ASC0 transmit interrupt provider used by printf.c   */
+#define ISR_PROVIDER_PRINTF_ASC0_EX          IfxSrc_Tos_cpu0         /**< \brief Define the ASC0 error interrupt provider used by printf.c */
+
+#define ISR_PROVIDER_STM_INT0                IfxSrc_Tos_cpu0         /**< \brief Define the System Timer interrupt provider.  */
+
+#define ISR_PROVIDER_JHLSCHEDULER_CPU0       IfxSrc_Tos_cpu0
+#define ISR_PROVIDER_JHLSCHEDULER_CPU1       IfxSrc_Tos_cpu1
 /** \} */
 
 /**
@@ -73,8 +79,6 @@
 
 #define INTERRUPT_PRINTF_ASC0_TX    ISR_ASSIGN(ISR_PRIORITY_PRINTF_ASC0_TX, ISR_PROVIDER_PRINTF_ASC0_TX)                /**< \brief Define the ASC0 transmit interrupt priority used by printf.c */
 #define INTERRUPT_PRINTF_ASC0_EX    ISR_ASSIGN(ISR_PRIORITY_PRINTF_ASC0_EX, ISR_PROVIDER_PRINTF_ASC0_EX)                /**< \brief Define the ASC0 error interrupt priority used by printf.c */
-
-#define INTERRUPT_STM_INT0          ISR_ASSIGN(ISR_PRIORITY_STM_INT0, ISR_PROVIDER_STM_INT0)                            /**< \brief Define the System Timer interrupt priority.  */
 /** \} */
 
 /** \} */

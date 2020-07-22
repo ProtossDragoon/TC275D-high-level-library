@@ -30,6 +30,10 @@
 #include "IfxScuWdt.h"
 #include "StmDemo.h"
 
+// JHL Custom Module
+#include "TinyScheduler.h"
+#include "LEDBlinker.h"
+
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
 /******************************************************************************/
@@ -74,13 +78,15 @@ int core0_main(void)
     IfxCpu_enableInterrupts();
 
     /* Demo init */
-    IfxStmDemo_init();
+    JHL_tinySchedulerConfig_init(&(g_Scheduler.config));
+    JHL_tinyScheduler_init(&(g_Scheduler.config));
+    JHL_LEDBlinkerConfig_init(&(g_LED.config));
+    JHL_LEDBlinker_init(&(g_LED.config));
 
     /* background endless loop */
     while (TRUE)
-    {
-        IfxStmDemo_run();
-    
+    {    
+        JHL_Scheduler_main();
         REGRESSION_RUN_STOP_PASS;
     }
 

@@ -44,13 +44,17 @@
 /******************************************************************************/
 /*------------------------------Global variables------------------------------*/
 /******************************************************************************/
-
 App_Stm g_Stm; /**< \brief Stm global data */
+
+static boolean every_2seconds = FALSE;
+static boolean every_3seconds = FALSE;
 /******************************************************************************/
 /*-------------------------Function Prototypes--------------------------------*/
 /******************************************************************************/
 static void IfxBlinkLed_Task(void);
 static void IfxBlinkLed_Init(void);
+
+static void JHL_BlinkLedTwice_Task(void); // custom JangHoo Lee function 1
 /******************************************************************************/
 /*------------------------Private Variables/Constants-------------------------*/
 /******************************************************************************/
@@ -76,16 +80,29 @@ IFX_INTERRUPT(STM_Int0Handler, 0, ISR_PRIORITY_STM_INT0);
  * \isrPriority \ref ISR_PRIORITY_SystemTimer(STM)
  *
  */
+
 void STM_Int0Handler(void)
 {
     IfxStm_clearCompareFlag(g_Stm.stmSfr, g_Stm.stmConfig.comparator);
 #ifdef SIMULATION
 	IfxStm_increaseCompare(g_Stm.stmSfr, g_Stm.stmConfig.comparator, 1000);
 #else
-	IfxStm_increaseCompare(g_Stm.stmSfr, g_Stm.stmConfig.comparator, TimeConst_1s);
+	IfxStm_increaseCompare(g_Stm.stmSfr, g_Stm.stmConfig.comparator, g_Stm.stmConfig.ticks);
 #endif
+
+    every_2seconds = g_Stm.counter % 2 == 0 ? TRUE : FALSE;
+    every_3seconds = g_Stm.counter % 3 == 0 ? TRUE : FALSE;
+
+    if (every_2seconds)
+    {
+        JHL_BlinkLedTwice_Task();
+    }
+    if (every_3seconds)
+    {
+    }
+    
     IfxCpu_enableInterrupts();
-    IfxBlinkLed_Task();
+    g_Stm.counter++;
 }
 
 
@@ -116,10 +133,21 @@ static void IfxBlinkLed_Task(void)
     g_Stm.LedBlink ^= 1;
 
     setOutputPin(&MODULE_P10, 2, g_Stm.LedBlink);
-
-    g_Stm.counter++;
 }
-
+static void JHL_BlinkLedTwice_Task(void)
+{
+    g_Stm.LedBlink = 1;
+    setOutputPin(&MODULE_P10, 2, g_Stm.LedBlink);
+    wait(1 * TimeConst_100ms);
+    g_Stm.LedBlink = 0;
+    setOutputPin(&MODULE_P10, 2, g_Stm.LedBlink);
+    wait(1 * TimeConst_100ms);
+    g_Stm.LedBlink = 1;
+    setOutputPin(&MODULE_P10, 2, g_Stm.LedBlink);
+    wait(1 * TimeConst_100ms);
+    g_Stm.LedBlink = 0;
+    setOutputPin(&MODULE_P10, 2, g_Stm.LedBlink);
+}
 
 /** \brief LED Initialization
  *
@@ -152,7 +180,7 @@ void IfxStmDemo_init(void)
     // Stm register 변수에 module0 register 할당
     g_Stm.stmSfr = &MODULE_STM0;
 
-    // Register configuration 변수 설정
+    // Register configuration 변수 초기화
     IfxStm_initCompareConfig(&g_Stm.stmConfig);
 
     // Set STM interrupt priority
@@ -165,6 +193,7 @@ void IfxStmDemo_init(void)
     g_Stm.stmConfig.ticks           = TimeConst_1s;
 #endif
 
+    // configuration 정보로 Compare 기능 초기화
     IfxStm_initCompare(g_Stm.stmSfr, &g_Stm.stmConfig);
 
     IfxBlinkLed_Init();
