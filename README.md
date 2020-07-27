@@ -9,7 +9,7 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 
 - vsCode
 - win10
-- TC237d
+- TC275d
 
 
 ## Basic setting
