@@ -9,20 +9,21 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 
 - vsCode
 - win10
-- TC275d
+- [TC275d](https://kr.rs-online.com/web/c/semiconductors/semiconductor-development-kits/processor-microcontroller-development-kits/)
 
+<br>
 
 ## Basic setting
 
 
 
 
-
+<br>
 
 ## init with
 
 
-
+<br>
 
 ## Study Source
 
@@ -30,6 +31,7 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 - Arduino Opentutorials, UART : https://opentutorials.org/module/2106/12247
 
 
+<br>
 
 ## Insight
 
@@ -50,3 +52,4 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 - static variable : extern 을 붙이면, "파일 안에서만 사용할 수 있는 전역변수" 가 된다고 생각할 수 있다.
 - static function : 자동으로 extern 이 붙으면서 별다른 선언 없이 파일 외부에서도 접근할 수 있는 정적 함수도 마찬가지로 파일 안으로 접근이 제한된다.
 
+<br>
