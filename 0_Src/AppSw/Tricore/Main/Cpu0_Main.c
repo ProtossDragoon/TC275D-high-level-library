@@ -29,6 +29,7 @@
 #include "SysSe/Bsp/Bsp.h"
 #include "IfxScuWdt.h"
 #include "SerialMonitor.h"
+#include "AsclinShellInterface.h"
 
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
@@ -78,10 +79,12 @@ int core0_main(void)
     JHL_SerialMonitor_init(&g_SerialMonitor.config);
 
     /* background endless loop */
+    // JHL_SerialMonitor_tester();
     while (TRUE)
     {
 
-        JHL_SerialMonitor_tester();
+
+        AsclinShellInterface_run();
         REGRESSION_RUN_STOP_PASS;
         break;   
     }

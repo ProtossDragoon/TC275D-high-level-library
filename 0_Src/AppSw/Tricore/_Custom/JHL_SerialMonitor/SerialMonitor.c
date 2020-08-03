@@ -65,8 +65,8 @@ void JHL_SerialMonitorConfig_init(JHL_SerialMonitorConfig *config)
     config->_config.config.interrupt.typeOfService = (IfxSrc_Tos)IfxCpu_getCoreIndex();
     
     /* FIFO configuration */
-    config->inputBufferByteSize  = ASC_TX_BUFFER_SIZE;
-    config->outputBufferByteSize = ASC_TX_BUFFER_SIZE;
+    config->inputBufferByteSize          = 512;
+    config->outputBufferByteSize         = 6*1024;
     config->_config.config.rxBuffer      = config->_config.inputBuffer;
     config->_config.config.txBuffer      = config->_config.outputBuffer;
 
@@ -91,10 +91,40 @@ void JHL_SerialMonitor_init(JHL_SerialMonitorConfig *config)
     /* initialize Asclin Asc module */
     IfxAsclin_Asc_initModule(&(config->_config.asc), &(config->_config.config));
 
+    /* Connect the standard asc interface to the device driver*/
+    IfxAsclin_Asc_stdIfDPipeInit(&g_AsclinShellInterface.stdIf.asc, &g_AsclinShellInterface.drivers.asc);
+
+
+    /* [Console Settings] */
+    /* [Console Settings] Ifx_Console initialisation */
+    Ifx_Console_init(&g_AsclinShellInterface.stdIf.asc);
+
+    /* [Console Settings] Assert initialisation */
+    Ifx_Assert_setStandardIo(&g_AsclinShellInterface.stdIf.asc);
+
+    g_AsclinShellInterface.info.srcRev      = SW_REVISION;
+    g_AsclinShellInterface.info.srcRevDate  = SW_REVISION_DATE;
+    g_AsclinShellInterface.info.compilerVer = 0;
+
+    /* [Console Screen] Welcome Screen */
+
+    /* [Console Shell Settings] Initialise the shell interface */
+    {
+        /* [Shell Settings] Initialise Shell Config */
+        Ifx_Shell_Config config;
+        Ifx_Shell_initConfig(&config);
+
+        config.standardIo     = &g_AsclinShellInterface.stdIf.asc;
+        config.commandList[0] = &AppShell_commands[0];
+
+        Ifx_Shell_init(&g_AsclinShellInterface.shell, &config);
+    }
+
+
     /* enable interrupts again */
     IfxCpu_restoreInterrupts(interruptState);
 
-    printf("JHL_SerialMonitor is initialised\n");
+    printf("JHL_SerialMonitor is initialised\n");    
 }
 
 void JHL_SerialMonitor_tester()
@@ -107,7 +137,6 @@ void JHL_SerialMonitor_tester()
     }
     printf("writing start\n");
     IfxAsclin_Asc_write(&g_SerialMonitor.config._config.asc, g_SerialMonitor.ouputData, &g_SerialMonitor.count, TIME_INFINITE);
-
 
     /*
     
@@ -132,4 +161,11 @@ void JHL_SerialMonitor_tester()
         printf("OK: received data matches with expected data\n");
     }
     */
+}
+
+
+void JHL_SerialMonitor_runShellInterface(void)
+{
+    /** Handle the shell interface */
+    Ifx_Shell_process(&g_AsclinShellInterface.shell);
 }

@@ -13,8 +13,6 @@
 /******************************************************************************/
 /*-----------------------------------Macros-----------------------------------*/
 /******************************************************************************/
-#define ASC_TX_BUFFER_SIZE 64
-#define ASC_RX_BUFFER_SIZE 64
 
 /******************************************************************************/
 /*--------------------------------Enumerations--------------------------------*/
@@ -66,6 +64,9 @@ void JHL_SerialMonitor_init(JHL_SerialMonitorConfig *config);
 // not implemented void _JHL_SerialMonitor_emptyQueueException();
 // not implemented void JHL_SerialMonitor_enQueue();
 // not implemented void JHL_SerialMonitor_deQeuue();
-void JHL_SerialMonitor_tester();
+void JHL_SerialMonitor_tester(void);
+
+
+void JHL_SerialMonitor_runShellInterface(void)
 
 #endif
