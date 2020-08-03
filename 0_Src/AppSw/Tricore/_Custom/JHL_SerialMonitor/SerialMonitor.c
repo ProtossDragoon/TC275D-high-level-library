@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*----------------------------------Includes----------------------------------*/
 /******************************************************************************/
-#include "JHL_SerialMonitor.h"
+#include "SerialMonitor.h"
 
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
@@ -36,8 +36,20 @@ IFX_INTERRUPT(asclin3ErISR, 0, ISR_PRIORITY_JHLSERIALMONITOR_ER)
     IfxAsclin_Asc_isrError(&g_SerialMonitor.config._config.asc);
 }
 
+/* pin configuration */
+const IfxAsclin_Asc_Pins defaultPinConfig = {
+    NULL, IfxPort_InputMode_pullUp,                        /* CTS pin not used */
+    &IfxAsclin3_RXD_P32_2_IN, IfxPort_InputMode_pullUp,    /* Rx pin */
+    NULL, IfxPort_OutputMode_pushPull,                     /* RTS pin not used */
+    &IfxAsclin3_TX_P15_7_OUT, IfxPort_OutputMode_pushPull, /* Tx pin */
+    IfxPort_PadDriver_cmosAutomotiveSpeed1
+};
+
 void JHL_SerialMonitorConfig_init(JHL_SerialMonitorConfig *config)
 {
+    /* disable interrupts */
+    boolean interruptState = IfxCpu_disableInterrupts();
+
     /* create module config */
     IfxAsclin_Asc_initModuleConfig(&(config->_config.config), &MODULE_ASCLIN3); // TC273에서는 MODULE_ASCLIN3 만이 USB 를 지원함.
 
@@ -51,22 +63,18 @@ void JHL_SerialMonitorConfig_init(JHL_SerialMonitorConfig *config)
     config->_config.config.interrupt.rxPriority    = ISR_PRIORITY_JHLSERIALMONITOR_RX;
     config->_config.config.interrupt.erPriority    = ISR_PRIORITY_JHLSERIALMONITOR_ER;
     config->_config.config.interrupt.typeOfService = (IfxSrc_Tos)IfxCpu_getCoreIndex();
-
+    
     /* FIFO configuration */
-    config->inputBufferByteSize  = 64;
-    config->outputBufferByteSize = 64;
+    config->inputBufferByteSize  = ASC_TX_BUFFER_SIZE;
+    config->outputBufferByteSize = ASC_TX_BUFFER_SIZE;
     config->_config.config.rxBuffer      = config->_config.inputBuffer;
     config->_config.config.txBuffer      = config->_config.outputBuffer;
 
     /* pin configuration */
-    const IfxAsclin_Asc_Pins pins = {
-        NULL,                     IfxPort_InputMode_pullUp,        /* CTS pin not used */
-        &IfxAsclin3_RXD_P32_2_IN, IfxPort_InputMode_pullUp,        /* Rx pin */
-        NULL,                     IfxPort_OutputMode_pushPull,     /* RTS pin not used */
-        &IfxAsclin3_TX_P15_7_OUT, IfxPort_OutputMode_pushPull,     /* Tx pin */
-        IfxPort_PadDriver_cmosAutomotiveSpeed1
-    };
-    config->_config.config.pins = &pins;
+    config->_config.config.pins = &defaultPinConfig;
+
+    /* enable interrupts again */
+    IfxCpu_restoreInterrupts(interruptState);
 }
 
 void JHL_SerialMonitor_init(JHL_SerialMonitorConfig *config)
@@ -77,8 +85,8 @@ void JHL_SerialMonitor_init(JHL_SerialMonitorConfig *config)
     /* malloc memory */
     config->_config.config.rxBufferSize = config->inputBufferByteSize;
     config->_config.config.txBufferSize = config->outputBufferByteSize;
-    // config->_config.inputBuffer = (uint8*)malloc(sizeof(uint8) * config->inputBufferByteSize + sizeof(Ifx_Fifo) + 8);
-    // config->_config.outputBuffer = (uint8*)malloc(sizeof(uint8) * config->outputBufferByteSize + sizeof(Ifx_Fifo) + 8);
+    config->_config.inputBuffer = (uint8*)malloc(sizeof(uint8) * config->inputBufferByteSize + sizeof(Ifx_Fifo) + 8);
+    config->_config.outputBuffer = (uint8*)malloc(sizeof(uint8) * config->outputBufferByteSize + sizeof(Ifx_Fifo) + 8);
 
     /* initialize Asclin Asc module */
     IfxAsclin_Asc_initModule(&(config->_config.asc), &(config->_config.config));
@@ -92,11 +100,13 @@ void JHL_SerialMonitor_init(JHL_SerialMonitorConfig *config)
 void JHL_SerialMonitor_tester()
 {
     g_SerialMonitor.count = 5;
-    for (int i = 0; i < g_SerialMonitor.count; i++) {
+    for (uint32 i = 0; i < g_SerialMonitor.count; ++i) {
         g_SerialMonitor.ouputData[i] = 'a' + i; // ASCII Code
+        printf("writing %c\n", 'a'+i);
+        wait(TimeConst_100ms);
     }
+    printf("writing start\n");
     IfxAsclin_Asc_write(&g_SerialMonitor.config._config.asc, g_SerialMonitor.ouputData, &g_SerialMonitor.count, TIME_INFINITE);
-    printf("write complete");
 
 
     /*

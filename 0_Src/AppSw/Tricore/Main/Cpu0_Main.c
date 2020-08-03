@@ -28,7 +28,7 @@
 #include "Cpu0_Main.h"
 #include "SysSe/Bsp/Bsp.h"
 #include "IfxScuWdt.h"
-#include "AsclinAscDemo.h"
+#include "SerialMonitor.h"
 
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
@@ -74,16 +74,19 @@ int core0_main(void)
     IfxCpu_enableInterrupts();
 
     /* Demo init */
-    AsclinAscDemo_init();
-    AsclinAscDemo_run();
+    JHL_SerialMonitorConfig_init(&g_SerialMonitor.config);
+    JHL_SerialMonitor_init(&g_SerialMonitor.config);
 
     /* background endless loop */
     while (TRUE)
     {
-        
-        REGRESSION_RUN_STOP_PASS;
-    }
 
+        JHL_SerialMonitor_tester();
+        REGRESSION_RUN_STOP_PASS;
+        break;   
+    }
+    
+    printf("program end\n");
     return 0;
 }
 
