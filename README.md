@@ -67,3 +67,7 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 - 포인터 산술은 포인터가 어떤 크기의 객체를 가리키는지 알아야 하므로 포인터를 적절하게 증감할 수 없는 void 포인터에서는 포인터 연산을 수행할 수 없다.
 
 <br>
+
+### 기타
+
+- wait 안된다고 찡찡대지 말고 STM 을 사용하거나 wait() 을 사용하자.
