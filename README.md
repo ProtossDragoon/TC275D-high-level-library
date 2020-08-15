@@ -70,4 +70,4 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 
 ### 기타
 
-- wait 안된다고 찡찡대지 말고 STM 을 사용하거나 wait() 을 사용하자.
+- wait 안된다고 찡찡대지 말고 STM 을 사용하거나 initTime() 을 사용하자.
