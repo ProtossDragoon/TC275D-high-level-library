@@ -1,6 +1,6 @@
 /**
- * \file Cpu0_Main.c
- * \brief System initialisation and main program implementation.
+ * \file VadcBackgroundScanDemo.h
+ * \brief Demo VadcBackgroundScanDemo
  *
  * \version iLLD_Demos_1_0_1_8_0
  * \copyright Copyright (c) 2014 Infineon Technologies AG. All rights reserved.
@@ -19,78 +19,48 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
  * INFINEON SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL,
  * OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+ *
+ * \defgroup IfxLld_Demo_VadcBackgroundScanDemo_SrcDoc_Main Demo Source
+ * \ingroup IfxLld_Demo_VadcBackgroundScanDemo_SrcDoc
+ * \defgroup IfxLld_Demo_VadcBackgroundScanDemo_SrcDoc_Main_Interrupt Interrupts
+ * \ingroup IfxLld_Demo_VadcBackgroundScanDemo_SrcDoc_Main
  */
+
+#ifndef VADCBACKGROUNDSCANDEMO_H
+#define VADCBACKGROUNDSCANDEMO_H 1
 
 /******************************************************************************/
 /*----------------------------------Includes----------------------------------*/
 /******************************************************************************/
 
-#include "Cpu0_Main.h"
-#include "SysSe/Bsp/Bsp.h"
-#include "IfxScuWdt.h"
-#include "SerialMonitor.h"
-#include "VadcBackgroundScanDemo.h"
-
-/******************************************************************************/
-/*------------------------Inline Function Prototypes--------------------------*/
-/******************************************************************************/
-
+#include <Vadc/Std/IfxVadc.h>
+#include <Vadc/Adc/IfxVadc_Adc.h>
 /******************************************************************************/
 /*-----------------------------------Macros-----------------------------------*/
 /******************************************************************************/
 
 /******************************************************************************/
-/*------------------------Private Variables/Constants-------------------------*/
+/*--------------------------------Enumerations--------------------------------*/
 /******************************************************************************/
+
+/******************************************************************************/
+/*-----------------------------Data Structures--------------------------------*/
+/******************************************************************************/
+typedef struct
+{
+    IfxVadc_Adc vadc;   /* VADC handle*/
+    IfxVadc_Adc_Group adcGroup;
+} App_VadcBackgroundScan;
 
 /******************************************************************************/
 /*------------------------------Global variables------------------------------*/
 /******************************************************************************/
-App_Cpu0 g_AppCpu0; /**< \brief CPU 0 global data */
+IFX_EXTERN App_VadcBackgroundScan g_VadcBackgroundScan;
 
 /******************************************************************************/
-/*-------------------------Function Implementations---------------------------*/
+/*-------------------------Function Prototypes--------------------------------*/
 /******************************************************************************/
+IFX_EXTERN void VadcBackgroundScanDemo_init(void);
+IFX_EXTERN void VadcBackgroundScanDemo_run(void);
 
-/** \brief Main entry point after CPU boot-up.
- *
- *  It initialise the system and enter the endless loop that handles the demo
- */
-int core0_main(void)
-{
-    /*
-     * !!WATCHDOG0 AND SAFETY WATCHDOG ARE DISABLED HERE!!
-     * Enable the watchdog in the demo if it is required and also service the watchdog periodically
-     * */
-    IfxScuWdt_disableCpuWatchdog(IfxScuWdt_getCpuWatchdogPassword());
-    IfxScuWdt_disableSafetyWatchdog(IfxScuWdt_getSafetyWatchdogPassword());
-
-    /* Initialise the application state */
-    g_AppCpu0.info.pllFreq = IfxScuCcu_getPllFrequency();
-    g_AppCpu0.info.cpuFreq = IfxScuCcu_getCpuFrequency(IfxCpu_getCoreIndex());
-    g_AppCpu0.info.sysFreq = IfxScuCcu_getSpbFrequency();
-    g_AppCpu0.info.stmFreq = IfxStm_getFrequency(&MODULE_STM0);
-
-    /* Enable the global interrupts of this CPU */
-    IfxCpu_enableInterrupts();
-
-    /* Demo init */
-    JHL_SerialMonitorConfig_init(&g_SerialMonitor.config);
-    JHL_SerialMonitor_init(&g_SerialMonitor.config);
-    VadcBackgroundScanDemo_init();
-
-    /* background endless loop */
-    while (TRUE)
-    {
-        VadcBackgroundScanDemo_run();
-        // JHL_SerialMonitor_tester();
-        REGRESSION_RUN_STOP_PASS;   
-        // break;
-    }
-    
-    printf("program end\n");
-    return 0;
-}
-
-
-/** \} */
+#endif

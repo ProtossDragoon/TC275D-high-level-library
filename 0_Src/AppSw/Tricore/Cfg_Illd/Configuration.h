@@ -38,6 +38,8 @@
 /******************************************************************************/
 /*-----------------------------------Macros-----------------------------------*/
 /******************************************************************************/
+#define ADC_STARTUP_CALIBRATION 1  /**< \brief Enable Calibration for TC27xB,TC26x and TC29x Derivatives */
+
 
 /** \addtogroup IfxLld_Demo_Template_SrcDoc_Config
  * \{ */
