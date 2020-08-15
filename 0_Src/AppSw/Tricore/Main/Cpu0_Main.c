@@ -29,7 +29,7 @@
 #include "SysSe/Bsp/Bsp.h"
 #include "IfxScuWdt.h"
 #include "SerialMonitor.h"
-#include "VadcBackgroundScanDemo.h"
+#include "Oscilloscope.h"
 
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
@@ -77,12 +77,16 @@ int core0_main(void)
     /* Demo init */
     JHL_SerialMonitorConfig_init(&g_SerialMonitor.config);
     JHL_SerialMonitor_init(&g_SerialMonitor.config);
-    VadcBackgroundScanDemo_init();
+    JHL_OscilloscopeConfig_init(&g_Oscilloscope.config);
+    JHL_Oscilloscope_init(&g_Oscilloscope);
+    // VadcBackgroundScanDemo_init();
 
     /* background endless loop */
     while (TRUE)
     {
-        VadcBackgroundScanDemo_run();
+        uint32 answer = JHL_Oscilloscope_scan();
+        printf("answer : %lu out of %lu\n", answer, 4096);
+        // VadcBackgroundScanDemo_run();
         // JHL_SerialMonitor_tester();
         REGRESSION_RUN_STOP_PASS;   
         // break;

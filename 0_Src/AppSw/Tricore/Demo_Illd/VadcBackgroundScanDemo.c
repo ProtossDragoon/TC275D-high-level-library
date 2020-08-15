@@ -86,7 +86,7 @@ void VadcBackgroundScanDemo_init(void)
     IfxVadc_Adc_GroupConfig adcGroupConfig;
     IfxVadc_Adc_initGroupConfig(&adcGroupConfig, &g_VadcBackgroundScan.vadc);
 
-    /* with group 0 */
+    /* with group 4 */
     adcGroupConfig.groupId = IfxVadc_GroupId_4;
     adcGroupConfig.master  = adcGroupConfig.groupId;
 
@@ -105,12 +105,12 @@ void VadcBackgroundScanDemo_init(void)
     printf("Add Background Scan of 2 channels\n");
 
     {
-        for (uint32 channelNumIndex = 7; channelNumIndex < 8; ++channelNumIndex)
+        for (uint32 channelNumIndex = 0; channelNumIndex < 1; ++channelNumIndex)
         {
             IfxVadc_Adc_initChannelConfig(&adcChannelConfig[channelNumIndex], &g_VadcBackgroundScan.adcGroup);
 
-            adcChannelConfig[channelNumIndex].channelId         = (IfxVadc_ChannelId)(0 + channelNumIndex);
-            adcChannelConfig[channelNumIndex].resultRegister    = (IfxVadc_ChannelResult)(0 + channelNumIndex); // use register #5 and 6 for results
+            adcChannelConfig[channelNumIndex].channelId         = (IfxVadc_ChannelId)(7 + channelNumIndex);
+            adcChannelConfig[channelNumIndex].resultRegister    = (IfxVadc_ChannelResult)(7 + channelNumIndex); // use register #5 and 6 for results
             adcChannelConfig[channelNumIndex].backgroundChannel = TRUE;
 
             /* initialize the channel */
@@ -138,7 +138,7 @@ void VadcBackgroundScanDemo_run(void)
     printf("VadcBackgroundScanDemo_run() called\n");
    
     /* check results */
-    for (uint32 channelNumIndex = 7; channelNumIndex < 8; ++channelNumIndex)
+    for (uint32 channelNumIndex = 0; channelNumIndex < 1; ++channelNumIndex)
     {
         unsigned group = adcChannel[channelNumIndex].group->groupId;
         unsigned channel = adcChannel[channelNumIndex].channel;
