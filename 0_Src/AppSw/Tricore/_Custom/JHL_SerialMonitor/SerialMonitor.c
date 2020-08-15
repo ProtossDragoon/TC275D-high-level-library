@@ -107,7 +107,6 @@ void JHL_SerialMonitor_tester()
     printf("writing start\n");
     IfxAsclin_Asc_write(&g_SerialMonitor.config._config.asc, g_SerialMonitor.ouputData, &g_SerialMonitor.count, TIME_INFINITE);
 
-
     /*
     
     // Receive data
