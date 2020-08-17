@@ -77,35 +77,40 @@ void JHL_SerialMonitorConfig_init(JHL_SerialMonitorConfig *config)
     IfxCpu_restoreInterrupts(interruptState);
 }
 
-void JHL_SerialMonitor_init(JHL_SerialMonitorConfig *config)
+void JHL_SerialMonitor_init(JHL_SerialMonitor *monitor)
 {
     /* disable interrupts */
     boolean interruptState = IfxCpu_disableInterrupts();
 
     /* malloc memory */
-    config->_config.config.rxBufferSize = config->inputBufferByteSize;
-    config->_config.config.txBufferSize = config->outputBufferByteSize;
-    config->_config.inputBuffer = (uint8*)malloc(sizeof(uint8) * config->inputBufferByteSize + sizeof(Ifx_Fifo) + 8);
-    config->_config.outputBuffer = (uint8*)malloc(sizeof(uint8) * config->outputBufferByteSize + sizeof(Ifx_Fifo) + 8);
+    monitor->config._config.config.txBufferSize = monitor->config.outputBufferByteSize;
+    monitor->config._config.inputBuffer = (uint8*)malloc(sizeof(uint8) * monitor->config.inputBufferByteSize + sizeof(Ifx_Fifo) + 8);
+    monitor->config._config.outputBuffer = (uint8*)malloc(sizeof(uint8) * monitor->config.outputBufferByteSize + sizeof(Ifx_Fifo) + 8);
 
     /* initialize Asclin Asc module */
-    IfxAsclin_Asc_initModule(&(config->_config.asc), &(config->_config.config));
+    IfxAsclin_Asc_initModule(&(monitor->config._config.asc), &(monitor->config._config.config));
 
     /* enable interrupts again */
     IfxCpu_restoreInterrupts(interruptState);
+
+    /* data structure init */
+    g_SerialMonitor._ds.count = 0;
+    g_SerialMonitor._ds.frontIdx = 63;
+    g_SerialMonitor._ds.rearIdx = 0;
 
     printf("JHL_SerialMonitor is initialised\n");
 }
 
 void JHL_SerialMonitor_tester()
 {
-    g_SerialMonitor.count = 5;
-    for (uint8 i = 0; i < g_SerialMonitor.count; ++i) {
-        g_SerialMonitor.ouputData[i] = i; // ASCII Code
-        printf("writing %c\n", i);
+    g_SerialMonitor._ds.count = 5;
+    for (uint32 i = 0; i < g_SerialMonitor._ds.count; ++i) {
+        g_SerialMonitor._ds.outputData[i] = 'a' + i; // ASCII Code
+        printf("writing %c\n", 'a'+i);
+        wait(TimeConst_100ms);
     }
     printf("writing start\n");
-    IfxAsclin_Asc_write(&g_SerialMonitor.config._config.asc, g_SerialMonitor.ouputData, &g_SerialMonitor.count, TIME_INFINITE);
+    IfxAsclin_Asc_write(&g_SerialMonitor.config._config.asc, g_SerialMonitor._ds.outputData, &g_SerialMonitor._ds.count, TIME_INFINITE);
 
     /*
     
@@ -130,4 +135,79 @@ void JHL_SerialMonitor_tester()
         printf("OK: received data matches with expected data\n");
     }
     */
+}
+
+boolean _JHL_SerialMonitor_isFull()
+{
+    if (g_SerialMonitor._ds.count >= 63)
+    {
+        return TRUE;
+    }
+    if ((g_SerialMonitor._ds.rearIdx + 1) % 64 == g_SerialMonitor._ds.frontIdx) 
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+boolean _JHL_SerialMonitor_isEmpty()
+{
+    if (g_SerialMonitor._ds.count == 0)
+    {
+        return TRUE;
+    }
+    if ((g_SerialMonitor._ds.frontIdx + 1) % 64 == g_SerialMonitor._ds.rearIdx) 
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void _JHL_SerialMonitor_fullQueueException()
+{
+    printf("output buffer was full! your bit was extinguished while ready to send!\n");
+}
+
+void _JHL_SerialMonitor_emptyQueueException()
+{
+    printf("output buffer was empty. nothing was sent\n");    
+}
+
+uint8 JHL_SerialMonitor_currentQueueItemsCnt()
+{
+    return g_SerialMonitor._ds.count;
+}
+
+boolean JHL_SerialMonitor_enQueueOneByteUnsignedInt(uint8 num)
+{
+    // retrun : 정상적으로 전송 대기 큐에 담겨졌다면 True, 아니면 False
+    
+    if (_JHL_SerialMonitor_isFull())
+    {
+        _JHL_SerialMonitor_fullQueueException();
+        return FALSE;
+    }
+    g_SerialMonitor._ds.outputData[g_SerialMonitor._ds.rearIdx] = num;
+    g_SerialMonitor._ds.rearIdx++;
+    g_SerialMonitor._ds.count++;
+    return TRUE;
+}
+
+boolean JHL_SerialMonitor_deQeueueAndSendOneByteUnsignedInt()
+{
+    // return : 전송 대기 큐에 담겨있는 한 숫자 하나 (1바이트) 가 정상적으로 전송되었다면 True, 아니면 False
+    
+    if (_JHL_SerialMonitor_isEmpty())
+    {
+        return FALSE;
+    }
+
+    Ifx_SizeT one = 1;
+    boolean success = IfxAsclin_Asc_write(&g_SerialMonitor.config._config.asc, &(g_SerialMonitor._ds.outputData[g_SerialMonitor._ds.frontIdx]), &one, TIME_INFINITE);
+    if (success)
+    {
+        g_SerialMonitor._ds.count--;
+        g_SerialMonitor._ds.frontIdx = (g_SerialMonitor._ds.frontIdx++) % 64;
+    }
+    return success;
 }
