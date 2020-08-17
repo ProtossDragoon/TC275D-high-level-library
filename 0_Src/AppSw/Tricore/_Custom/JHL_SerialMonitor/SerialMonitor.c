@@ -100,9 +100,9 @@ void JHL_SerialMonitor_init(JHL_SerialMonitorConfig *config)
 void JHL_SerialMonitor_tester()
 {
     g_SerialMonitor.count = 5;
-    for (uint32 i = 0; i < g_SerialMonitor.count; ++i) {
-        g_SerialMonitor.ouputData[i] = 'a' + i; // ASCII Code
-        printf("writing %c\n", 'a'+i);
+    for (uint8 i = 0; i < g_SerialMonitor.count; ++i) {
+        g_SerialMonitor.ouputData[i] = i; // ASCII Code
+        printf("writing %c\n", i);
     }
     printf("writing start\n");
     IfxAsclin_Asc_write(&g_SerialMonitor.config._config.asc, g_SerialMonitor.ouputData, &g_SerialMonitor.count, TIME_INFINITE);

@@ -85,7 +85,7 @@ int core0_main(void)
     {
         uint32 answer = JHL_Oscilloscope_scan();
         printf("answer : %lu out of %lu\n", answer, 4096);
-        // JHL_SerialMonitor_tester();
+        JHL_SerialMonitor_tester();
         REGRESSION_RUN_STOP_PASS;   
         break;
     }
