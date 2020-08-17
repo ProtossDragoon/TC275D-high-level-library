@@ -75,7 +75,7 @@ int core0_main(void)
 
     /* Demo init */
     JHL_SerialMonitorConfig_init(&g_SerialMonitor.config);
-    JHL_SerialMonitor_init(&g_SerialMonitor.config);
+    JHL_SerialMonitor_init(&g_SerialMonitor);
     JHL_OscilloscopeConfig_init(&g_Oscilloscope.config);
     JHL_Oscilloscope_init(&g_Oscilloscope);
     initTime();
@@ -83,11 +83,16 @@ int core0_main(void)
     /* background endless loop */
     while (TRUE)
     {
-        uint32 answer = JHL_Oscilloscope_scan();
-        printf("answer : %lu out of %lu\n", answer, 4096);
-        JHL_SerialMonitor_tester();
-        REGRESSION_RUN_STOP_PASS;   
-        break;
+        uint32 answer32 = JHL_Oscilloscope_scan();
+        printf("answer : %lu out of %lu\n", answer32, 4096);
+        wait(TimeConst_10ms);
+
+        uint8 answer8 = answer32 / 16;
+        printf("enqueued data : %lu\n", answer32 / 16);
+        JHL_SerialMonitor_enQueueOneByteUnsignedInt(answer8);
+        wait(TimeConst_10ms);
+
+        JHL_SerialMonitor_deQeueueAndSendOneByteUnsignedInt();
     }
     
     printf("program end\n");
