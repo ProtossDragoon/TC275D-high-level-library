@@ -30,6 +30,17 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 - Aurix Tutorial, 창원대학교 : https://aurixtutorial.readthedocs.io/ko/latest/index.html
 - Arduino Opentutorials, UART : https://opentutorials.org/module/2106/12247
 
+<br>
+
+## Study Group
+
+- [notion](https://www.notion.so/AUrix-Tutorial-56859ecd2dc548ec9b9df59432dfbb76)
+
+<br>
+
+## Custom Library
+
+- [notion - JHL prefix page](https://www.notion.so/AUrix-Tutorial-56859ecd2dc548ec9b9df59432dfbb76)
 
 <br>
 
