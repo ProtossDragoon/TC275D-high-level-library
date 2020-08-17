@@ -19,7 +19,6 @@ import pandas as pd
 # python threading : http://pythonstudy.xyz/python/article/24-%EC%93%B0%EB%A0%88%EB%93%9C-Thread
 
 
-
 class serialPlot:
     def __init__(self, serialPort = '/dev/ttyUSB0', serialBaud = 38400, plotLength = 100, dataNumBytes = 1):
         self.port = serialPort
@@ -56,25 +55,16 @@ class serialPlot:
                 time.sleep(0.1)
 
     def getSerialData(self, frame, lines, lineValueText, lineLabel, timeText):
-        print('function getSerialData running')
+        # print('function getSerialData running')
         currentTimer = time.perf_counter()
         self.plotTimer = int((currentTimer - self.previousTimer) * 1000)     # the first reading will be erroneous
         self.previousTimer = currentTimer
         timeText.set_text('Plot Interval = ' + str(self.plotTimer) + 'ms')
         
-        # 나는 지금 1 byte integer 을 해석하려고 하니 복잡하게 느껴지는 것인데..
-        # 우선 char 로 받아서 1byte 로 받음.
-        value,  = struct.unpack('c', self.rawData)    # use 'h' for a 2 byte integer
-        # decode 한 후, 숫자부분만 떼어옴.
-        str_value = str(value)[-3:-1]
-        # 그런데 이때, 떼어낸 숫자부분은 16진수임.
-        int_value = int('0x'+str_value, 16)
-    
-        # 결론
-        print(self.rawData, type(self.rawData), 
-              '--> unpacked value -->', value, type(value), 
-              '---> decode data -->', int_value, type(int_value))
-
+        value,  = struct.unpack('B', self.rawData)
+        int_value = int(value)
+        print(self.rawData, '-->', int_value)
+                
         self.data.append(int_value)    # we get the latest data point and append it to our array
         lines.set_data(range(self.plotMaxLength), self.data)
         lineValueText.set_text('[' + lineLabel + '] = ' + str(int_value))
@@ -82,12 +72,11 @@ class serialPlot:
 
     def backgroundThread(self):    # retrieve data
         print('function backgroundThread running')
-        time.sleep(1.0)  # give some buffer time for retrieving data
+        time.sleep(3.0)  # give some buffer time for retrieving data
         self.serialConnection.reset_input_buffer()
         while (self.isRun):
             self.serialConnection.readinto(self.rawData)
             self.isReceiving = True
-            print(self.rawData)
         print('function backgroundThread end')
 
     def close(self):
@@ -111,12 +100,13 @@ def main():
     s.readSerialStart()                                               # starts background thread
 
     print('main(), ready to draw plot')
+    
     # plotting starts below
     pltInterval = 50    # Period at which the plot animation updates [ms]
     xmin = 0
     xmax = maxPlotLength
-    ymin = -(2**3)
-    ymax = 2**3
+    ymin = -(0)
+    ymax = 2**8
     fig = plt.figure()
     ax = plt.axes(xlim=(xmin, xmax), ylim=(float(ymin - (ymax - ymin) / 10), float(ymax + (ymax - ymin) / 10)))
     ax.set_title('Arduino Analog Read')
