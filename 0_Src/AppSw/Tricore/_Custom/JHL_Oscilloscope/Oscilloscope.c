@@ -94,6 +94,7 @@ uint32 JHL_Oscilloscope_scan()
         /* print result, check with expected value */
         {
             uint32 actual = conversionResult.B.RESULT;
+            printf("actual : %lu\n", actual);
             return actual;
         }
     }

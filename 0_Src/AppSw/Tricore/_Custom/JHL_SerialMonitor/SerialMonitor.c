@@ -188,7 +188,7 @@ boolean JHL_SerialMonitor_enQueueOneByteUnsignedInt(uint8 num)
         return FALSE;
     }
     g_SerialMonitor._ds.outputData[g_SerialMonitor._ds.rearIdx] = num;
-    g_SerialMonitor._ds.rearIdx++;
+    g_SerialMonitor._ds.rearIdx = (++g_SerialMonitor._ds.rearIdx) % 64;
     g_SerialMonitor._ds.count++;
     return TRUE;
 }
@@ -199,6 +199,7 @@ boolean JHL_SerialMonitor_deQeueueAndSendOneByteUnsignedInt()
     
     if (_JHL_SerialMonitor_isEmpty())
     {
+        _JHL_SerialMonitor_emptyQueueException();
         return FALSE;
     }
 
@@ -207,7 +208,7 @@ boolean JHL_SerialMonitor_deQeueueAndSendOneByteUnsignedInt()
     if (success)
     {
         g_SerialMonitor._ds.count--;
-        g_SerialMonitor._ds.frontIdx = (g_SerialMonitor._ds.frontIdx++) % 64;
+        g_SerialMonitor._ds.frontIdx = (++g_SerialMonitor._ds.frontIdx) % 64;
     }
     return success;
 }
