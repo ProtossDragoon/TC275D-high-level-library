@@ -1,5 +1,5 @@
 # iLLD-env
-iLLD env for vs Code / HYU RACE trial repo
+Custom High Level TC275 Library implemented with iLLD
 
 
 https://openvslam.readthedocs.io/en/master/simple_tutorial.html
