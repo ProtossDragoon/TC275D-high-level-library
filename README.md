@@ -1,9 +1,7 @@
 # iLLD-env
 Custom High Level TC275 Library Implemented by iLLD (infineon Low Level Driver)
 
-
-https://openvslam.readthedocs.io/en/master/simple_tutorial.html
-
+<br>
 
 ## env
 
@@ -17,24 +15,6 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 
 
 
-
-<br>
-
-## init with
-
-
-<br>
-
-## Study Source
-
-- Aurix Tutorial, 창원대학교 : https://aurixtutorial.readthedocs.io/ko/latest/index.html
-- Arduino Opentutorials, UART : https://opentutorials.org/module/2106/12247
-
-<br>
-
-## Study Group
-
-- [notion](https://www.notion.so/AUrix-Tutorial-56859ecd2dc548ec9b9df59432dfbb76)
 
 <br>
 
@@ -52,6 +32,22 @@ https://openvslam.readthedocs.io/en/master/simple_tutorial.html
 
 - 마이크로컨트롤러는 OS 도 없는데 바이너리 코드와 하드웨어만 가지고 작업하는 일이다 보니, C 를 제대로 써보는 계기가 되기도 한다.
 - 평소 그냥 넘어갈 수 있었던 부분도 정확히 짚고 넘어갈 필요가 있었다.
+
+<br>
+
+# MicroController Study
+
+## Study Reference
+
+- [Aurix Tutorial, 창원대학교](https://aurixtutorial.readthedocs.io/ko/latest/index.html)
+- [Arduino Opentutorials, UART](https://opentutorials.org/module/2106/12247)
+- [readthedocs simple_tutorial](https://openvslam.readthedocs.io/en/master/simple_tutorial.html)
+
+<br>
+
+## Study Group
+
+- [notion](https://www.notion.so/AUrix-Tutorial-56859ecd2dc548ec9b9df59432dfbb76)
 
 <br>
 
