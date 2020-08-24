@@ -6,7 +6,7 @@ Custom High Level TC275 Library Implemented by iLLD (infineon Low Level Driver)
 ## env
 
 - vsCode
-- win10
+- Windows10
 - [TC275d](https://kr.rs-online.com/web/c/semiconductors/semiconductor-development-kits/processor-microcontroller-development-kits/)
 
 <br>
@@ -24,18 +24,12 @@ Custom High Level TC275 Library Implemented by iLLD (infineon Low Level Driver)
 
 <br>
 
-## Insight
-
-- https://wiserloner.tistory.com/569
-
-<br>
-
-- 마이크로컨트롤러는 OS 도 없는데 바이너리 코드와 하드웨어만 가지고 작업하는 일이다 보니, C 를 제대로 써보는 계기가 되기도 한다.
-- 평소 그냥 넘어갈 수 있었던 부분도 정확히 짚고 넘어갈 필요가 있었다.
-
-<br>
-
 # MicroController Study
+
+- 자작자동차 동아리 RACE (Hanyang University)
+- [Study Group : notion page](https://www.notion.so/AUrix-Tutorial-56859ecd2dc548ec9b9df59432dfbb76)
+
+<br>
 
 ## Study Reference
 
@@ -45,9 +39,9 @@ Custom High Level TC275 Library Implemented by iLLD (infineon Low Level Driver)
 
 <br>
 
-## Study Group
-
-- [notion](https://www.notion.so/AUrix-Tutorial-56859ecd2dc548ec9b9df59432dfbb76)
+- 마이크로컨트롤러는 OS 도 없는데 바이너리 코드와 하드웨어만 가지고 작업하는 일이다 보니, C 를 제대로 써보는 계기가 되기도 한다.
+- 평소 그냥 넘어갈 수 있었던 부분도 정확히 짚고 넘어갈 필요가 있었다.
+- https://wiserloner.tistory.com/569
 
 <br>
 
