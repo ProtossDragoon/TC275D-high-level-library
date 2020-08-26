@@ -44,31 +44,8 @@ Custom High Level TC275 Library Implemented by iLLD (infineon Low Level Driver)
 - https://wiserloner.tistory.com/569
 
 <br>
-
-### static vs global
-
-- static keyword 를 붙이면, "전역변수와 똑같이 스택 영역에 위치" 하게 된다.
-- 단지 파일 내에서만 접근할 수 있도록 접근만 제어할 뿐 전역 공간에 상주하게 되는 것이다.
-- 이러한 맥락을 가지고 아래를 이해할 수 있다.
-- static variable : extern 을 붙이면, "파일 안에서만 사용할 수 있는 전역변수" 가 된다고 생각할 수 있다.
-- static function : 자동으로 extern 이 붙으면서 별다른 선언 없이 파일 외부에서도 접근할 수 있는 정적 함수도 마찬가지로 파일 안으로 접근이 제한된다.
-
-<br>
-
-- https://boycoding.tistory.com/211
-
-<br>
-
-### void pointer 
-
-- void 포인터? void 변수를 선언할 수 없는데 어떻게 void 형으로 포인터를 만든단 말인가? 처음에는 이해가 잘 가지 않았다.
-- 제네릭 포인터(generic pointer)라고도 불리는 void pointer는 모든 데이터 자료형을 가리킬 수 있는 특별한 타입의 포인터다. void 포인터는 void 키워드를 사용하여 일반 포인터처럼 선언한다.
-- 그러나 void 포인터는 어떤 데이터 자료형의 객체를 가리키는 알지 못하기 때문에 직접 역참조할 수 없다. 그러므로 역참조를 하기 전에 먼저 void 포인터를 다른 포인터 유형으로 명시적 형 변환 해야 한다.
-- 일부 컴파일러에서는 동적으로 할당 된 메모리를 가리키는 void 포인터를 삭제할 수 있지만 정의되지 않은 동작이 발생할 수 있다.
-- 포인터 산술은 포인터가 어떤 크기의 객체를 가리키는지 알아야 하므로 포인터를 적절하게 증감할 수 없는 void 포인터에서는 포인터 연산을 수행할 수 없다.
-
-<br>
-
-### 기타
-
-- wait 안된다고 찡찡대지 말고 STM 을 사용하거나 initTime() 을 사용하자.
+- [의구심 해소 : Macro & Assembly in-line function](https://www.notion.so/3-Asclin-Hello-World-0334ec01f1c549239452c17c8f6f585e#7a2b7d5e576c45909d7d079efe108a83) 내용 발췌 : 어차피 extern 은 linker 가 담당하고, extern 은 파일에 몇 개가 선언되어 있든 상관없기 때문에 위 코드에서 선택지 1과 2는 완전히 동치이다. 선택지 1로 전개했던 과정을 똑같이 거쳐 보면, 결국 선택지 2는 void asclin0RxISR() 가 두 번 등장할 뿐, 다른 점이 없다는 것을 알 수 있다. 
+- [의구심 해소 : Void Pointer](https://www.notion.so/4-Asclin-My-Own-Terminal-35e0e4c269c44242a75cde39902d630b#cc597e54630d4347ae68051c717fb70e) 내용 발췌 : 제네릭 포인터(generic pointer)라고도 불리는 void pointer는 모든 데이터 자료형을 가리킬 수 있는 특별한 타입의 포인터다.
+- [의구심 해소 : C datatype unsigned](https://www.notion.so/5-VADC-Multi-channel-voltmeter-e1c015e982684e4794fab1f41ac20694#bfeaeb450e1646e180285389da78dbf6) 내용 발췌 : 저런 형태는 void 포인터와 같이, 어떤 형태이든 그냥 그 값을 숫자 자체로 해석해서 담아버릴 수 있다는 장점이 있다.
+- [의구심 해소 : ASCII Code 와 Serial 통신](https://www.notion.so/6-VADC-My-Own-Cheap-Oscilloscope-f28737c0172946ecb200f930bbec4596#0cbcfcf0d80946ada1cdbe534b67a308) 내용 발췌 :  rawData 는 줄줄이 들어오는 bytearray 타입이다. 이 rawData 에는 크기가 없다. 그냥 내가 몇 바이트씩 끊어 해석하는지에 따라, 그 의미가 달라질 뿐이다.
+- [의구심 해소 : Read/Write Problem (컴퓨터구조)](https://www.notion.so/7-GTM-Chronos-Ruler-0f593d510375497eb6038de2ed455c51#f58c77ed38884f5a90c8f546b60f77d6) 내용 발췌 :  하지만 이것은 기기의 register 에 직접 접근해서 값만 바꾸어 주는 것이기 때문에 C언어 차원에서 register 에 쓰기 작업 실행을 마쳤는지, 해당 쓰기 작업이 유효한지 등 확인이 불가능할 수 있음.
