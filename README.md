@@ -44,6 +44,7 @@ Custom High Level TC275 Library Implemented by iLLD (infineon Low Level Driver)
 - https://wiserloner.tistory.com/569
 
 <br>
+
 - [의구심 해소 : Macro & Assembly in-line function](https://www.notion.so/3-Asclin-Hello-World-0334ec01f1c549239452c17c8f6f585e#7a2b7d5e576c45909d7d079efe108a83) 내용 발췌 : 어차피 extern 은 linker 가 담당하고, extern 은 파일에 몇 개가 선언되어 있든 상관없기 때문에 위 코드에서 선택지 1과 2는 완전히 동치이다. 선택지 1로 전개했던 과정을 똑같이 거쳐 보면, 결국 선택지 2는 void asclin0RxISR() 가 두 번 등장할 뿐, 다른 점이 없다는 것을 알 수 있다. 
 - [의구심 해소 : Void Pointer](https://www.notion.so/4-Asclin-My-Own-Terminal-35e0e4c269c44242a75cde39902d630b#cc597e54630d4347ae68051c717fb70e) 내용 발췌 : 제네릭 포인터(generic pointer)라고도 불리는 void pointer는 모든 데이터 자료형을 가리킬 수 있는 특별한 타입의 포인터다.
 - [의구심 해소 : C datatype unsigned](https://www.notion.so/5-VADC-Multi-channel-voltmeter-e1c015e982684e4794fab1f41ac20694#bfeaeb450e1646e180285389da78dbf6) 내용 발췌 : 저런 형태는 void 포인터와 같이, 어떤 형태이든 그냥 그 값을 숫자 자체로 해석해서 담아버릴 수 있다는 장점이 있다.
