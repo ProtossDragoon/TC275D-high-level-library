@@ -33,6 +33,8 @@
 // JHL Custom Module
 #include "TinyScheduler.h"
 #include "LEDBlinker.h"
+#include "SimplePWM.h"
+#include "SimpleSyncPWM_Hbridge.h"
 
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
@@ -83,6 +85,22 @@ int core0_main(void)
     JHL_LEDBlinkerConfig_init(&(g_LED.config));
     JHL_LEDBlinker_init(&(g_LED.config));
 
+    /*
+    JHL_SimplePWM_Config_init(&(g_PWM.config));
+    g_PWM.config.frequencyHz = 50000;
+    g_PWM.config.period = 5000;
+    g_PWM.config.dutyCycle = 2500;
+    g_PWM.config.tom = IfxGtm_Tom_0;
+    g_PWM.config.tomChannel = IfxGtm_Tom_Ch_2;
+    g_PWM.config.tomChannelClkSrc = IfxGtm_Tom_Ch_ClkSrc_cmuFxclk0;      // Fxclk
+    g_PWM.config.outputPin = &IfxGtm_TOM0_2_TOUT104_P10_2_OUT;           // output to LED
+    JHL_SimplePWM_init(&(g_PWM));
+    */
+
+    JHL_SimpleSyncPWM_HbridgeConfig_init(&g_SyncPWM.config);
+    JHL_SimpleSyncPWM_Hbridge_init(&g_SyncPWM);
+    JHL_SimpleSyncPWM_Hbridge_run(&g_SyncPWM);
+    
     /* background endless loop */
     while (TRUE)
     {    
