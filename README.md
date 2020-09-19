@@ -11,9 +11,10 @@ Custom High Level TC275 Library Implemented by iLLD (infineon Low Level Driver)
 
 <br>
 
-## High Level Library Document (Experiment)
+## High Level Library Document
 
-- [notion - JHL prefix page](https://www.notion.so/AUrix-Tutorial-56859ecd2dc548ec9b9df59432dfbb76)
+- [notion - index page](https://www.notion.so/Index-Page-e41e67e3686048098930e01d193b7536)
+- language : Korean
 
 <br>
 <hr>
