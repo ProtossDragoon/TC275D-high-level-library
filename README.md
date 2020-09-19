@@ -3,7 +3,7 @@ Custom High Level TC275 Library Implemented by iLLD (infineon Low Level Driver)
 
 <br>
 
-[img](!tc275d_img.png)
+![tc275d image, https://www.hitex.com/microcontroller-support/aurix/shieldbuddy-tc275](tc275d_img.png)
 
 <br>
 
