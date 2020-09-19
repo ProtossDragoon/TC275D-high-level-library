@@ -48,7 +48,4 @@ Custom High Level TC275 Library Implemented by iLLD (infineon Low Level Driver)
 - [의구심 해소 : C datatype unsigned](https://www.notion.so/5-VADC-Multi-channel-voltmeter-e1c015e982684e4794fab1f41ac20694#bfeaeb450e1646e180285389da78dbf6) 내용 발췌 : 저런 형태는 void 포인터와 같이, 어떤 형태이든 그냥 그 값을 숫자 자체로 해석해서 담아버릴 수 있다는 장점이 있다.
 - [의구심 해소 : ASCII Code 와 Serial 통신](https://www.notion.so/6-VADC-My-Own-Cheap-Oscilloscope-f28737c0172946ecb200f930bbec4596#0cbcfcf0d80946ada1cdbe534b67a308) 내용 발췌 :  rawData 는 줄줄이 들어오는 bytearray 타입이다. 이 rawData 에는 크기가 없다. 그냥 내가 몇 바이트씩 끊어 해석하는지에 따라, 그 의미가 달라질 뿐이다.
 - [의구심 해소 : Read/Write Problem (컴퓨터구조)](https://www.notion.so/7-GTM-Chronos-Ruler-0f593d510375497eb6038de2ed455c51#f58c77ed38884f5a90c8f546b60f77d6) 내용 발췌 :  하지만 이것은 기기의 register 에 직접 접근해서 값만 바꾸어 주는 것이기 때문에 C언어 차원에서 register 에 쓰기 작업 실행을 마쳤는지, 해당 쓰기 작업이 유효한지 등 확인이 불가능할 수 있음.
-- [ : ]()
-```
-typedef void (*IfxStdIf_Pos_Update)(IfxStdIf_InterfaceDriver stdIf);
-```
+- [의구 해소 : Typedef & Function Pointer](https://www.notion.so/9-GPT12-Module-Where-Are-We-b88fe8a7f42e4f9a83a86a7603fd81fc#0afe904f4d7d4a70b8228699e1b72d4f)
