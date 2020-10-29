@@ -24,10 +24,11 @@
 /******************************************************************************/
 /*----------------------------------Includes----------------------------------*/
 /******************************************************************************/
-
 #include "Cpu0_Main.h"
 #include "SysSe/Bsp/Bsp.h"
 #include "IfxScuWdt.h"
+#include "SerialMonitor.h"
+#include "Oscilloscope.h"
 
 // JHL Custom Module
 #include "TinyScheduler.h"
@@ -79,16 +80,28 @@ int core0_main(void)
     IfxCpu_enableInterrupts();
 
     /* Demo init */
-
+    JHL_SerialMonitorConfig_init(&g_SerialMonitor.config);
+    JHL_SerialMonitor_init(&g_SerialMonitor);
+    JHL_OscilloscopeConfig_init(&g_Oscilloscope.config);
+    JHL_Oscilloscope_init(&g_Oscilloscope);
+    initTime();
 
     /* background endless loop */
     while (TRUE)
     {
+        uint32 answer32 = JHL_Oscilloscope_scan();
+        printf("answer : %lu out of %lu\n", answer32, 4096);
+        wait(TimeConst_10ms);
 
-    
-        REGRESSION_RUN_STOP_PASS;
+        uint8 answer8 = answer32 / 16;
+        printf("enqueued data : %lu\n", answer32 / 16);
+        JHL_SerialMonitor_enQueueOneByteUnsignedInt(answer8);
+        wait(TimeConst_10ms);
+
+        JHL_SerialMonitor_deQeueueAndSendOneByteUnsignedInt();
     }
-
+    
+    printf("program end\n");
     return 0;
 }
 

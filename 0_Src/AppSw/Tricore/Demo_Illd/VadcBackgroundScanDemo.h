@@ -1,6 +1,6 @@
 /**
- * \file Cpu0_Main.h
- * \brief System initialization and main program implementation.
+ * \file VadcBackgroundScanDemo.h
+ * \brief Demo VadcBackgroundScanDemo
  *
  * \version iLLD_Demos_1_0_1_8_0
  * \copyright Copyright (c) 2014 Infineon Technologies AG. All rights reserved.
@@ -20,46 +20,47 @@
  * INFINEON SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL,
  * OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
  *
- * \defgroup IfxLld_Demo_STMDemo_SrcDoc Source code documentation
- * \ingroup IfxLld_Demo_STMDemo
- *
+ * \defgroup IfxLld_Demo_VadcBackgroundScanDemo_SrcDoc_Main Demo Source
+ * \ingroup IfxLld_Demo_VadcBackgroundScanDemo_SrcDoc
+ * \defgroup IfxLld_Demo_VadcBackgroundScanDemo_SrcDoc_Main_Interrupt Interrupts
+ * \ingroup IfxLld_Demo_VadcBackgroundScanDemo_SrcDoc_Main
  */
 
-#ifndef CPU0_MAIN_H
-#define CPU0_MAIN_H
+#ifndef VADCBACKGROUNDSCANDEMO_H
+#define VADCBACKGROUNDSCANDEMO_H 1
 
 /******************************************************************************/
 /*----------------------------------Includes----------------------------------*/
 /******************************************************************************/
-#include "Configuration.h"
-#include "Cpu/Std/Ifx_Types.h"
 
+#include <Vadc/Std/IfxVadc.h>
+#include <Vadc/Adc/IfxVadc_Adc.h>
 /******************************************************************************/
 /*-----------------------------------Macros-----------------------------------*/
 /******************************************************************************/
 
 /******************************************************************************/
-/*------------------------------Type Definitions------------------------------*/
+/*--------------------------------Enumerations--------------------------------*/
 /******************************************************************************/
 
+/******************************************************************************/
+/*-----------------------------Data Structures--------------------------------*/
+/******************************************************************************/
 typedef struct
 {
-    float32 sysFreq;                /**< \brief Actual SPB frequency */
-    float32 cpuFreq;                /**< \brief Actual CPU frequency */
-    float32 pllFreq;                /**< \brief Actual PLL frequency */
-    float32 stmFreq;                /**< \brief Actual STM frequency */
-} AppInfo;
-
-/** \brief Application information */
-typedef struct
-{
-    AppInfo info;                               /**< \brief Info object */
-} App_Cpu0;
+    IfxVadc_Adc vadc;   /* VADC handle*/
+    IfxVadc_Adc_Group adcGroup;
+} App_VadcBackgroundScan;
 
 /******************************************************************************/
 /*------------------------------Global variables------------------------------*/
 /******************************************************************************/
+IFX_EXTERN App_VadcBackgroundScan g_VadcBackgroundScan;
 
-IFX_EXTERN App_Cpu0 g_AppCpu0;
+/******************************************************************************/
+/*-------------------------Function Prototypes--------------------------------*/
+/******************************************************************************/
+IFX_EXTERN void VadcBackgroundScanDemo_init(void);
+IFX_EXTERN void VadcBackgroundScanDemo_run(void);
 
 #endif
