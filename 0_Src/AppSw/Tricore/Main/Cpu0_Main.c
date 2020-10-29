@@ -29,6 +29,12 @@
 #include "SysSe/Bsp/Bsp.h"
 #include "IfxScuWdt.h"
 
+// JHL Custom Module
+#include "TinyScheduler.h"
+#include "LEDBlinker.h"
+#include "SimplePWM.h"
+#include "SimpleSyncPWM_Hbridge.h"
+
 /******************************************************************************/
 /*------------------------Inline Function Prototypes--------------------------*/
 /******************************************************************************/
